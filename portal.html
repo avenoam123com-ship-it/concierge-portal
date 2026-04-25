@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הקונסיירז' · התאמה אישית לרפואה, משפטים ונדל"ן</title>
+    <meta name="description" content="לא מאגר. לא דירוג. שירות התאמה אישי לבעלי מקצוע איכותיים — רפואה, משפטים, נדל"ן.">
+    <link rel="stylesheet" href="portal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="brand">
+                <span class="brand-mark">◆</span>
+                <span class="brand-name">הקונסיירז'</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#niches">התחומים</a></li>
+                <li><a href="#how">איך זה עובד</a></li>
+                <li><a href="#matchmaker" class="nav-cta">התחל התאמה</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-container">
+            <p class="hero-eyebrow">קונסיירז' אישי · 2026</p>
+            <h1 class="hero-headline">
+                אנחנו לא מפרסמים את כולם.<br>
+                <span class="hero-headline-soft">אנחנו מוצאים את אלו שמתאימים לך.</span>
+            </h1>
+            <p class="hero-lede">
+                לא מאגר. לא דירוג. שיחה אחת — והתאמה לאיש מקצוע שכבר עשינו עליו את הבירור.<br>
+                <strong>רפואה. משפטים. נדל"ן.</strong>
+            </p>
+            <div class="hero-actions">
+                <a href="#matchmaker" class="btn-primary">התחילו התאמה</a>
+                <a href="#how" class="btn-text">איך זה עובד ←</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Niches -->
+    <section id="niches" class="niches">
+        <div class="container">
+            <header class="section-head">
+                <p class="section-eyebrow">שלושה תחומים</p>
+                <h2 class="section-title">בחירה אחת. גישה אישית.</h2>
+                <p class="section-lede">
+                    בכל תחום עברנו בעצמנו על עשרות בעלי מקצוע. נשארו רק אלו שהיינו ממליצים לחברים קרובים.
+                </p>
+            </header>
+
+            <div class="niche-grid">
+                <article class="niche-card" data-niche="medical">
+                    <div class="card-aura"></div>
+                    <div class="card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 8v32M8 24h32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <p class="card-tag">רפואה</p>
+                    <h3 class="card-title">המומחה הנכון, לא הזמין הראשון.</h3>
+                    <p class="card-body">
+                        רופאים מומחים שעברו אצלנו בדיקה — לא רק על הקריירה, אלא על הסבלנות, על הקשב, ועל הזמינות בפועל.
+                    </p>
+                    <button class="card-cta" data-jump-niche="medical">
+                        התאמה רפואית
+                        <span class="cta-arrow">←</span>
+                    </button>
+                </article>
+
+                <article class="niche-card" data-niche="legal">
+                    <div class="card-aura"></div>
+                    <div class="card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 6v36M14 18l10-12 10 12M10 36h28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14 18c0 6-2 12-6 14M34 18c0 6 2 12 6 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <p class="card-tag">משפטים</p>
+                    <h3 class="card-title">עורך דין שיודע את התיק שלך.</h3>
+                    <p class="card-body">
+                        לא ההמלצה של בן דוד, ולא הראשון בגוגל. עורכי דין שכבר טיפלו בתיקים מהסוג שלך — ויודעים מה הולך להפתיע.
+                    </p>
+                    <button class="card-cta" data-jump-niche="legal">
+                        התאמה משפטית
+                        <span class="cta-arrow">←</span>
+                    </button>
+                </article>
+
+                <article class="niche-card" data-niche="realestate">
+                    <div class="card-aura"></div>
+                    <div class="card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 24L24 8l18 16M10 22v18h28V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 40v-12h8v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    <p class="card-tag">נדל"ן</p>
+                    <h3 class="card-title">מתווך שמכיר את הרחוב.</h3>
+                    <p class="card-body">
+                        לא טבלאות, לא ממוצעי שוק. אנשי מקצוע שמכירים את האזור באמת — את ועדת השכנים, את התחבורה, את הבית הספר.
+                    </p>
+                    <button class="card-cta" data-jump-niche="realestate">
+                        התאמה בנדל"ן
+                        <span class="cta-arrow">←</span>
+                    </button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="how">
+        <div class="container how-container">
+            <header class="section-head">
+                <p class="section-eyebrow">איך זה עובד</p>
+                <h2 class="section-title">שלוש דקות. גישה אנושית.</h2>
+            </header>
+            <div class="how-grid">
+                <div class="how-step">
+                    <p class="how-numeral">I</p>
+                    <h3>אתם מספרים.</h3>
+                    <p>שלוש שאלות קצרות. בלי מילוי טפסים אינסופי, בלי שאלון השקעות.</p>
+                </div>
+                <div class="how-step">
+                    <p class="how-numeral">II</p>
+                    <h3>אנחנו מחברים.</h3>
+                    <p>אדם — לא אלגוריתם — בוחר את ההתאמה. מהאנשים שכבר בדקנו ידנית.</p>
+                </div>
+                <div class="how-step">
+                    <p class="how-numeral">III</p>
+                    <h3>אתם מחליטים.</h3>
+                    <p>תוך 24 שעות תקבלו פרטי הקשר. אין התחייבות, אין עמלה אליכם.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Matchmaker Quiz -->
+    <section id="matchmaker" class="matchmaker">
+        <div class="container matchmaker-container">
+            <header class="section-head">
+                <p class="section-eyebrow">שיחת ההתאמה</p>
+                <h2 class="section-title">שלוש שאלות. לא יותר.</h2>
+            </header>
+
+            <div class="quiz-shell" id="quizShell" data-current-step="1">
+
+                <!-- Progress -->
+                <div class="quiz-progress" aria-hidden="true">
+                    <span class="progress-dot" data-dot="1"></span>
+                    <span class="progress-rule"></span>
+                    <span class="progress-dot" data-dot="2"></span>
+                    <span class="progress-rule"></span>
+                    <span class="progress-dot" data-dot="3"></span>
+                </div>
+
+                <!-- Step 1: niche -->
+                <div class="quiz-step is-active" data-step="1">
+                    <p class="quiz-step-num">01 · התחום</p>
+                    <h3 class="quiz-question">מה אתם צריכים?</h3>
+                    <p class="quiz-hint">בחרו את התחום שהכי מדויק עכשיו.</p>
+                    <div class="quiz-options" role="radiogroup">
+                        <button class="quiz-option" data-niche="medical" data-answer="רפואה">
+                            <span class="option-label">רפואה</span>
+                            <span class="option-sub">מומחה, סקנד אופיניון, תהליך</span>
+                        </button>
+                        <button class="quiz-option" data-niche="legal" data-answer="משפטים">
+                            <span class="option-label">משפטים</span>
+                            <span class="option-sub">עו"ד אזרחי, עסקי, משפחה</span>
+                        </button>
+                        <button class="quiz-option" data-niche="realestate" data-answer="נדל&quot;ן">
+                            <span class="option-label">נדל"ן</span>
+                            <span class="option-sub">קנייה, מכירה, השכרה</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: priority -->
+                <div class="quiz-step" data-step="2">
+                    <p class="quiz-step-num">02 · העדיפות</p>
+                    <h3 class="quiz-question">מה הכי חשוב לכם?</h3>
+                    <p class="quiz-hint">בחירה אחת. נסמוך עליה כדי לחדד את ההתאמה.</p>
+                    <div class="quiz-options" role="radiogroup">
+                        <button class="quiz-option" data-answer="ניסיון מוכח">
+                            <span class="option-label">ניסיון מוכח</span>
+                            <span class="option-sub">מקרים דומים, היסטוריה ארוכה</span>
+                        </button>
+                        <button class="quiz-option" data-answer="זמינות">
+                            <span class="option-label">זמינות וקשב</span>
+                            <span class="option-sub">חוזרים מהר, לא נעלמים</span>
+                        </button>
+                        <button class="quiz-option" data-answer="קרבה">
+                            <span class="option-label">קרבה גיאוגרפית</span>
+                            <span class="option-sub">באזור שלי, פגישות פנים</span>
+                        </button>
+                        <button class="quiz-option" data-answer="המלצה אישית">
+                            <span class="option-label">חיבור אישי</span>
+                            <span class="option-sub">מישהו שאני סומך עליו, לא רק טוב</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: contact -->
+                <div class="quiz-step" data-step="3">
+                    <p class="quiz-step-num">03 · פרטי קשר</p>
+                    <h3 class="quiz-question">איך נחזור אליכם?</h3>
+                    <p class="quiz-hint">לא רשימת תפוצה. רק שיחה אחת — מהקונסיירז' שלכם.</p>
+                    <form class="quiz-form" id="quizForm" novalidate>
+                        <div class="field">
+                            <label for="qName">שם פרטי</label>
+                            <input id="qName" name="name" type="text" required autocomplete="given-name">
+                        </div>
+                        <div class="field">
+                            <label for="qContact">טלפון או אימייל</label>
+                            <input id="qContact" name="contact" type="text" required placeholder="050... או name@email.com">
+                        </div>
+                        <div class="field">
+                            <label for="qNote">משהו שכדאי שנדע (לא חובה)</label>
+                            <textarea id="qNote" name="note" rows="3" placeholder="הקשר, דחיפות, משהו אישי..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary btn-block">שלחו אלינו</button>
+                    </form>
+                </div>
+
+                <!-- Confirmation -->
+                <div class="quiz-step quiz-confirm" data-step="done">
+                    <div class="confirm-mark" aria-hidden="true">◆</div>
+                    <p class="confirm-eyebrow">קיבלנו</p>
+                    <h3 class="confirm-title">קונסיירז' אישי כבר מתחיל לחפש.</h3>
+                    <p class="confirm-body">
+                        תוך 24 שעות תקבלו ממנו הודעה — עם שם, רקע קצר, ולמה דווקא הוא.<br>
+                        אם זה לא מתאים, הוא מציע שני שמות נוספים. בלי לחץ, בלי שיווק.
+                    </p>
+                    <div class="confirm-meta" id="confirmSummary"></div>
+                </div>
+
+                <!-- Quiz nav -->
+                <div class="quiz-nav">
+                    <button type="button" class="btn-text quiz-back" id="quizBack" disabled>← חזרה</button>
+                    <span class="quiz-nav-spacer"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="trust">
+        <div class="container">
+            <p class="trust-quote">
+                <span class="quote-mark">"</span>
+                לא מאגר. לא דירוג. לא רעש שיווקי.
+                <span class="quote-mark">"</span>
+            </p>
+            <p class="trust-signature">— הגישה שלנו, בקצרה.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="brand-mark">◆</span>
+                <span>הקונסיירז'</span>
+            </div>
+            <p class="footer-tagline">חיבורים איכותיים · רפואה · משפטים · נדל"ן</p>
+            <p class="footer-copy">&copy; 2026 — כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ====== Niche card → jump to matchmaker with niche pre-selected ======
+        document.querySelectorAll('[data-jump-niche]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const niche = btn.dataset.jumpNiche;
+                const target = document.querySelector(`.quiz-option[data-niche="${niche}"]`);
+                document.getElementById('matchmaker').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (target) setTimeout(() => target.click(), 700);
+            });
+        });
+
+        // ====== Smooth scroll for nav anchors ======
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const href = a.getAttribute('href');
+                if (href === '#') return;
+                const t = document.querySelector(href);
+                if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        });
+
+        // ====== Matchmaker Quiz ======
+        const shell = document.getElementById('quizShell');
+        const steps = shell.querySelectorAll('.quiz-step');
+        const progressDots = shell.querySelectorAll('.progress-dot');
+        const backBtn = document.getElementById('quizBack');
+        const form = document.getElementById('quizForm');
+        const summary = document.getElementById('confirmSummary');
+
+        const answers = { niche: null, nicheLabel: null, priority: null, name: null, contact: null, note: null };
+        const stepOrder = ['1', '2', '3'];
+        let currentIndex = 0;
+
+        function renderStep(targetStep) {
+            steps.forEach(s => s.classList.toggle('is-active', s.dataset.step === targetStep));
+            progressDots.forEach((d, i) => {
+                d.classList.toggle('is-active', i === stepOrder.indexOf(targetStep));
+                d.classList.toggle('is-done', i < stepOrder.indexOf(targetStep) && targetStep !== 'done');
+                if (targetStep === 'done') d.classList.add('is-done');
+            });
+            backBtn.disabled = (targetStep === '1' || targetStep === 'done');
+            // Apply niche theme
+            if (answers.niche) shell.dataset.theme = answers.niche;
+        }
+
+        function goNext() {
+            currentIndex = Math.min(currentIndex + 1, stepOrder.length - 1);
+            renderStep(stepOrder[currentIndex]);
+        }
+
+        function goBack() {
+            currentIndex = Math.max(currentIndex - 1, 0);
+            renderStep(stepOrder[currentIndex]);
+        }
+
+        // Step 1: niche options
+        shell.querySelectorAll('[data-step="1"] .quiz-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                answers.niche = btn.dataset.niche;
+                answers.nicheLabel = btn.dataset.answer;
+                shell.dataset.theme = answers.niche;
+                shell.querySelectorAll('[data-step="1"] .quiz-option').forEach(b => b.classList.toggle('is-selected', b === btn));
+                setTimeout(goNext, 280);
+            });
+        });
+
+        // Step 2: priority options
+        shell.querySelectorAll('[data-step="2"] .quiz-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                answers.priority = btn.dataset.answer;
+                shell.querySelectorAll('[data-step="2"] .quiz-option').forEach(b => b.classList.toggle('is-selected', b === btn));
+                setTimeout(goNext, 280);
+            });
+        });
+
+        // Step 3: form
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            answers.name = form.name.value.trim();
+            answers.contact = form.contact.value.trim();
+            answers.note = form.note.value.trim();
+            if (!answers.name || !answers.contact) return;
+
+            summary.innerHTML = `
+                <span>תחום: <strong>${answers.nicheLabel}</strong></span>
+                <span>עדיפות: <strong>${answers.priority || '—'}</strong></span>
+                <span>חוזרים אל: <strong>${answers.contact}</strong></span>
+            `;
+            renderStep('done');
+        });
+
+        backBtn.addEventListener('click', goBack);
+
+        // Initial render
+        renderStep('1');
+    </script>
+</body>
+</html>
