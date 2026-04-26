@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הקונסיירז' · התאמה אישית לרפואה, משפטים ונדל"ן</title>
+    <meta name="description" content="לא מאגר. לא דירוג. שירות התאמה אישי לבעלי מקצוע איכותיים — רפואה, משפטים, נדל"ן.">
+    <link rel="stylesheet" href="portal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="lead-qualifier.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="brand">
+                <span class="brand-mark">◆</span>
+                <span class="brand-name">הקונסיירז'</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#niches">התחומים</a></li>
+                <li><a href="#how">איך זה עובד</a></li>
+                <li><a href="#merchant">לבעלי מקצוע</a></li>
+                <li><a href="#pricing">תמחור</a></li>
+                <li><a href="#matchmaker" class="nav-cta">התחל התאמה</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-container">
+            <p class="hero-eyebrow">קונסיירז' אישי · 2026</p>
+            <h1 class="hero-headline">
+                אנחנו לא מפרסמים את כולם.<br>
+                <span class="hero-headline-soft">אנחנו מוצאים את אלו שמתאימים לך.</span>
+            </h1>
+            <p class="hero-lede">
+                לא מאגר. לא דירוג. שיחה אחת — והתאמה לאיש מקצוע שכבר עשינו עליו את הבירור.<br>
+                <strong>רפואה. משפטים. נדל"ן.</strong>
+            </p>
+            <div class="hero-actions">
+                <a href="#matchmaker" class="btn-primary">התחילו התאמה</a>
+                <a href="#how" class="btn-text">איך זה עובד ←</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Niches -->
+    <section id="niches" class="niches">
+        <div class="container">
+            <header class="section-head">
+                <p class="section-eyebrow">שלושה תחומים</p>
+                <h2 class="section-title">בחירה אחת. גישה אישית.</h2>
+                <p class="section-lede">
+                    בכל תחום עברנו בעצמנו על עשרות בעלי מקצוע. נשארו רק אלו שהיינו ממליצים לחברים קרובים.
+                </p>
+            </header>
+
+            <div class="niche-grid">
+                <article class="niche-card" data-niche="medical">
+                    <div class="card-aura"></div>
+                    <div class="card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 8v32M8 24h32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <p class="card-tag">רפואה</p>
+                    <h3 class="card-title">המומחה הנכון, לא הזמין הראשון.</h3>
+                    <p class="card-body">
+                        רופאים מומחים שעברו אצלנו בדיקה — לא רק על הקריירה, אלא על הסבלנות, על הקשב, ועל הזמינות בפועל.
+                    </p>
+                    <button class="card-cta" data-jump-niche="medical">
+                        התאמה רפואית
+                        <span class="cta-arrow">←</span>
+                    </button>
+                </article>
+
+                <article class="niche-card" data-niche="legal">
+                    <div class="card-aura"></div>
+                    <div class="card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 6v36M14 18l10-12 10 12M10 36h28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14 18c0 6-2 12-6 14M34 18c0 6 2 12 6 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <p class="card-tag">משפטים</p>
+                    <h3 class="card-title">עורך דין שיודע את התיק שלך.</h3>
+                    <p class="card-body">
+                        לא ההמלצה של בן דוד, ולא הראשון בגוגל. עורכי דין שכבר טיפלו בתיקים מהסוג שלך — ויודעים מה הולך להפתיע.
+                    </p>
+                    <button class="card-cta" data-jump-niche="legal">
+                        התאמה משפטית
+                        <span class="cta-arrow">←</span>
+                    </button>
+                </article>
+
+                <article class="niche-card" data-niche="realestate">
+                    <div class="card-aura"></div>
+                    <div class="card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 24L24 8l18 16M10 22v18h28V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 40v-12h8v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    <p class="card-tag">נדל"ן</p>
+                    <h3 class="card-title">מתווך שמכיר את הרחוב.</h3>
+                    <p class="card-body">
+                        לא טבלאות, לא ממוצעי שוק. אנשי מקצוע שמכירים את האזור באמת — את ועדת השכנים, את התחבורה, את הבית הספר.
+                    </p>
+                    <button class="card-cta" data-jump-niche="realestate">
+                        התאמה בנדל"ן
+                        <span class="cta-arrow">←</span>
+                    </button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="how">
+        <div class="container how-container">
+            <header class="section-head">
+                <p class="section-eyebrow">איך זה עובד</p>
+                <h2 class="section-title">שלוש דקות. גישה אנושית.</h2>
+            </header>
+            <div class="how-grid">
+                <div class="how-step">
+                    <p class="how-numeral">I</p>
+                    <h3>אתם מספרים.</h3>
+                    <p>שלוש שאלות קצרות. בלי מילוי טפסים אינסופי, בלי שאלון השקעות.</p>
+                </div>
+                <div class="how-step">
+                    <p class="how-numeral">II</p>
+                    <h3>אנחנו מחברים.</h3>
+                    <p>אדם — לא אלגוריתם — בוחר את ההתאמה. מהאנשים שכבר בדקנו ידנית.</p>
+                </div>
+                <div class="how-step">
+                    <p class="how-numeral">III</p>
+                    <h3>אתם מחליטים.</h3>
+                    <p>תוך 24 שעות תקבלו פרטי הקשר. אין התחייבות, אין עמלה אליכם.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Matchmaker Quiz -->
+    <section id="matchmaker" class="matchmaker">
+        <div class="container matchmaker-container">
+            <header class="section-head">
+                <p class="section-eyebrow">שיחת ההתאמה</p>
+                <h2 class="section-title">שלוש שאלות. לא יותר.</h2>
+            </header>
+
+            <div class="quiz-shell" id="quizShell" data-current-step="1">
+
+                <!-- Progress -->
+                <div class="quiz-progress" aria-hidden="true">
+                    <span class="progress-dot" data-dot="1"></span>
+                    <span class="progress-rule"></span>
+                    <span class="progress-dot" data-dot="2"></span>
+                    <span class="progress-rule"></span>
+                    <span class="progress-dot" data-dot="3"></span>
+                </div>
+
+                <!-- Step 1: niche -->
+                <div class="quiz-step is-active" data-step="1">
+                    <p class="quiz-step-num">01 · התחום</p>
+                    <h3 class="quiz-question">מה אתם צריכים?</h3>
+                    <p class="quiz-hint">בחרו את התחום שהכי מדויק עכשיו.</p>
+                    <div class="quiz-options" role="radiogroup">
+                        <button class="quiz-option" data-niche="medical" data-answer="רפואה">
+                            <span class="option-label">רפואה</span>
+                            <span class="option-sub">מומחה, סקנד אופיניון, תהליך</span>
+                        </button>
+                        <button class="quiz-option" data-niche="legal" data-answer="משפטים">
+                            <span class="option-label">משפטים</span>
+                            <span class="option-sub">עו"ד אזרחי, עסקי, משפחה</span>
+                        </button>
+                        <button class="quiz-option" data-niche="realestate" data-answer="נדל&quot;ן">
+                            <span class="option-label">נדל"ן</span>
+                            <span class="option-sub">קנייה, מכירה, השכרה</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: priority -->
+                <div class="quiz-step" data-step="2">
+                    <p class="quiz-step-num">02 · העדיפות</p>
+                    <h3 class="quiz-question">מה הכי חשוב לכם?</h3>
+                    <p class="quiz-hint">בחירה אחת. נסמוך עליה כדי לחדד את ההתאמה.</p>
+                    <div class="quiz-options" role="radiogroup">
+                        <button class="quiz-option" data-answer="ניסיון מוכח">
+                            <span class="option-label">ניסיון מוכח</span>
+                            <span class="option-sub">מקרים דומים, היסטוריה ארוכה</span>
+                        </button>
+                        <button class="quiz-option" data-answer="זמינות">
+                            <span class="option-label">זמינות וקשב</span>
+                            <span class="option-sub">חוזרים מהר, לא נעלמים</span>
+                        </button>
+                        <button class="quiz-option" data-answer="קרבה">
+                            <span class="option-label">קרבה גיאוגרפית</span>
+                            <span class="option-sub">באזור שלי, פגישות פנים</span>
+                        </button>
+                        <button class="quiz-option" data-answer="המלצה אישית">
+                            <span class="option-label">חיבור אישי</span>
+                            <span class="option-sub">מישהו שאני סומך עליו, לא רק טוב</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: contact -->
+                <div class="quiz-step" data-step="3">
+                    <p class="quiz-step-num">03 · פרטי קשר</p>
+                    <h3 class="quiz-question">איך נחזור אליכם?</h3>
+                    <p class="quiz-hint">לא רשימת תפוצה. רק שיחה אחת — מהקונסיירז' שלכם.</p>
+                    <form class="quiz-form" id="quizForm" novalidate>
+                        <div class="field">
+                            <label for="qName">שם פרטי</label>
+                            <input id="qName" name="name" type="text" required autocomplete="given-name">
+                        </div>
+                        <div class="field">
+                            <label for="qContact">טלפון או אימייל</label>
+                            <input id="qContact" name="contact" type="text" required placeholder="050... או name@email.com">
+                        </div>
+                        <div class="field">
+                            <label for="qNote">משהו שכדאי שנדע (לא חובה)</label>
+                            <textarea id="qNote" name="note" rows="3" placeholder="הקשר, דחיפות, משהו אישי..."></textarea>
+                            <div class="note-analyzer" id="noteAnalyzer" aria-live="polite"></div>
+                        </div>
+                        <button type="submit" class="btn-primary btn-block">שלחו אלינו</button>
+                    </form>
+                </div>
+
+                <!-- Confirmation -->
+                <div class="quiz-step quiz-confirm" data-step="done">
+                    <div class="confirm-mark" aria-hidden="true">◆</div>
+                    <p class="confirm-eyebrow">קיבלנו</p>
+                    <h3 class="confirm-title">קונסיירז' אישי כבר מתחיל לחפש.</h3>
+                    <p class="confirm-body">
+                        תוך 24 שעות תקבלו ממנו הודעה — עם שם, רקע קצר, ולמה דווקא הוא.<br>
+                        אם זה לא מתאים, הוא מציע שני שמות נוספים. בלי לחץ, בלי שיווק.
+                    </p>
+                    <div class="sla-badge" id="slaBadge"></div>
+                    <div class="confirm-meta" id="confirmSummary"></div>
+                </div>
+
+                <!-- Quiz nav -->
+                <div class="quiz-nav">
+                    <button type="button" class="btn-text quiz-back" id="quizBack" disabled>← חזרה</button>
+                    <span class="quiz-nav-spacer"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="trust">
+        <div class="container">
+            <p class="trust-quote">
+                <span class="quote-mark">"</span>
+                לא מאגר. לא דירוג. לא רעש שיווקי.
+                <span class="quote-mark">"</span>
+            </p>
+            <p class="trust-signature">— הגישה שלנו, בקצרה.</p>
+        </div>
+    </section>
+
+    <!-- ========== MERCHANT / B2B SIDE ========== -->
+    <section id="merchant" class="merchant">
+        <div class="container">
+            <div class="merchant-divider">
+                <span class="divider-line"></span>
+                <span class="divider-label">For Professionals</span>
+                <span class="divider-line"></span>
+            </div>
+
+            <header class="section-head merchant-head">
+                <p class="section-eyebrow emerald-eyebrow">Grow Your Practice with Our Elite Network</p>
+                <h2 class="section-title">
+                    השיגו לקוחות איכותיים —<br>
+                    <span class="emerald-text">לא טפסי לידים.</span>
+                </h2>
+                <p class="section-lede merchant-lede">
+                    כל פנייה שמגיעה אליכם עברה סינון אנושי, כבר רוצה לדבר, וכבר יודעת מה ערך השירות שלכם.<br>
+                    <strong>אנחנו לא מוכרים את אותה פנייה לארבעה מתחרים.</strong>
+                </p>
+            </header>
+
+            <!-- Three honest commitments — not fabricated stats -->
+            <div class="merchant-kpis">
+                <div class="kpi-stat">
+                    <div class="kpi-figure">1:1</div>
+                    <p class="kpi-label">פנייה בלעדית</p>
+                    <p class="kpi-sub">כל פנייה מגיעה אליכם בלבד. בלי משלוח מקביל לארבעה מתחרים שיתחרו על אותו לקוח.</p>
+                </div>
+                <div class="kpi-stat kpi-emerald">
+                    <div class="kpi-figure">סינון<span class="kpi-unit">אנושי</span></div>
+                    <p class="kpi-label">לא בוט. לא טופס.</p>
+                    <p class="kpi-sub">אדם בוחן כל פנייה לפני שהיא מועברת אליכם — שואל את השאלות שטופס לא ישאל.</p>
+                </div>
+                <div class="kpi-stat">
+                    <div class="kpi-figure">תשלום<span class="kpi-unit">על תוצאה</span></div>
+                    <p class="kpi-label">לא על קליק</p>
+                    <p class="kpi-sub">משלמים רק כשפנייה מאומתת מגיעה. בלי דמי חשיפה, בלי מינימום, בלי קליקים מבוזבזים.</p>
+                </div>
+            </div>
+
+            <!-- Verified Badge + Performance Dashboard Mockup -->
+            <div class="merchant-showcase">
+                <div class="showcase-text">
+                    <div class="verified-badge">
+                        <div class="badge-shield">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"
+                                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                                <path d="M8.5 12l2.5 2.5L16 9"
+                                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="badge-text">
+                            <span class="badge-eyebrow">Verified · 2026</span>
+                            <span class="badge-title">מאומת ידנית</span>
+                        </div>
+                    </div>
+
+                    <h3 class="showcase-title">
+                        תג ה־Verified —<br>
+                        <span class="emerald-text">סטנדרט שמעבירים בידיים.</span>
+                    </h3>
+                    <p class="showcase-body">
+                        אנחנו לא מאשרים פרופילים בלחיצת כפתור. תג ה־Verified מוענק רק אחרי בדיקה ידנית: מסמכים, רישיון, ביטוח, ושיחה אישית.<br>
+                        <strong>הוא נראה ללקוחות. הוא עובד עבורכם.</strong>
+                    </p>
+                    <ul class="verified-perks">
+                        <li><span class="perk-check">✓</span> אימות מסמכים, רישיון, וביטוח מקצועי</li>
+                        <li><span class="perk-check">✓</span> סקירה אנושית של רקע ומקרי עבר</li>
+                        <li><span class="perk-check">✓</span> שיחה אישית עם הקונסיירז' לפני הפעלת התג</li>
+                        <li><span class="perk-check">✓</span> חותם אמון בדף הפרופיל ובכל מייל יוצא</li>
+                    </ul>
+                </div>
+
+                <!-- Performance Dashboard Mockup -->
+                <div class="showcase-dashboard">
+                    <div class="dash-frame">
+                        <div class="dash-chrome">
+                            <div class="chrome-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <p class="dash-title">Performance · ינואר 2026</p>
+                            <p class="dash-status">דמו · נתוני דוגמה</p>
+                        </div>
+
+                        <div class="dash-body">
+                            <!-- KPI Tiles -->
+                            <div class="dash-tiles">
+                                <div class="tile">
+                                    <p class="tile-label">פניות החודש</p>
+                                    <p class="tile-value">47</p>
+                                    <p class="tile-trend up">↑ +12 מהחודש שעבר</p>
+                                </div>
+                                <div class="tile">
+                                    <p class="tile-label">זמן תגובה</p>
+                                    <p class="tile-value">1.2<span class="tile-unit">h</span></p>
+                                    <p class="tile-trend up">↑ −18%</p>
+                                </div>
+                                <div class="tile tile-highlight">
+                                    <p class="tile-label">המרות</p>
+                                    <p class="tile-value">32<span class="tile-unit">%</span></p>
+                                    <p class="tile-trend up">↑ +4pt</p>
+                                </div>
+                            </div>
+
+                            <!-- Line Chart -->
+                            <div class="dash-chart">
+                                <div class="chart-head">
+                                    <p class="chart-title">פניות איכותיות · 6 חודשים</p>
+                                    <span class="chart-meta">Q4 → Q1</span>
+                                </div>
+                                <svg viewBox="0 0 360 110" class="chart-svg" preserveAspectRatio="none" aria-hidden="true">
+                                    <defs>
+                                        <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="#34A073" stop-opacity="0.32"/>
+                                            <stop offset="100%" stop-color="#34A073" stop-opacity="0"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <line x1="0" y1="28" x2="360" y2="28" stroke="rgba(26,27,32,0.05)" stroke-width="1"/>
+                                    <line x1="0" y1="55" x2="360" y2="55" stroke="rgba(26,27,32,0.05)" stroke-width="1"/>
+                                    <line x1="0" y1="82" x2="360" y2="82" stroke="rgba(26,27,32,0.05)" stroke-width="1"/>
+                                    <path d="M0,80 L60,72 L120,60 L180,52 L240,36 L300,28 L360,20 L360,110 L0,110 Z"
+                                          fill="url(#chartFill)"/>
+                                    <path d="M0,80 L60,72 L120,60 L180,52 L240,36 L300,28 L360,20"
+                                          fill="none" stroke="#34A073" stroke-width="2.2"
+                                          stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="360" cy="20" r="9" fill="#34A073" opacity="0.18"/>
+                                    <circle cx="360" cy="20" r="4" fill="#34A073"/>
+                                </svg>
+                                <div class="chart-axis">
+                                    <span>אוג</span>
+                                    <span>ספט</span>
+                                    <span>אוק</span>
+                                    <span>נוב</span>
+                                    <span>דצמ</span>
+                                    <span>ינו</span>
+                                </div>
+                            </div>
+
+                            <!-- Bar Chart -->
+                            <div class="dash-bars">
+                                <p class="bars-title">פילוח לפי מקור פנייה</p>
+                                <div class="bar-row">
+                                    <span class="bar-label">התאמה ישירה</span>
+                                    <div class="bar"><div class="bar-fill" style="--w: 78%"></div></div>
+                                    <span class="bar-value">78%</span>
+                                </div>
+                                <div class="bar-row">
+                                    <span class="bar-label">המלצה ברשת</span>
+                                    <div class="bar"><div class="bar-fill" style="--w: 52%"></div></div>
+                                    <span class="bar-value">52%</span>
+                                </div>
+                                <div class="bar-row">
+                                    <span class="bar-label">חיפוש פעיל</span>
+                                    <div class="bar"><div class="bar-fill bar-fill-soft" style="--w: 31%"></div></div>
+                                    <span class="bar-value">31%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Merchant Inbox Preview · Hot Lead Demo -->
+            <div class="hot-lead-demo">
+                <header class="hot-demo-header">
+                    <p class="section-eyebrow emerald-eyebrow">תצוגת בעל מקצוע · Inbox Preview</p>
+                    <h3 class="hot-demo-title">כך נראית פנייה Tier 3 — ישירות לתיבה שלכם</h3>
+                    <p class="hot-demo-sub">הפנייה הבאה אומתה ידנית וסווגה כדחופה. תגובה נדרשת תוך 2 שעות.</p>
+                </header>
+
+                <div class="hot-lead-card" role="article" aria-label="דוגמה לפנייה דחופה">
+                    <div class="hot-card-header">
+                        <div class="hot-card-flag">
+                            <span class="hot-flag-dot" aria-hidden="true"></span>
+                            <span class="hot-flag-label">Hot Lead</span>
+                            <span class="hot-tier-badge">Tier 3</span>
+                        </div>
+                        <span class="hot-card-timestamp">לפני 3 דקות</span>
+                    </div>
+
+                    <div class="hot-card-body">
+                        <div class="hot-card-niche">
+                            <span class="hot-niche-tag">משפטים</span>
+                        </div>
+                        <div class="hot-signals">
+                            <span class="hot-signal-tag is-critical">הליך פעיל בבית משפט</span>
+                            <span class="hot-signal-tag is-critical">דיני פלילים</span>
+                            <span class="hot-signal-tag">דחיפות גבוהה</span>
+                        </div>
+                        <p class="hot-note-preview">"יש לי דיון בבית המשפט המחוזי ביום ראשון הקרוב. עורך הדין שייצג אותי פרש בפתאומיות ואני זקוק לייצוג דחוף בתיק פלילי..."</p>
+                    </div>
+
+                    <div class="hot-card-footer">
+                        <div class="hot-card-meta">
+                            <div class="hot-meta-item">
+                                <span class="hot-meta-label">SLA</span>
+                                <span class="hot-meta-value is-urgent">2 שעות</span>
+                            </div>
+                            <div class="hot-meta-item">
+                                <span class="hot-meta-label">ציון</span>
+                                <span class="hot-meta-value">0.87</span>
+                            </div>
+                            <div class="hot-meta-item">
+                                <span class="hot-meta-label">Tier</span>
+                                <span class="hot-meta-value">3 · מורכב</span>
+                            </div>
+                        </div>
+                        <button class="hot-card-action" type="button" aria-label="הדגמה בלבד">ראה פרטים ←</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRICING ========== -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <header class="section-head pricing-head">
+                <p class="section-eyebrow">Pricing</p>
+                <h2 class="section-title">
+                    שלוש דרכים<br>
+                    <span class="emerald-text">להפוך ללקוח־מועדף.</span>
+                </h2>
+                <p class="section-lede">
+                    משלמים על פניות איכותיות, לא על חשיפה. ללא חוזה התחייבות, ללא עמלות סמויות.
+                </p>
+            </header>
+
+            <div class="pricing-grid">
+                <!-- Standard -->
+                <article class="pricing-tier">
+                    <p class="tier-tag">Standard</p>
+                    <h3 class="tier-name">בסיסי</h3>
+                    <div class="tier-price">
+                        <span class="price-currency">₪</span>
+                        <span class="price-amount">890</span>
+                        <span class="price-period">/חודש</span>
+                    </div>
+                    <p class="tier-tagline">להתחלה — בלי התחייבות, בלי הפתעות.</p>
+                    <ul class="tier-features">
+                        <li><span class="feat-check">✓</span> פרופיל מקצועי ברשת ההתאמות</li>
+                        <li><span class="feat-check">✓</span> עד <strong>5</strong> פניות מאומתות בחודש</li>
+                        <li><span class="feat-check">✓</span> זמן תגובה SLA: 24 שעות</li>
+                        <li><span class="feat-check">✓</span> תמיכה במייל</li>
+                        <li class="feat-muted">— אין תג Verified</li>
+                        <li class="feat-muted">— אין גישה לדאשבורד</li>
+                    </ul>
+                    <button class="tier-cta">התחילו · 14 יום ניסיון</button>
+                </article>
+
+                <!-- Premium · Most Popular · Emerald -->
+                <article class="pricing-tier tier-popular">
+                    <div class="popular-ribbon">הנבחר ביותר</div>
+                    <p class="tier-tag tier-tag-emerald">Premium</p>
+                    <h3 class="tier-name">פרימיום</h3>
+                    <div class="tier-price">
+                        <span class="price-currency">₪</span>
+                        <span class="price-amount">2,490</span>
+                        <span class="price-period">/חודש</span>
+                    </div>
+                    <p class="tier-tagline">כולל את כל מה שגדל איתכם — תג, דאשבורד, וקונסיירז'.</p>
+                    <ul class="tier-features">
+                        <li><span class="feat-check feat-check-emerald">✓</span> עד <strong>20</strong> פניות מאומתות בחודש</li>
+                        <li><span class="feat-check feat-check-emerald">✓</span> תג <strong>Verified</strong> מאומת ידנית</li>
+                        <li><span class="feat-check feat-check-emerald">✓</span> גישה ל־Performance Dashboard</li>
+                        <li><span class="feat-check feat-check-emerald">✓</span> עדיפות בהתאמות (Priority Placement)</li>
+                        <li><span class="feat-check feat-check-emerald">✓</span> מנהל קשר אישי</li>
+                        <li><span class="feat-check feat-check-emerald">✓</span> דוח רבעוני + שיחת אסטרטגיה</li>
+                    </ul>
+                    <button class="tier-cta tier-cta-emerald">בחרו פרימיום</button>
+                </article>
+
+                <!-- Elite -->
+                <article class="pricing-tier">
+                    <p class="tier-tag">Elite</p>
+                    <h3 class="tier-name">אליט</h3>
+                    <div class="tier-price">
+                        <span class="price-amount-text">בהתאמה</span>
+                    </div>
+                    <p class="tier-tagline">לעסק שצריך מסלול בנוי בהתאמה — נפח גבוה, מותג חזק.</p>
+                    <ul class="tier-features">
+                        <li><span class="feat-check">✓</span> פניות בלתי מוגבלות</li>
+                        <li><span class="feat-check">✓</span> קונסיירז' ייעודי לכם</li>
+                        <li><span class="feat-check">✓</span> דף נחיתה ממותג שלכם</li>
+                        <li><span class="feat-check">✓</span> שיחת אסטרטגיה רבעונית</li>
+                        <li><span class="feat-check">✓</span> גישה ל־White-Label API</li>
+                        <li><span class="feat-check">✓</span> SLA תגובה: 4 שעות</li>
+                    </ul>
+                    <button class="tier-cta">שיחה אישית</button>
+                </article>
+            </div>
+
+            <p class="pricing-fineprint">
+                כל המסלולים: ביטול חופשי בכל רגע. ללא חוזה התחייבות. ללא עמלת הצלחה נסתרת.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <header class="section-head faq-head">
+                <p class="section-eyebrow">שאלות ותשובות</p>
+                <h2 class="section-title">
+                    כל מה שרציתם לשאול —<br>
+                    <span class="emerald-text">לפני שמתחילים.</span>
+                </h2>
+            </header>
+
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-q">כמה עולה השירות ללקוחות?</summary>
+                    <div class="faq-a"><p>כלום. שירות ההתאמה ללקוחות חינמי לחלוטין — ללא עמלות, ללא מנוי, ללא הפתעות. בעלי המקצוע הם שמשלמים על הגישה לפניות.</p></div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-q">מה קורה אחרי שמילאתי את הטופס?</summary>
+                    <div class="faq-a"><p>אדם מהצוות — לא בוט — קורא את הפנייה, מוצא התאמה בין בעלי המקצוע שלנו, ותוך 24 שעות שולח לכם הודעה עם שם, רקע קצר, ולמה דווקא הוא. אם זה לא מתאים — מציעים שניים נוספים. בלי לחץ, בלי שיווק.</p></div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-q">איך אתם בוחרים את בעלי המקצוע?</summary>
+                    <div class="faq-a"><p>כל בעל מקצוע עובר בדיקה ידנית: מסמכים, רישיון, ביטוח מקצועי, ושיחה אישית. לא מאשרים כל מי שמגיש מועמדות — ומסירים פרופילים שמקבלים ביקורות שליליות מלקוחות.</p></div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-q">לבעלי מקצוע: האם יש חוזה שנתי?</summary>
+                    <div class="faq-a"><p>לא. ביטול חופשי בכל עת — ללא קנסות, ללא התחייבות. משלמים רק על פניות מאומתות שהגיעו, ומפסיקים מתי שרוצים.</p></div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-q">לבעלי מקצוע: מה קורה אם פנייה לא מתאימה?</summary>
+                    <div class="faq-a"><p>מודיעים לנו ואנחנו לא מחייבים. כל פנייה עוברת סינון לפני שמועברת, אבל אם משהו לא מדויק — יש מנגנון פשוט לדיווח וזיכוי.</p></div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-q">מה ההבדל בין מסלול בסיסי לפרימיום?</summary>
+                    <div class="faq-a"><p>בסיסי מתאים להתנסות — עד 5 פניות בחודש, ללא תג Verified. פרימיום מוסיף תג מאומת ידנית, עדיפות בהתאמות, דאשבורד ביצועים, ומנהל קשר אישי. רוב בעלי המקצוע עוברים לפרימיום תוך החודש הראשון.</p></div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container final-cta-container">
+            <div class="cta-block cta-block-client">
+                <p class="cta-block-eyebrow">לחפשים איש מקצוע</p>
+                <h3 class="cta-block-title">שלוש שאלות.<br>תשובה אחת.</h3>
+                <p class="cta-block-body">מלאו את הטופס ותוך 24 שעות תקבלו שם, רקע קצר, ולמה דווקא הוא.</p>
+                <a href="#matchmaker" class="btn-inverse">התחילו את ההתאמה</a>
+            </div>
+            <div class="cta-rule" aria-hidden="true">
+                <span class="cta-rule-line"></span>
+                <span class="cta-rule-mark">◆</span>
+                <span class="cta-rule-line"></span>
+            </div>
+            <div class="cta-block cta-block-merchant">
+                <p class="cta-block-eyebrow cta-block-eyebrow-emerald">לבעלי מקצוע</p>
+                <h3 class="cta-block-title">פניות שכבר<br>רוצות לדבר.</h3>
+                <p class="cta-block-body">הצטרפו לרשת — ותקבלו לקוחות שעברו בירור, לא טפסי לידים.</p>
+                <a href="#pricing" class="btn-merchant">הצטרפו כאיש מקצוע</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="brand-mark">◆</span>
+                <span>הקונסיירז'</span>
+            </div>
+            <p class="footer-tagline">חיבורים איכותיים · רפואה · משפטים · נדל"ן</p>
+            <p class="footer-copy">&copy; 2026 — כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ====== Niche card → jump to matchmaker with niche pre-selected ======
+        document.querySelectorAll('[data-jump-niche]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const niche = btn.dataset.jumpNiche;
+                const target = document.querySelector(`.quiz-option[data-niche="${niche}"]`);
+                document.getElementById('matchmaker').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (target) setTimeout(() => target.click(), 700);
+            });
+        });
+
+        // ====== Smooth scroll for nav anchors ======
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const href = a.getAttribute('href');
+                if (href === '#') return;
+                const t = document.querySelector(href);
+                if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        });
+
+        // ====== Matchmaker Quiz ======
+        const shell = document.getElementById('quizShell');
+        const steps = shell.querySelectorAll('.quiz-step');
+        const progressDots = shell.querySelectorAll('.progress-dot');
+        const backBtn = document.getElementById('quizBack');
+        const form = document.getElementById('quizForm');
+        const summary = document.getElementById('confirmSummary');
+
+        const answers = { niche: null, nicheLabel: null, priority: null, name: null, contact: null, note: null };
+        const stepOrder = ['1', '2', '3'];
+        let currentIndex = 0;
+
+        let _stepRendered = false;
+        function renderStep(targetStep) {
+            const apply = () => {
+                steps.forEach(s => s.classList.toggle('is-active', s.dataset.step === targetStep));
+                progressDots.forEach((d, i) => {
+                    d.classList.toggle('is-active', i === stepOrder.indexOf(targetStep));
+                    d.classList.toggle('is-done', i < stepOrder.indexOf(targetStep) && targetStep !== 'done');
+                    if (targetStep === 'done') d.classList.add('is-done');
+                });
+                backBtn.disabled = (targetStep === '1' || targetStep === 'done');
+                if (answers.niche) shell.dataset.theme = answers.niche;
+                if (targetStep !== '3' && typeof renderAnalyzer === 'function') renderAnalyzer(0, false);
+            };
+            if (!_stepRendered) { _stepRendered = true; apply(); return; }
+            shell.classList.add('step-fade');
+            setTimeout(() => { apply(); shell.classList.remove('step-fade'); }, 160);
+        }
+
+        function goNext() {
+            currentIndex = Math.min(currentIndex + 1, stepOrder.length - 1);
+            renderStep(stepOrder[currentIndex]);
+        }
+
+        function goBack() {
+            currentIndex = Math.max(currentIndex - 1, 0);
+            renderStep(stepOrder[currentIndex]);
+        }
+
+        // Step 1: niche options
+        shell.querySelectorAll('[data-step="1"] .quiz-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                answers.niche = btn.dataset.niche;
+                answers.nicheLabel = btn.dataset.answer;
+                shell.dataset.theme = answers.niche;
+                shell.querySelectorAll('[data-step="1"] .quiz-option').forEach(b => b.classList.toggle('is-selected', b === btn));
+                setTimeout(goNext, 280);
+            });
+        });
+
+        // Step 2: priority options
+        shell.querySelectorAll('[data-step="2"] .quiz-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                answers.priority = btn.dataset.answer;
+                shell.querySelectorAll('[data-step="2"] .quiz-option').forEach(b => b.classList.toggle('is-selected', b === btn));
+                setTimeout(goNext, 280);
+            });
+        });
+
+        // Step 3: form
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            answers.name    = form.name.value.trim();
+            answers.contact = form.contact.value.trim();
+            answers.note    = form.note.value.trim();
+            if (!answers.name || !answers.contact) return;
+
+            // ── Lead qualification ──────────────────────────────────────────
+            const q          = window.LeadQualifier.qualify(answers);
+            const slaHours   = q.recommended_match?.sla_hours ?? 24;
+            const slaLabel   = slaHours <= 4 ? 'תוך ' + slaHours + ' שעות' : 'תוך 24 שעות';
+            const slaDisplay = slaHours + ' שעות';
+
+            // Persist for internal review (replace with API POST in production)
+            try {
+                const leads = JSON.parse(localStorage.getItem('cq_leads') || '[]');
+                leads.push({ ts: Date.now(), name: answers.name, contact: answers.contact, ...q });
+                localStorage.setItem('cq_leads', JSON.stringify(leads.slice(-50)));
+            } catch (_) {}
+
+            // SLA Service Badge
+            const slaBadge = document.getElementById('slaBadge');
+            if (slaBadge) {
+                const isUrgent   = slaHours < 24;
+                const urgentWord = slaHours <= 2 ? 'פנייה דחופה' : slaHours <= 4 ? 'עדיפות גבוהה' : 'תגובה סטנדרטית';
+                slaBadge.className = 'sla-badge' + (isUrgent ? ' is-urgent' : '');
+                slaBadge.innerHTML =
+                    '<div class="sla-badge-icon" aria-hidden="true">◆</div>' +
+                    '<div class="sla-badge-content">' +
+                    '<p class="sla-badge-label">זמן תגובה משוער</p>' +
+                    '<p class="sla-badge-value">' + slaDisplay + '</p>' +
+                    '<p class="sla-badge-sub">' + urgentWord + '</p>' +
+                    '</div>';
+            }
+
+            // Update confirm-body SLA copy when urgent
+            if (slaHours < 24) {
+                const body = document.querySelector('.quiz-confirm .confirm-body');
+                if (body) body.innerHTML = body.innerHTML.replace('תוך 24 שעות', slaLabel);
+            }
+            // ───────────────────────────────────────────────────────────────
+
+            summary.innerHTML =
+                '<span>תחום: <strong>' + answers.nicheLabel + '</strong></span>' +
+                '<span>עדיפות: <strong>' + (answers.priority || '—') + '</strong></span>' +
+                '<span>חוזרים אל: <strong>' + answers.contact + '</strong></span>' +
+                '<span>זמן תגובה: <strong>' + slaLabel + '</strong></span>';
+            renderStep('done');
+        });
+
+        backBtn.addEventListener('click', goBack);
+
+        // ── Note field real-time tier analyzer ──────────────────────────────
+        const noteField    = document.getElementById('qNote');
+        const noteAnalyzer = document.getElementById('noteAnalyzer');
+        let   analyzeTimer = null;
+
+        function renderAnalyzer(tier, active) {
+            if (!noteAnalyzer) return;
+            if (!active) { noteAnalyzer.innerHTML = ''; return; }
+            const labels    = ['', 'ניתוח בסיסי', 'ניתוח אותות', 'פנייה מורכבת'];
+            const pillClass = tier === 3 ? 'tier-pill tier-pill-3'
+                            : tier === 2 ? 'tier-pill tier-pill-2'
+                            : 'tier-pill tier-pill-1';
+            const pillText  = ['', 'T1', 'T2', 'T3'][tier] || 'T1';
+            noteAnalyzer.innerHTML =
+                '<span class="analyzer-dot" aria-hidden="true"></span>' +
+                '<span class="analyzer-label">' + (labels[tier] || labels[1]) + '</span>' +
+                '<span class="' + pillClass + '" aria-label="Tier ' + tier + '">' + pillText + '</span>';
+        }
+
+        if (noteField && noteAnalyzer) {
+            noteField.addEventListener('input', () => {
+                clearTimeout(analyzeTimer);
+                if (!noteField.value.trim()) { renderAnalyzer(0, false); return; }
+                renderAnalyzer(1, true);
+                analyzeTimer = setTimeout(() => {
+                    if (!window.LeadQualifier || !answers.niche) return;
+                    const q = window.LeadQualifier.qualify({ ...answers, note: noteField.value });
+                    renderAnalyzer(q.tier, true);
+                }, 380);
+            });
+        }
+        // ────────────────────────────────────────────────────────────────────
+
+        // Initial render
+        renderStep('1');
+    </script>
+</body>
+</html>
