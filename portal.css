@@ -2255,3 +2255,442 @@ body {
     .analyzer-dot, .hot-flag-dot, .tier-pill-3,
     .sla-badge-icon, .quiz-shell.step-fade { animation: none !important; transition: none !important; }
 }
+
+/* =========================================================
+   GLASS SERVICE SHOWCASE
+   ========================================================= */
+.glass-showcase {
+    padding: var(--section-gap) 0;
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ambient color blobs — these make backdrop-filter visible */
+.glass-showcase::before {
+    content: '';
+    position: absolute;
+    width: 560px; height: 560px;
+    border-radius: 50%;
+    top: -12%; right: -8%;
+    background: radial-gradient(circle, rgba(126, 154, 130, 0.26) 0%, transparent 68%);
+    filter: blur(60px);
+    pointer-events: none;
+}
+.glass-showcase::after {
+    content: '';
+    position: absolute;
+    width: 440px; height: 440px;
+    border-radius: 50%;
+    bottom: -8%; left: -6%;
+    background: radial-gradient(circle, rgba(194, 114, 78, 0.2) 0%, transparent 68%);
+    filter: blur(60px);
+    pointer-events: none;
+}
+.glass-showcase-blob {
+    position: absolute;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    top: 42%; left: 44%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(31, 49, 71, 0.55) 0%, transparent 68%);
+    filter: blur(55px);
+    pointer-events: none;
+}
+
+.glass-showcase-head {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+}
+.glass-showcase-head .section-eyebrow {
+    color: rgba(255, 255, 255, 0.42);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+.glass-showcase-head .section-title { color: white; }
+.glass-showcase-head .section-lede {
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.glass-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Base Glass Card ──────────────────────────────── */
+.glass-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-radius: 20px;
+    transition:
+        background  0.5s var(--ease-quiet),
+        border-color 0.5s var(--ease-quiet),
+        transform   0.5s var(--ease-quiet),
+        box-shadow  0.5s var(--ease-quiet);
+}
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.11);
+    border-color: rgba(255, 255, 255, 0.22);
+    transform: translateY(-6px);
+    box-shadow:
+        0 22px 60px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ── Profile Card ────────────────────────────────── */
+.profile-card {
+    padding: 2rem 1.6rem 1.6rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.profile-card:focus-visible { outline: 2px solid var(--emerald); outline-offset: 2px; }
+
+.profile-card-aura {
+    position: absolute;
+    top: -50%; right: -30%;
+    width: 70%; height: 70%;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.7s var(--ease-quiet);
+}
+.profile-card[data-niche="medical"]    .profile-card-aura { background: radial-gradient(circle, rgba(126,154,130,0.28) 0%, transparent 68%); }
+.profile-card[data-niche="legal"]      .profile-card-aura { background: radial-gradient(circle, rgba(31,49,71,0.55)    0%, transparent 68%); }
+.profile-card[data-niche="realestate"] .profile-card-aura { background: radial-gradient(circle, rgba(194,114,78,0.25)  0%, transparent 68%); }
+.profile-card:hover .profile-card-aura { opacity: 1; }
+
+.profile-avatar {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.09);
+    border: 1.5px solid rgba(255, 255, 255, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 1.2rem;
+    flex-shrink: 0;
+}
+
+.profile-verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--emerald);
+    background: rgba(52, 160, 115, 0.12);
+    border: 1px solid rgba(52, 160, 115, 0.24);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    margin-bottom: 0.85rem;
+    width: fit-content;
+}
+.profile-verified-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--emerald);
+    flex-shrink: 0;
+}
+
+.profile-niche-tag {
+    font-size: 0.64rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.22rem 0.65rem;
+    border-radius: 999px;
+    display: inline-block;
+    margin-bottom: 0.85rem;
+}
+.profile-card[data-niche="medical"]    .profile-niche-tag { color: #a8c5ab; background: rgba(126,154,130,0.18); }
+.profile-card[data-niche="legal"]      .profile-niche-tag { color: #b4c8dc; background: rgba(31,49,71,0.45); }
+.profile-card[data-niche="realestate"] .profile-niche-tag { color: var(--terracotta-soft); background: rgba(194,114,78,0.18); }
+
+.profile-name {
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: -0.2px;
+    margin-bottom: 0.35rem;
+    line-height: 1.25;
+}
+.profile-specialty {
+    font-size: 0.84rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 1.3rem;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    margin-bottom: 1.3rem;
+}
+.profile-stat { display: flex; flex-direction: column; gap: 0.1rem; }
+.profile-stat-value {
+    font-family: 'Assistant', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.82);
+    letter-spacing: -0.2px;
+    line-height: 1;
+}
+.profile-stat-label {
+    font-size: 0.62rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 500;
+}
+
+.profile-open-btn {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    color: rgba(255, 255, 255, 0.65);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 0.68rem 1.2rem;
+    border-radius: 999px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    transition: all 0.4s var(--ease-quiet);
+}
+.profile-open-btn:hover {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(255, 255, 255, 0.24);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   LAWYER PROFILE MODAL
+   ========================================================= */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(8, 8, 12, 0.62);
+    backdrop-filter: blur(8px) saturate(130%);
+    -webkit-backdrop-filter: blur(8px) saturate(130%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--container-pad);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s var(--ease-soft);
+}
+.modal-backdrop.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.profile-modal {
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: rgba(22, 23, 28, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border-radius: 24px;
+    padding: 2.2rem;
+    position: relative;
+    transform: scale(0.93) translateY(14px);
+    transition: transform 0.36s var(--ease-quiet);
+    box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.modal-backdrop.is-open .profile-modal {
+    transform: scale(1) translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;      /* RTL: left = visual end */
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    transition: all 0.3s var(--ease-soft);
+    flex-shrink: 0;
+}
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.1rem;
+    margin-bottom: 1.6rem;
+}
+.modal-avatar {
+    width: 68px; height: 68px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1.5px solid rgba(255, 255, 255, 0.13);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    flex-shrink: 0;
+}
+.modal-title-group { flex: 1; }
+.modal-name {
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: -0.3px;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.modal-subtitle {
+    font-size: 0.86rem;
+    color: rgba(255, 255, 255, 0.42);
+    font-weight: 300;
+}
+
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+.modal-tag {
+    font-size: 0.73rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    padding: 0.26rem 0.68rem;
+    border-radius: 6px;
+}
+
+.modal-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.07);
+    margin: 1.3rem 0;
+}
+.modal-section-label {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.28);
+    font-weight: 600;
+    margin-bottom: 0.65rem;
+}
+.modal-bio {
+    font-size: 0.94rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.85;
+    font-weight: 300;
+}
+
+.modal-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+}
+.modal-stat-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 0.85rem 0.7rem;
+    text-align: center;
+}
+.modal-stat-value {
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: -0.3px;
+    display: block;
+    margin-bottom: 0.18rem;
+}
+.modal-stat-label {
+    font-size: 0.62rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.28);
+    font-weight: 500;
+}
+
+.modal-cta {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-deep) 100%);
+    color: white;
+    border: none;
+    padding: 0.98rem 1.8rem;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.4s var(--ease-quiet);
+    box-shadow: 0 8px 22px rgba(52, 160, 115, 0.28);
+}
+.modal-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(52, 160, 115, 0.44);
+}
+
+@media (max-width: 900px) {
+    .glass-showcase-grid { grid-template-columns: 1fr; gap: 1rem; }
+}
+@media (max-width: 600px) {
+    .profile-modal { padding: 1.5rem; border-radius: 18px; }
+    .modal-stats   { grid-template-columns: repeat(3, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .profile-card-aura,
+    .modal-backdrop,
+    .profile-modal { transition: none !important; }
+}
