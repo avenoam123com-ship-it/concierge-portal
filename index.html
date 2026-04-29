@@ -34,6 +34,94 @@
             background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 40%);
             transform: translate(-50%, -50%);
         }
+
+        /* ── Window Showcase ─────────────────────────────────────────────── */
+        .window-showcase {
+            padding: 5rem 0 4rem;
+            background: #faf9f7;
+        }
+        .window-grid-wrap {
+            position: relative;
+            margin-top: 3rem;
+        }
+        .window-search-orb {
+            position: absolute;
+            top: 0; left: 0;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: rgba(201,168,76,0.12);
+            border: 1px solid rgba(201,168,76,0.35);
+            display: flex; align-items: center; justify-content: center;
+            pointer-events: none;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+            opacity: 0;
+        }
+        .window-search-orb svg {
+            width: 20px; height: 20px;
+            stroke: #C9A84C;
+        }
+        .window-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+        @media (max-width: 768px) { .window-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .window-grid { grid-template-columns: 1fr; } }
+        .window-card {
+            background: #ffffff;
+            border: 1px solid rgba(201,168,76,0.18);
+            border-radius: 14px;
+            padding: 2rem 1.25rem 1.5rem;
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.9);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: default;
+        }
+        .window-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 32px rgba(0,0,0,0.09);
+        }
+        .window-avatar {
+            width: 68px; height: 68px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.25));
+            border: 1.5px solid rgba(201,168,76,0.5);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem; font-weight: 500;
+            color: #C9A84C;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
+        }
+        .window-niche-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            margin: 0 auto 0.6rem;
+        }
+        .window-niche-dot.legal    { background: #6c8ebf; }
+        .window-niche-dot.medical  { background: #82b366; }
+        .window-niche-dot.realestate { background: #d6a84e; }
+        .window-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem; font-weight: 500;
+            color: #1a1a1a;
+            margin: 0 0 0.2rem;
+            line-height: 1.3;
+        }
+        .window-role {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #C9A84C;
+            margin-bottom: 0.75rem;
+        }
+        .window-bio {
+            font-size: 0.75rem;
+            color: #777;
+            line-height: 1.55;
+        }
     </style>
 </head>
 <body>
@@ -69,6 +157,82 @@
             <div class="hero-actions" id="heroActions">
                 <a href="#matchmaker" class="btn-primary">מצא מומחה עכשיו</a>
                 <a href="#how" class="btn-text">איך זה עובד ←</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Window Showcase — animated professional grid -->
+    <section class="window-showcase">
+        <div class="container">
+            <header class="section-head">
+                <p class="section-eyebrow">הרשת שלנו</p>
+                <h2 class="section-title">מחפשים עבורך. תמיד.</h2>
+                <p class="section-lede">כל בעל מקצוע עבר בחירה ידנית — לא הצטרפות, בחירה.</p>
+            </header>
+            <div class="window-grid-wrap" id="windowGridWrap">
+                <!-- Animated search orb -->
+                <div class="window-search-orb" id="windowSearchOrb">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </div>
+                <div class="window-grid" id="windowGrid">
+
+                    <!-- Legal 1 -->
+                    <article class="window-card">
+                        <div class="window-avatar">מ</div>
+                        <div class="window-niche-dot legal"></div>
+                        <h3 class="window-name">עו"ד מיכל כהן</h3>
+                        <p class="window-role">משפטים · דיני משפחה</p>
+                        <p class="window-bio">18 שנות ניסיון בגירושין ומשמורת. מלווה לקוחות עם ראש קר ולב פתוח.</p>
+                    </article>
+
+                    <!-- Legal 2 -->
+                    <article class="window-card">
+                        <div class="window-avatar">י</div>
+                        <div class="window-niche-dot legal"></div>
+                        <h3 class="window-name">עו"ד יוסף לוי</h3>
+                        <p class="window-role">משפטים · נדל"ן ומקרקעין</p>
+                        <p class="window-bio">מומחה בעסקאות יוקרה מעל 3 מיליון ₪. 0 ניגודי עניינים, שקיפות מלאה.</p>
+                    </article>
+
+                    <!-- Medical 1 -->
+                    <article class="window-card">
+                        <div class="window-avatar">ד</div>
+                        <div class="window-niche-dot medical"></div>
+                        <h3 class="window-name">פרופ' דן שפירא</h3>
+                        <p class="window-role">רפואה · אונקולוגיה</p>
+                        <p class="window-bio">סקנד אופיניון תוך 48 שעות. הדסה עין כרם — מעל 22 שנות ניסיון.</p>
+                    </article>
+
+                    <!-- Medical 2 -->
+                    <article class="window-card">
+                        <div class="window-avatar">ר</div>
+                        <div class="window-niche-dot medical"></div>
+                        <h3 class="window-name">ד"ר רונית אברהם</h3>
+                        <p class="window-role">רפואה · אורתופדיה</p>
+                        <p class="window-bio">כירורגית מפרקים ועמוד שדרה. מאי"ה — זמינה לפגישות דחופות.</p>
+                    </article>
+
+                    <!-- Real Estate 1 -->
+                    <article class="window-card">
+                        <div class="window-avatar">ע</div>
+                        <div class="window-niche-dot realestate"></div>
+                        <h3 class="window-name">ערן גולן</h3>
+                        <p class="window-role">נדל"ן · יוקרה</p>
+                        <p class="window-bio">מתווך בנכסי יוקרה בתל אביב, הרצליה וקיסריה. עסקה ממוצעת ₪2.9M.</p>
+                    </article>
+
+                    <!-- Real Estate 2 -->
+                    <article class="window-card">
+                        <div class="window-avatar">י</div>
+                        <div class="window-niche-dot realestate"></div>
+                        <h3 class="window-name">יעל ברק</h3>
+                        <p class="window-role">נדל"ן · שמאות מקרקעין</p>
+                        <p class="window-bio">הערכות שווי מדויקות לנכסי יוקרה. מוסמכת מלשכת השמאים — 14 שנות ניסיון.</p>
+                    </article>
+
+                </div>
             </div>
         </div>
     </section>
@@ -677,6 +841,48 @@
         }
 
         renderStep('1');
+
+        // ── Window Showcase — animated search orb ───────────────────────────
+        (function initWindowSearch() {
+            if (typeof gsap === 'undefined') return;
+            const orb  = document.getElementById('windowSearchOrb');
+            const wrap = document.getElementById('windowGridWrap');
+            const grid = document.getElementById('windowGrid');
+            if (!orb || !wrap || !grid) return;
+
+            // Stagger cards in
+            gsap.from('#windowGrid .window-card', {
+                opacity: 0, y: 36, duration: 0.65, stagger: 0.1, ease: 'power2.out',
+                scrollTrigger: { trigger: grid, start: 'top 80%', once: true }
+            });
+
+            // Start orb when section is visible
+            ScrollTrigger.create({
+                trigger: grid,
+                start: 'top 75%',
+                once: true,
+                onEnter() {
+                    const wR   = wrap.getBoundingClientRect();
+                    const pts  = [...grid.querySelectorAll('.window-card')].map(c => {
+                        const r = c.getBoundingClientRect();
+                        return {
+                            x: r.left - wR.left + r.width  / 2 - 24,
+                            y: r.top  - wR.top  + r.height / 2 - 24
+                        };
+                    });
+                    // random loop order
+                    const path = pts.slice().sort(() => Math.random() - 0.5);
+                    path.push(path[0]);
+                    gsap.set(orb, { x: path[0].x, y: path[0].y });
+                    gsap.to(orb,  { opacity: 1, duration: 0.5 });
+                    const tl = gsap.timeline({ repeat: -1 });
+                    path.slice(1).forEach(p => {
+                        tl.to(orb, { x: p.x, y: p.y, duration: 2.4, ease: 'power1.inOut' })
+                          .to(orb, { scale: 1.2, duration: 0.2, yoyo: true, repeat: 1 }, '-=0.25');
+                    });
+                }
+            });
+        })();
 
         // ── TiltCard — profile cards (evade effect + spotlight) ──────────────
         (function initTiltCards() {
