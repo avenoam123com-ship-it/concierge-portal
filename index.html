@@ -3,13 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>הקונסיירז' · התאמה אישית לרפואה, משפטים ונדל"ן</title>
-    <meta name="description" content="לא מאגר. לא דירוג. שירות התאמה אישי לבעלי מקצוע איכותיים — רפואה, משפטים, נדל"ן.">
+    <title>הקונסיירז' · מצא את המומחה המתאים לך</title>
+    <meta name="description" content="שירות התאמה אישי לרפואה, משפטים ונדל&quot;ן. לא מאגר, לא דירוג — קונסיירז' אנושי שמוצא לך את המומחה הנכון.">
     <link rel="stylesheet" href="portal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="lead-qualifier.js"></script>
+    <style>
+        .profile-card {
+            will-change: transform;
+            transform-style: preserve-3d;
+            transition: transform 0.2s ease-out;
+        }
+        .tilt-spotlight {
+            pointer-events: none;
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tilt-spotlight.is-visible { opacity: 1; }
+        .tilt-spotlight-inner {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 40%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 <body>
 
@@ -21,11 +46,10 @@
                 <span class="brand-name">הקונסיירז'</span>
             </a>
             <ul class="nav-menu">
-                <li><a href="#niches">התחומים</a></li>
                 <li><a href="#how">איך זה עובד</a></li>
-                <li><a href="#merchant">לבעלי מקצוע</a></li>
-                <li><a href="#pricing">תמחור</a></li>
-                <li><a href="#matchmaker" class="nav-cta">התחל התאמה</a></li>
+                <li><a href="#experts">המומחים שלנו</a></li>
+                <li><a href="#matchmaker" class="nav-cta">מצא מומחה</a></li>
+                <li><a href="portal.html" class="nav-b2b-link">לבעלי מקצוע ←</a></li>
             </ul>
         </div>
     </nav>
@@ -33,17 +57,17 @@
     <!-- Hero -->
     <section class="hero">
         <div class="container hero-container">
-            <p class="hero-eyebrow">קונסיירז' אישי · 2026</p>
-            <h1 class="hero-headline">
+            <p class="hero-eyebrow" id="heroEyebrow">קונסיירז' אישי · 2026</p>
+            <h1 class="hero-headline" id="heroHeadline">
                 אנחנו לא מפרסמים את כולם.<br>
                 <span class="hero-headline-soft">אנחנו מוצאים את אלו שמתאימים לך.</span>
             </h1>
-            <p class="hero-lede">
+            <p class="hero-lede" id="heroLede">
                 לא מאגר. לא דירוג. שיחה אחת — והתאמה לאיש מקצוע שכבר עשינו עליו את הבירור.<br>
                 <strong>רפואה. משפטים. נדל"ן.</strong>
             </p>
-            <div class="hero-actions">
-                <a href="#matchmaker" class="btn-primary">התחילו התאמה</a>
+            <div class="hero-actions" id="heroActions">
+                <a href="#matchmaker" class="btn-primary">מצא מומחה עכשיו</a>
                 <a href="#how" class="btn-text">איך זה עובד ←</a>
             </div>
         </div>
@@ -59,224 +83,40 @@
                     בכל תחום עברנו בעצמנו על עשרות בעלי מקצוע. נשארו רק אלו שהיינו ממליצים לחברים קרובים.
                 </p>
             </header>
-
-            <div class="niche-grid">
+            <div class="niche-grid" id="nicheGrid">
                 <article class="niche-card" data-niche="medical">
                     <div class="card-aura"></div>
                     <div class="card-icon" aria-hidden="true">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 8v32M8 24h32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                        </svg>
+                        <svg viewBox="0 0 48 48" fill="none"><path d="M24 8v32M8 24h32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5" opacity="0.4"/></svg>
                     </div>
                     <p class="card-tag">רפואה</p>
                     <h3 class="card-title">המומחה הנכון, לא הזמין הראשון.</h3>
-                    <p class="card-body">
-                        רופאים מומחים שעברו אצלנו בדיקה — לא רק על הקריירה, אלא על הסבלנות, על הקשב, ועל הזמינות בפועל.
-                    </p>
-                    <button class="card-cta" data-jump-niche="medical">
-                        התאמה רפואית
-                        <span class="cta-arrow">←</span>
-                    </button>
+                    <p class="card-body">רופאים מומחים שעברו אצלנו בדיקה — לא רק על הקריירה, אלא על הסבלנות, על הקשב, ועל הזמינות בפועל.</p>
+                    <button class="card-cta" data-jump-niche="medical">התאמה רפואית <span class="cta-arrow">←</span></button>
                 </article>
-
                 <article class="niche-card" data-niche="legal">
                     <div class="card-aura"></div>
                     <div class="card-icon" aria-hidden="true">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 6v36M14 18l10-12 10 12M10 36h28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M14 18c0 6-2 12-6 14M34 18c0 6 2 12 6 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-                        </svg>
+                        <svg viewBox="0 0 48 48" fill="none"><path d="M24 6v36M14 18l10-12 10 12M10 36h28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 18c0 6-2 12-6 14M34 18c0 6 2 12 6 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/></svg>
                     </div>
                     <p class="card-tag">משפטים</p>
                     <h3 class="card-title">עורך דין שיודע את התיק שלך.</h3>
-                    <p class="card-body">
-                        לא ההמלצה של בן דוד, ולא הראשון בגוגל. עורכי דין שכבר טיפלו בתיקים מהסוג שלך — ויודעים מה הולך להפתיע.
-                    </p>
-                    <button class="card-cta" data-jump-niche="legal">
-                        התאמה משפטית
-                        <span class="cta-arrow">←</span>
-                    </button>
+                    <p class="card-body">לא ההמלצה של בן דוד, ולא הראשון בגוגל. עורכי דין שכבר טיפלו בתיקים מהסוג שלך — ויודעים מה הולך להפתיע.</p>
+                    <button class="card-cta" data-jump-niche="legal">התאמה משפטית <span class="cta-arrow">←</span></button>
                 </article>
-
                 <article class="niche-card" data-niche="realestate">
                     <div class="card-aura"></div>
                     <div class="card-icon" aria-hidden="true">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 24L24 8l18 16M10 22v18h28V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M20 40v-12h8v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-                        </svg>
+                        <svg viewBox="0 0 48 48" fill="none"><path d="M6 24L24 8l18 16M10 22v18h28V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 40v-12h8v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/></svg>
                     </div>
                     <p class="card-tag">נדל"ן</p>
                     <h3 class="card-title">מתווך שמכיר את הרחוב.</h3>
-                    <p class="card-body">
-                        לא טבלאות, לא ממוצעי שוק. אנשי מקצוע שמכירים את האזור באמת — את ועדת השכנים, את התחבורה, את הבית הספר.
-                    </p>
-                    <button class="card-cta" data-jump-niche="realestate">
-                        התאמה בנדל"ן
-                        <span class="cta-arrow">←</span>
-                    </button>
+                    <p class="card-body">לא טבלאות, לא ממוצעי שוק. אנשי מקצוע שמכירים את האזור באמת — את ועדת השכנים, את התחבורה, את בית הספר.</p>
+                    <button class="card-cta" data-jump-niche="realestate">התאמה בנדל"ן <span class="cta-arrow">←</span></button>
                 </article>
             </div>
         </div>
     </section>
-
-    <!-- ========== GLASS SERVICE SHOWCASE ========== -->
-    <section id="showcase" class="glass-showcase">
-        <div class="container">
-            <div class="glass-showcase-blob" aria-hidden="true"></div>
-            <header class="section-head glass-showcase-head">
-                <p class="section-eyebrow">פגשו את הרשת שלנו</p>
-                <h2 class="section-title">בעלי מקצוע שבחרנו בעצמנו.</h2>
-                <p class="section-lede">כל אחד עבר תהליך בחירה אישי. אנחנו מכירים אותם — לא רק את הפרופיל.</p>
-            </header>
-
-            <div class="glass-showcase-grid">
-
-                <!-- Card 1 — Legal -->
-                <article class="glass-card profile-card profile-card--legal"
-                         role="button" tabindex="0"
-                         aria-label="פתח פרופיל של עו&quot;ד דניאל שרון"
-                         data-modal-target="modal-legal">
-                    <div class="profile-avatar" aria-hidden="true">ד</div>
-                    <div class="profile-verified" aria-label="מאומת">✓</div>
-                    <span class="profile-niche-tag">משפטים</span>
-                    <h3 class="profile-name">עו"ד דניאל שרון</h3>
-                    <p class="profile-specialty">דיני משפחה · ירושה</p>
-                    <ul class="profile-stats" aria-label="סטטיסטיקות">
-                        <li><strong>14</strong><span>שנות ניסיון</span></li>
-                        <li><strong>98%</strong><span>שביעות רצון</span></li>
-                        <li><strong>48h</strong><span>זמן מענה</span></li>
-                    </ul>
-                    <button class="profile-open-btn" tabindex="-1" aria-hidden="true">צפה בפרופיל ←</button>
-                </article>
-
-                <!-- Card 2 — Medical -->
-                <article class="glass-card profile-card profile-card--medical"
-                         role="button" tabindex="0"
-                         aria-label="פתח פרופיל של ד&quot;ר מיכל לוי"
-                         data-modal-target="modal-medical">
-                    <div class="profile-avatar" aria-hidden="true">מ</div>
-                    <div class="profile-verified" aria-label="מאומת">✓</div>
-                    <span class="profile-niche-tag">רפואה</span>
-                    <h3 class="profile-name">ד"ר מיכל לוי</h3>
-                    <p class="profile-specialty">אונקולוגיה · סקנד אופיניון</p>
-                    <ul class="profile-stats" aria-label="סטטיסטיקות">
-                        <li><strong>22</strong><span>שנות ניסיון</span></li>
-                        <li><strong>4h</strong><span>SLA דחוף</span></li>
-                        <li><strong>הדסה</strong><span>בית חולים</span></li>
-                    </ul>
-                    <button class="profile-open-btn" tabindex="-1" aria-hidden="true">צפה בפרופיל ←</button>
-                </article>
-
-                <!-- Card 3 — Real Estate -->
-                <article class="glass-card profile-card profile-card--realestate"
-                         role="button" tabindex="0"
-                         aria-label="פתח פרופיל של רונן כהן, מתווך נדל&quot;ן"
-                         data-modal-target="modal-realestate">
-                    <div class="profile-avatar" aria-hidden="true">ר</div>
-                    <div class="profile-verified" aria-label="מאומת">✓</div>
-                    <span class="profile-niche-tag">נדל"ן</span>
-                    <h3 class="profile-name">רונן כהן</h3>
-                    <p class="profile-specialty">נדל"ן יוקרה · תל אביב</p>
-                    <ul class="profile-stats" aria-label="סטטיסטיקות">
-                        <li><strong>₪2.8M</strong><span>עסקה ממוצעת</span></li>
-                        <li><strong>9</strong><span>שנות ניסיון</span></li>
-                        <li><strong>24h</strong><span>זמן מענה</span></li>
-                    </ul>
-                    <button class="profile-open-btn" tabindex="-1" aria-hidden="true">צפה בפרופיל ←</button>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal — Legal -->
-    <div class="modal-backdrop" id="modal-legal" role="dialog" aria-modal="true" aria-labelledby="modal-legal-name">
-        <div class="profile-modal">
-            <button class="modal-close" aria-label="סגור">✕</button>
-            <div class="modal-header">
-                <div class="profile-avatar modal-avatar" aria-hidden="true">ד</div>
-                <div>
-                    <h2 class="modal-name" id="modal-legal-name">עו"ד דניאל שרון</h2>
-                    <p class="modal-subtitle">דיני משפחה · ירושה · תל אביב</p>
-                </div>
-            </div>
-            <div class="modal-tags" aria-label="תחומי התמחות">
-                <span class="modal-tag">גירושין</span>
-                <span class="modal-tag">משמורת</span>
-                <span class="modal-tag">צוואות</span>
-                <span class="modal-tag">עיזבון</span>
-            </div>
-            <hr class="modal-divider">
-            <p class="modal-section-label">על עו"ד שרון</p>
-            <p class="modal-bio">דניאל שרון הוא עורך דין בעל ניסיון של 14 שנה בתחום דיני המשפחה. עבד בחברות המובילות בישראל לפני שפתח פרקטיקה עצמאית. מתמחה בתיקים רגישים הדורשים שיקול דעת, דיסקרטיות ויחס אישי.</p>
-            <div class="modal-stats">
-                <div class="modal-stat-card"><span class="modal-stat-value">14</span><span class="modal-stat-label">שנות ניסיון</span></div>
-                <div class="modal-stat-card"><span class="modal-stat-value">98%</span><span class="modal-stat-label">שביעות רצון</span></div>
-                <div class="modal-stat-card"><span class="modal-stat-value">2h</span><span class="modal-stat-label">SLA דחוף</span></div>
-            </div>
-            <a href="#matchmaker" class="modal-cta btn-primary" data-close-modal>התחל התאמה עם דניאל ←</a>
-        </div>
-    </div>
-
-    <!-- Modal — Medical -->
-    <div class="modal-backdrop" id="modal-medical" role="dialog" aria-modal="true" aria-labelledby="modal-medical-name">
-        <div class="profile-modal">
-            <button class="modal-close" aria-label="סגור">✕</button>
-            <div class="modal-header">
-                <div class="profile-avatar modal-avatar" aria-hidden="true">מ</div>
-                <div>
-                    <h2 class="modal-name" id="modal-medical-name">ד"ר מיכל לוי</h2>
-                    <p class="modal-subtitle">אונקולוגיה קלינית · הדסה עין כרם</p>
-                </div>
-            </div>
-            <div class="modal-tags" aria-label="תחומי התמחות">
-                <span class="modal-tag">אונקולוגיה</span>
-                <span class="modal-tag">סקנד אופיניון</span>
-                <span class="modal-tag">כימותרפיה</span>
-                <span class="modal-tag">ביופסיה</span>
-            </div>
-            <hr class="modal-divider">
-            <p class="modal-section-label">על ד"ר לוי</p>
-            <p class="modal-bio">מיכל לוי היא אונקולוגית בכירה עם 22 שנות ניסיון קליני, מומחית בחוות דעת שנייה ובניהול מקרים מורכבים. מרצה באוניברסיטה העברית. זמינה לפגישות דחופות תוך 4 שעות לחולים שהופנו דרך הקונסיירז'.</p>
-            <div class="modal-stats">
-                <div class="modal-stat-card"><span class="modal-stat-value">22</span><span class="modal-stat-label">שנות ניסיון</span></div>
-                <div class="modal-stat-card"><span class="modal-stat-value">4h</span><span class="modal-stat-label">SLA דחוף</span></div>
-                <div class="modal-stat-card"><span class="modal-stat-value">הדסה</span><span class="modal-stat-label">בית חולים</span></div>
-            </div>
-            <a href="#matchmaker" class="modal-cta btn-primary" data-close-modal>התחל התאמה עם ד"ר לוי ←</a>
-        </div>
-    </div>
-
-    <!-- Modal — Real Estate -->
-    <div class="modal-backdrop" id="modal-realestate" role="dialog" aria-modal="true" aria-labelledby="modal-realestate-name">
-        <div class="profile-modal">
-            <button class="modal-close" aria-label="סגור">✕</button>
-            <div class="modal-header">
-                <div class="profile-avatar modal-avatar" aria-hidden="true">ר</div>
-                <div>
-                    <h2 class="modal-name" id="modal-realestate-name">רונן כהן</h2>
-                    <p class="modal-subtitle">נדל"ן יוקרה · תל אביב והמרכז</p>
-                </div>
-            </div>
-            <div class="modal-tags" aria-label="תחומי התמחות">
-                <span class="modal-tag">דירות יוקרה</span>
-                <span class="modal-tag">תל אביב</span>
-                <span class="modal-tag">השקעות</span>
-                <span class="modal-tag">קנייה ומכירה</span>
-            </div>
-            <hr class="modal-divider">
-            <p class="modal-section-label">על רונן כהן</p>
-            <p class="modal-bio">רונן כהן הוא מתווך נדל"ן מורשה המתמחה בנכסי יוקרה בתל אביב, הרצליה פיתוח וקיסריה. עסקה ממוצעת של 2.8 מיליון שקל. ידוע בשירות דיסקרטי, ניגוד עניינים אפס, ובשקיפות מלאה בכל שלב.</p>
-            <div class="modal-stats">
-                <div class="modal-stat-card"><span class="modal-stat-value">₪2.8M</span><span class="modal-stat-label">עסקה ממוצעת</span></div>
-                <div class="modal-stat-card"><span class="modal-stat-value">9</span><span class="modal-stat-label">שנות ניסיון</span></div>
-                <div class="modal-stat-card"><span class="modal-stat-value">24h</span><span class="modal-stat-label">זמן מענה</span></div>
-            </div>
-            <a href="#matchmaker" class="modal-cta btn-primary" data-close-modal>התחל התאמה עם רונן ←</a>
-        </div>
-    </div>
 
     <!-- How it works -->
     <section id="how" class="how">
@@ -305,17 +145,175 @@
         </div>
     </section>
 
-    <!-- The Matchmaker Quiz -->
+    <!-- Glass Showcase — enhanced with stars + availability -->
+    <section id="experts" class="glass-showcase">
+        <div class="container">
+            <div class="glass-showcase-blob" aria-hidden="true"></div>
+            <header class="section-head glass-showcase-head">
+                <p class="section-eyebrow">פגשו את הרשת שלנו</p>
+                <h2 class="section-title">בעלי מקצוע שבחרנו בעצמנו.</h2>
+                <p class="section-lede">כל אחד עבר תהליך בחירה אישי. אנחנו מכירים אותם — לא רק את הפרופיל.</p>
+            </header>
+            <div class="glass-showcase-grid" id="expertsGrid">
+
+                <!-- Card 1 — Legal -->
+                <article class="glass-card profile-card"
+                         role="button" tabindex="0"
+                         aria-label="פתח פרופיל משרד עורכי דין"
+                         data-modal
+                         data-niche="legal"
+                         data-initial="מ"
+                         data-name="משרד עורכי דין (דוגמה)"
+                         data-specialty="דיני משפחה · ירושה · תל אביב"
+                         data-bio="משרד המתמחה בדיני משפחה וירושה. ליווה מאות לקוחות בתיקים רגישים, עם דגש על שיקול דעת, זמינות ופתרונות מותאמים אישית. כל תיק מקבל טיפול ישיר מהשותף הבכיר."
+                         data-tags="גירושין,משמורת,צוואות,עיזבון,נזיקין"
+                         data-s1v="15+" data-s1l="שנות ניסיון"
+                         data-s2v="98%" data-s2l="שביעות רצון"
+                         data-s3v="2h"  data-s3l="SLA דחוף"
+                         data-stars="4.9"
+                         data-availability="זמין היום"
+                         data-cta="שלחו פנייה למשרד">
+                    <div class="profile-avatar" aria-hidden="true">מ</div>
+                    <div class="profile-verified"><span class="profile-verified-dot"></span>מאומת</div>
+                    <span class="profile-niche-tag">משפטים</span>
+                    <div class="profile-stars" aria-label="דירוג 4.9 מתוך 5">
+                        <span aria-hidden="true">★★★★★</span>
+                        <span class="stars-score">4.9</span>
+                    </div>
+                    <h3 class="profile-name">משרד עורכי דין (דוגמה)</h3>
+                    <p class="profile-specialty">דיני משפחה · ירושה</p>
+                    <ul class="profile-stats" aria-label="סטטיסטיקות">
+                        <li><strong>15+</strong><span>שנות ניסיון</span></li>
+                        <li><strong>98%</strong><span>שביעות רצון</span></li>
+                        <li><strong>2h</strong><span>SLA דחוף</span></li>
+                    </ul>
+                    <div class="profile-availability">
+                        <span class="availability-dot" aria-hidden="true"></span>
+                        <span>זמין היום</span>
+                    </div>
+                    <button class="profile-open-btn" tabindex="-1" aria-hidden="true">כנסו למשרד ←</button>
+                    <div class="tilt-spotlight"><div class="tilt-spotlight-inner"></div></div>
+                </article>
+
+                <!-- Card 2 — Medical -->
+                <article class="glass-card profile-card"
+                         role="button" tabindex="0"
+                         aria-label="פתח פרופיל קליניקה רפואית"
+                         data-modal
+                         data-niche="medical"
+                         data-initial="ק"
+                         data-name="קליניקה רפואית (דוגמה)"
+                         data-specialty="אונקולוגיה · סקנד אופיניון"
+                         data-bio="קליניקה המתמחה בחוות דעת שנייה ובניהול מקרים מורכבים. הרופאים הבכירים זמינים לפגישות דחופות ולייעוץ בתוך שעות ספורות עבור לקוחות הקונסיירז'."
+                         data-tags="אונקולוגיה,סקנד אופיניון,כימותרפיה,ביופסיה"
+                         data-s1v="22"    data-s1l="שנות ניסיון"
+                         data-s2v="4h"    data-s2l="SLA דחוף"
+                         data-s3v="הדסה" data-s3l="בית חולים"
+                         data-stars="4.8"
+                         data-availability="זמין השבוע"
+                         data-cta="קבעו ייעוץ בקליניקה">
+                    <div class="profile-avatar" aria-hidden="true">ק</div>
+                    <div class="profile-verified"><span class="profile-verified-dot"></span>מאומת</div>
+                    <span class="profile-niche-tag">רפואה</span>
+                    <div class="profile-stars" aria-label="דירוג 4.8 מתוך 5">
+                        <span aria-hidden="true">★★★★★</span>
+                        <span class="stars-score">4.8</span>
+                    </div>
+                    <h3 class="profile-name">קליניקה רפואית (דוגמה)</h3>
+                    <p class="profile-specialty">אונקולוגיה · סקנד אופיניון</p>
+                    <ul class="profile-stats" aria-label="סטטיסטיקות">
+                        <li><strong>22</strong><span>שנות ניסיון</span></li>
+                        <li><strong>4h</strong><span>SLA דחוף</span></li>
+                        <li><strong>הדסה</strong><span>בית חולים</span></li>
+                    </ul>
+                    <div class="profile-availability">
+                        <span class="availability-dot availability-dot--week" aria-hidden="true"></span>
+                        <span>זמין השבוע</span>
+                    </div>
+                    <button class="profile-open-btn" tabindex="-1" aria-hidden="true">כנסו לקליניקה ←</button>
+                    <div class="tilt-spotlight"><div class="tilt-spotlight-inner"></div></div>
+                </article>
+
+                <!-- Card 3 — Real Estate -->
+                <article class="glass-card profile-card"
+                         role="button" tabindex="0"
+                         aria-label="פתח פרופיל סוכנות נדל&quot;ן"
+                         data-modal
+                         data-niche="realestate"
+                         data-initial="ס"
+                         data-name='סוכנות נדל"ן (דוגמה)'
+                         data-specialty='נדל"ן יוקרה · תל אביב והמרכז'
+                         data-bio='סוכנות המתמחה בנכסי יוקרה בתל אביב, הרצליה פיתוח וקיסריה. עסקה ממוצעת של 2.8 מיליון שקל. שירות דיסקרטי, ניגוד עניינים אפס ושקיפות מלאה בכל שלב.'
+                         data-tags='דירות יוקרה,תל אביב,השקעות,קנייה ומכירה'
+                         data-s1v="₪2.8M" data-s1l="עסקה ממוצעת"
+                         data-s2v="9"     data-s2l="שנות ניסיון"
+                         data-s3v="24h"   data-s3l="זמן מענה"
+                         data-stars="4.7"
+                         data-availability="זמין היום"
+                         data-cta="דברו עם הסוכנות">
+                    <div class="profile-avatar" aria-hidden="true">ס</div>
+                    <div class="profile-verified"><span class="profile-verified-dot"></span>מאומת</div>
+                    <span class="profile-niche-tag">נדל"ן</span>
+                    <div class="profile-stars" aria-label="דירוג 4.7 מתוך 5">
+                        <span aria-hidden="true">★★★★★</span>
+                        <span class="stars-score">4.7</span>
+                    </div>
+                    <h3 class="profile-name">סוכנות נדל"ן (דוגמה)</h3>
+                    <p class="profile-specialty">נדל"ן יוקרה · תל אביב</p>
+                    <ul class="profile-stats" aria-label="סטטיסטיקות">
+                        <li><strong>₪2.8M</strong><span>עסקה ממוצעת</span></li>
+                        <li><strong>9</strong><span>שנות ניסיון</span></li>
+                        <li><strong>24h</strong><span>זמן מענה</span></li>
+                    </ul>
+                    <div class="profile-availability">
+                        <span class="availability-dot" aria-hidden="true"></span>
+                        <span>זמין היום</span>
+                    </div>
+                    <button class="profile-open-btn" tabindex="-1" aria-hidden="true">כנסו לסוכנות ←</button>
+                    <div class="tilt-spotlight"><div class="tilt-spotlight-inner"></div></div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Modal — single template, populated by JS -->
+    <div class="modal-backdrop" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+        <div class="profile-modal">
+            <button class="modal-close" id="modalClose" aria-label="סגור">✕</button>
+            <div class="modal-header">
+                <div class="modal-avatar" id="modalAvatar"></div>
+                <div class="modal-title-group">
+                    <h2 class="modal-name" id="modalName"></h2>
+                    <p class="modal-subtitle" id="modalSubtitle"></p>
+                    <div class="modal-meta-row">
+                        <div class="profile-verified modal-verified-badge">
+                            <span class="profile-verified-dot"></span>מאומת
+                        </div>
+                        <div class="profile-stars modal-stars" id="modalStars"></div>
+                    </div>
+                    <div class="profile-availability modal-availability" id="modalAvailability"></div>
+                </div>
+            </div>
+            <div class="modal-divider"></div>
+            <div class="modal-tags" id="modalTags"></div>
+            <p class="modal-section-label">על המשרד</p>
+            <p class="modal-bio" id="modalBio"></p>
+            <div class="modal-divider"></div>
+            <p class="modal-section-label">נתוני פרופיל</p>
+            <div class="modal-stats" id="modalStats"></div>
+            <a href="#matchmaker" class="modal-cta" id="modalCta">שלחו פנייה ←</a>
+        </div>
+    </div>
+
+    <!-- Matchmaker Quiz -->
     <section id="matchmaker" class="matchmaker">
         <div class="container matchmaker-container">
             <header class="section-head">
                 <p class="section-eyebrow">שיחת ההתאמה</p>
                 <h2 class="section-title">שלוש שאלות. לא יותר.</h2>
             </header>
-
             <div class="quiz-shell" id="quizShell" data-current-step="1">
-
-                <!-- Progress -->
                 <div class="quiz-progress" aria-hidden="true">
                     <span class="progress-dot" data-dot="1"></span>
                     <span class="progress-rule"></span>
@@ -323,8 +321,7 @@
                     <span class="progress-rule"></span>
                     <span class="progress-dot" data-dot="3"></span>
                 </div>
-
-                <!-- Step 1: niche -->
+                <!-- Step 1 -->
                 <div class="quiz-step is-active" data-step="1">
                     <p class="quiz-step-num">01 · התחום</p>
                     <h3 class="quiz-question">מה אתם צריכים?</h3>
@@ -344,8 +341,7 @@
                         </button>
                     </div>
                 </div>
-
-                <!-- Step 2: priority -->
+                <!-- Step 2 -->
                 <div class="quiz-step" data-step="2">
                     <p class="quiz-step-num">02 · העדיפות</p>
                     <h3 class="quiz-question">מה הכי חשוב לכם?</h3>
@@ -369,8 +365,7 @@
                         </button>
                     </div>
                 </div>
-
-                <!-- Step 3: contact -->
+                <!-- Step 3 -->
                 <div class="quiz-step" data-step="3">
                     <p class="quiz-step-num">03 · פרטי קשר</p>
                     <h3 class="quiz-question">איך נחזור אליכם?</h3>
@@ -392,7 +387,6 @@
                         <button type="submit" class="btn-primary btn-block">שלחו אלינו</button>
                     </form>
                 </div>
-
                 <!-- Confirmation -->
                 <div class="quiz-step quiz-confirm" data-step="done">
                     <div class="confirm-mark" aria-hidden="true">◆</div>
@@ -405,8 +399,6 @@
                     <div class="sla-badge" id="slaBadge"></div>
                     <div class="confirm-meta" id="confirmSummary"></div>
                 </div>
-
-                <!-- Quiz nav -->
                 <div class="quiz-nav">
                     <button type="button" class="btn-text quiz-back" id="quizBack" disabled>← חזרה</button>
                     <span class="quiz-nav-spacer"></span>
@@ -427,306 +419,7 @@
         </div>
     </section>
 
-    <!-- ========== MERCHANT / B2B SIDE ========== -->
-    <section id="merchant" class="merchant">
-        <div class="container">
-            <div class="merchant-divider">
-                <span class="divider-line"></span>
-                <span class="divider-label">For Professionals</span>
-                <span class="divider-line"></span>
-            </div>
-
-            <header class="section-head merchant-head">
-                <p class="section-eyebrow emerald-eyebrow">Grow Your Practice with Our Elite Network</p>
-                <h2 class="section-title">
-                    השיגו לקוחות איכותיים —<br>
-                    <span class="emerald-text">לא טפסי לידים.</span>
-                </h2>
-                <p class="section-lede merchant-lede">
-                    כל פנייה שמגיעה אליכם עברה סינון אנושי, כבר רוצה לדבר, וכבר יודעת מה ערך השירות שלכם.<br>
-                    <strong>אנחנו לא מוכרים את אותה פנייה לארבעה מתחרים.</strong>
-                </p>
-            </header>
-
-            <!-- Three honest commitments — not fabricated stats -->
-            <div class="merchant-kpis">
-                <div class="kpi-stat">
-                    <div class="kpi-figure">1:1</div>
-                    <p class="kpi-label">פנייה בלעדית</p>
-                    <p class="kpi-sub">כל פנייה מגיעה אליכם בלבד. בלי משלוח מקביל לארבעה מתחרים שיתחרו על אותו לקוח.</p>
-                </div>
-                <div class="kpi-stat kpi-emerald">
-                    <div class="kpi-figure">סינון<span class="kpi-unit">אנושי</span></div>
-                    <p class="kpi-label">לא בוט. לא טופס.</p>
-                    <p class="kpi-sub">אדם בוחן כל פנייה לפני שהיא מועברת אליכם — שואל את השאלות שטופס לא ישאל.</p>
-                </div>
-                <div class="kpi-stat">
-                    <div class="kpi-figure">תשלום<span class="kpi-unit">על תוצאה</span></div>
-                    <p class="kpi-label">לא על קליק</p>
-                    <p class="kpi-sub">משלמים רק כשפנייה מאומתת מגיעה. בלי דמי חשיפה, בלי מינימום, בלי קליקים מבוזבזים.</p>
-                </div>
-            </div>
-
-            <!-- Verified Badge + Performance Dashboard Mockup -->
-            <div class="merchant-showcase">
-                <div class="showcase-text">
-                    <div class="verified-badge">
-                        <div class="badge-shield">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"
-                                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-                                <path d="M8.5 12l2.5 2.5L16 9"
-                                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="badge-text">
-                            <span class="badge-eyebrow">Verified · 2026</span>
-                            <span class="badge-title">מאומת ידנית</span>
-                        </div>
-                    </div>
-
-                    <h3 class="showcase-title">
-                        תג ה־Verified —<br>
-                        <span class="emerald-text">סטנדרט שמעבירים בידיים.</span>
-                    </h3>
-                    <p class="showcase-body">
-                        אנחנו לא מאשרים פרופילים בלחיצת כפתור. תג ה־Verified מוענק רק אחרי בדיקה ידנית: מסמכים, רישיון, ביטוח, ושיחה אישית.<br>
-                        <strong>הוא נראה ללקוחות. הוא עובד עבורכם.</strong>
-                    </p>
-                    <ul class="verified-perks">
-                        <li><span class="perk-check">✓</span> אימות מסמכים, רישיון, וביטוח מקצועי</li>
-                        <li><span class="perk-check">✓</span> סקירה אנושית של רקע ומקרי עבר</li>
-                        <li><span class="perk-check">✓</span> שיחה אישית עם הקונסיירז' לפני הפעלת התג</li>
-                        <li><span class="perk-check">✓</span> חותם אמון בדף הפרופיל ובכל מייל יוצא</li>
-                    </ul>
-                </div>
-
-                <!-- Performance Dashboard Mockup -->
-                <div class="showcase-dashboard">
-                    <div class="dash-frame">
-                        <div class="dash-chrome">
-                            <div class="chrome-dots">
-                                <span></span><span></span><span></span>
-                            </div>
-                            <p class="dash-title">Performance · ינואר 2026</p>
-                            <p class="dash-status">דמו · נתוני דוגמה</p>
-                        </div>
-
-                        <div class="dash-body">
-                            <!-- KPI Tiles -->
-                            <div class="dash-tiles">
-                                <div class="tile">
-                                    <p class="tile-label">פניות החודש</p>
-                                    <p class="tile-value">47</p>
-                                    <p class="tile-trend up">↑ +12 מהחודש שעבר</p>
-                                </div>
-                                <div class="tile">
-                                    <p class="tile-label">זמן תגובה</p>
-                                    <p class="tile-value">1.2<span class="tile-unit">h</span></p>
-                                    <p class="tile-trend up">↑ −18%</p>
-                                </div>
-                                <div class="tile tile-highlight">
-                                    <p class="tile-label">המרות</p>
-                                    <p class="tile-value">32<span class="tile-unit">%</span></p>
-                                    <p class="tile-trend up">↑ +4pt</p>
-                                </div>
-                            </div>
-
-                            <!-- Line Chart -->
-                            <div class="dash-chart">
-                                <div class="chart-head">
-                                    <p class="chart-title">פניות איכותיות · 6 חודשים</p>
-                                    <span class="chart-meta">Q4 → Q1</span>
-                                </div>
-                                <svg viewBox="0 0 360 110" class="chart-svg" preserveAspectRatio="none" aria-hidden="true">
-                                    <defs>
-                                        <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
-                                            <stop offset="0%" stop-color="#34A073" stop-opacity="0.32"/>
-                                            <stop offset="100%" stop-color="#34A073" stop-opacity="0"/>
-                                        </linearGradient>
-                                    </defs>
-                                    <line x1="0" y1="28" x2="360" y2="28" stroke="rgba(26,27,32,0.05)" stroke-width="1"/>
-                                    <line x1="0" y1="55" x2="360" y2="55" stroke="rgba(26,27,32,0.05)" stroke-width="1"/>
-                                    <line x1="0" y1="82" x2="360" y2="82" stroke="rgba(26,27,32,0.05)" stroke-width="1"/>
-                                    <path d="M0,80 L60,72 L120,60 L180,52 L240,36 L300,28 L360,20 L360,110 L0,110 Z"
-                                          fill="url(#chartFill)"/>
-                                    <path d="M0,80 L60,72 L120,60 L180,52 L240,36 L300,28 L360,20"
-                                          fill="none" stroke="#34A073" stroke-width="2.2"
-                                          stroke-linecap="round" stroke-linejoin="round"/>
-                                    <circle cx="360" cy="20" r="9" fill="#34A073" opacity="0.18"/>
-                                    <circle cx="360" cy="20" r="4" fill="#34A073"/>
-                                </svg>
-                                <div class="chart-axis">
-                                    <span>אוג</span>
-                                    <span>ספט</span>
-                                    <span>אוק</span>
-                                    <span>נוב</span>
-                                    <span>דצמ</span>
-                                    <span>ינו</span>
-                                </div>
-                            </div>
-
-                            <!-- Bar Chart -->
-                            <div class="dash-bars">
-                                <p class="bars-title">פילוח לפי מקור פנייה</p>
-                                <div class="bar-row">
-                                    <span class="bar-label">התאמה ישירה</span>
-                                    <div class="bar"><div class="bar-fill" style="--w: 78%"></div></div>
-                                    <span class="bar-value">78%</span>
-                                </div>
-                                <div class="bar-row">
-                                    <span class="bar-label">המלצה ברשת</span>
-                                    <div class="bar"><div class="bar-fill" style="--w: 52%"></div></div>
-                                    <span class="bar-value">52%</span>
-                                </div>
-                                <div class="bar-row">
-                                    <span class="bar-label">חיפוש פעיל</span>
-                                    <div class="bar"><div class="bar-fill bar-fill-soft" style="--w: 31%"></div></div>
-                                    <span class="bar-value">31%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Merchant Inbox Preview · Hot Lead Demo -->
-            <div class="hot-lead-demo">
-                <header class="hot-demo-header">
-                    <p class="section-eyebrow emerald-eyebrow">תצוגת בעל מקצוע · Inbox Preview</p>
-                    <h3 class="hot-demo-title">כך נראית פנייה Tier 3 — ישירות לתיבה שלכם</h3>
-                    <p class="hot-demo-sub">הפנייה הבאה אומתה ידנית וסווגה כדחופה. תגובה נדרשת תוך 2 שעות.</p>
-                </header>
-
-                <div class="hot-lead-card" role="article" aria-label="דוגמה לפנייה דחופה">
-                    <div class="hot-card-header">
-                        <div class="hot-card-flag">
-                            <span class="hot-flag-dot" aria-hidden="true"></span>
-                            <span class="hot-flag-label">Hot Lead</span>
-                            <span class="hot-tier-badge">Tier 3</span>
-                        </div>
-                        <span class="hot-card-timestamp">לפני 3 דקות</span>
-                    </div>
-
-                    <div class="hot-card-body">
-                        <div class="hot-card-niche">
-                            <span class="hot-niche-tag">משפטים</span>
-                        </div>
-                        <div class="hot-signals">
-                            <span class="hot-signal-tag is-critical">הליך פעיל בבית משפט</span>
-                            <span class="hot-signal-tag is-critical">דיני פלילים</span>
-                            <span class="hot-signal-tag">דחיפות גבוהה</span>
-                        </div>
-                        <p class="hot-note-preview">"יש לי דיון בבית המשפט המחוזי ביום ראשון הקרוב. עורך הדין שייצג אותי פרש בפתאומיות ואני זקוק לייצוג דחוף בתיק פלילי..."</p>
-                    </div>
-
-                    <div class="hot-card-footer">
-                        <div class="hot-card-meta">
-                            <div class="hot-meta-item">
-                                <span class="hot-meta-label">SLA</span>
-                                <span class="hot-meta-value is-urgent">2 שעות</span>
-                            </div>
-                            <div class="hot-meta-item">
-                                <span class="hot-meta-label">ציון</span>
-                                <span class="hot-meta-value">0.87</span>
-                            </div>
-                            <div class="hot-meta-item">
-                                <span class="hot-meta-label">Tier</span>
-                                <span class="hot-meta-value">3 · מורכב</span>
-                            </div>
-                        </div>
-                        <button class="hot-card-action" type="button" aria-label="הדגמה בלבד">ראה פרטים ←</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== PRICING ========== -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <header class="section-head pricing-head">
-                <p class="section-eyebrow">Pricing</p>
-                <h2 class="section-title">
-                    שלוש דרכים<br>
-                    <span class="emerald-text">להפוך ללקוח־מועדף.</span>
-                </h2>
-                <p class="section-lede">
-                    משלמים על פניות איכותיות, לא על חשיפה. ללא חוזה התחייבות, ללא עמלות סמויות.
-                </p>
-            </header>
-
-            <div class="pricing-grid">
-                <!-- Standard -->
-                <article class="pricing-tier">
-                    <p class="tier-tag">Standard</p>
-                    <h3 class="tier-name">בסיסי</h3>
-                    <div class="tier-price">
-                        <span class="price-currency">₪</span>
-                        <span class="price-amount">890</span>
-                        <span class="price-period">/חודש</span>
-                    </div>
-                    <p class="tier-tagline">להתחלה — בלי התחייבות, בלי הפתעות.</p>
-                    <ul class="tier-features">
-                        <li><span class="feat-check">✓</span> פרופיל מקצועי ברשת ההתאמות</li>
-                        <li><span class="feat-check">✓</span> עד <strong>5</strong> פניות מאומתות בחודש</li>
-                        <li><span class="feat-check">✓</span> זמן תגובה SLA: 24 שעות</li>
-                        <li><span class="feat-check">✓</span> תמיכה במייל</li>
-                        <li class="feat-muted">— אין תג Verified</li>
-                        <li class="feat-muted">— אין גישה לדאשבורד</li>
-                    </ul>
-                    <button class="tier-cta">התחילו · 14 יום ניסיון</button>
-                </article>
-
-                <!-- Premium · Most Popular · Emerald -->
-                <article class="pricing-tier tier-popular">
-                    <div class="popular-ribbon">הנבחר ביותר</div>
-                    <p class="tier-tag tier-tag-emerald">Premium</p>
-                    <h3 class="tier-name">פרימיום</h3>
-                    <div class="tier-price">
-                        <span class="price-currency">₪</span>
-                        <span class="price-amount">2,490</span>
-                        <span class="price-period">/חודש</span>
-                    </div>
-                    <p class="tier-tagline">כולל את כל מה שגדל איתכם — תג, דאשבורד, וקונסיירז'.</p>
-                    <ul class="tier-features">
-                        <li><span class="feat-check feat-check-emerald">✓</span> עד <strong>20</strong> פניות מאומתות בחודש</li>
-                        <li><span class="feat-check feat-check-emerald">✓</span> תג <strong>Verified</strong> מאומת ידנית</li>
-                        <li><span class="feat-check feat-check-emerald">✓</span> גישה ל־Performance Dashboard</li>
-                        <li><span class="feat-check feat-check-emerald">✓</span> עדיפות בהתאמות (Priority Placement)</li>
-                        <li><span class="feat-check feat-check-emerald">✓</span> מנהל קשר אישי</li>
-                        <li><span class="feat-check feat-check-emerald">✓</span> דוח רבעוני + שיחת אסטרטגיה</li>
-                    </ul>
-                    <button class="tier-cta tier-cta-emerald">בחרו פרימיום</button>
-                </article>
-
-                <!-- Elite -->
-                <article class="pricing-tier">
-                    <p class="tier-tag">Elite</p>
-                    <h3 class="tier-name">אליט</h3>
-                    <div class="tier-price">
-                        <span class="price-amount-text">בהתאמה</span>
-                    </div>
-                    <p class="tier-tagline">לעסק שצריך מסלול בנוי בהתאמה — נפח גבוה, מותג חזק.</p>
-                    <ul class="tier-features">
-                        <li><span class="feat-check">✓</span> פניות בלתי מוגבלות</li>
-                        <li><span class="feat-check">✓</span> קונסיירז' ייעודי לכם</li>
-                        <li><span class="feat-check">✓</span> דף נחיתה ממותג שלכם</li>
-                        <li><span class="feat-check">✓</span> שיחת אסטרטגיה רבעונית</li>
-                        <li><span class="feat-check">✓</span> גישה ל־White-Label API</li>
-                        <li><span class="feat-check">✓</span> SLA תגובה: 4 שעות</li>
-                    </ul>
-                    <button class="tier-cta">שיחה אישית</button>
-                </article>
-            </div>
-
-            <p class="pricing-fineprint">
-                כל המסלולים: ביטול חופשי בכל רגע. ללא חוזה התחייבות. ללא עמלת הצלחה נסתרת.
-            </p>
-        </div>
-    </section>
-
-    <!-- FAQ -->
+    <!-- FAQ — consumer questions only -->
     <section id="faq" class="faq">
         <div class="container">
             <header class="section-head faq-head">
@@ -736,61 +429,30 @@
                     <span class="emerald-text">לפני שמתחילים.</span>
                 </h2>
             </header>
-
             <div class="faq-list">
                 <details class="faq-item">
                     <summary class="faq-q">כמה עולה השירות ללקוחות?</summary>
                     <div class="faq-a"><p>כלום. שירות ההתאמה ללקוחות חינמי לחלוטין — ללא עמלות, ללא מנוי, ללא הפתעות. בעלי המקצוע הם שמשלמים על הגישה לפניות.</p></div>
                 </details>
-
                 <details class="faq-item">
                     <summary class="faq-q">מה קורה אחרי שמילאתי את הטופס?</summary>
                     <div class="faq-a"><p>אדם מהצוות — לא בוט — קורא את הפנייה, מוצא התאמה בין בעלי המקצוע שלנו, ותוך 24 שעות שולח לכם הודעה עם שם, רקע קצר, ולמה דווקא הוא. אם זה לא מתאים — מציעים שניים נוספים. בלי לחץ, בלי שיווק.</p></div>
                 </details>
-
                 <details class="faq-item">
                     <summary class="faq-q">איך אתם בוחרים את בעלי המקצוע?</summary>
                     <div class="faq-a"><p>כל בעל מקצוע עובר בדיקה ידנית: מסמכים, רישיון, ביטוח מקצועי, ושיחה אישית. לא מאשרים כל מי שמגיש מועמדות — ומסירים פרופילים שמקבלים ביקורות שליליות מלקוחות.</p></div>
-                </details>
-
-                <details class="faq-item">
-                    <summary class="faq-q">לבעלי מקצוע: האם יש חוזה שנתי?</summary>
-                    <div class="faq-a"><p>לא. ביטול חופשי בכל עת — ללא קנסות, ללא התחייבות. משלמים רק על פניות מאומתות שהגיעו, ומפסיקים מתי שרוצים.</p></div>
-                </details>
-
-                <details class="faq-item">
-                    <summary class="faq-q">לבעלי מקצוע: מה קורה אם פנייה לא מתאימה?</summary>
-                    <div class="faq-a"><p>מודיעים לנו ואנחנו לא מחייבים. כל פנייה עוברת סינון לפני שמועברת, אבל אם משהו לא מדויק — יש מנגנון פשוט לדיווח וזיכוי.</p></div>
-                </details>
-
-                <details class="faq-item">
-                    <summary class="faq-q">מה ההבדל בין מסלול בסיסי לפרימיום?</summary>
-                    <div class="faq-a"><p>בסיסי מתאים להתנסות — עד 5 פניות בחודש, ללא תג Verified. פרימיום מוסיף תג מאומת ידנית, עדיפות בהתאמות, דאשבורד ביצועים, ומנהל קשר אישי. רוב בעלי המקצוע עוברים לפרימיום תוך החודש הראשון.</p></div>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <div class="container final-cta-container">
-            <div class="cta-block cta-block-client">
-                <p class="cta-block-eyebrow">לחפשים איש מקצוע</p>
-                <h3 class="cta-block-title">שלוש שאלות.<br>תשובה אחת.</h3>
-                <p class="cta-block-body">מלאו את הטופס ותוך 24 שעות תקבלו שם, רקע קצר, ולמה דווקא הוא.</p>
-                <a href="#matchmaker" class="btn-inverse">התחילו את ההתאמה</a>
-            </div>
-            <div class="cta-rule" aria-hidden="true">
-                <span class="cta-rule-line"></span>
-                <span class="cta-rule-mark">◆</span>
-                <span class="cta-rule-line"></span>
-            </div>
-            <div class="cta-block cta-block-merchant">
-                <p class="cta-block-eyebrow cta-block-eyebrow-emerald">לבעלי מקצוע</p>
-                <h3 class="cta-block-title">פניות שכבר<br>רוצות לדבר.</h3>
-                <p class="cta-block-body">הצטרפו לרשת — ותקבלו לקוחות שעברו בירור, לא טפסי לידים.</p>
-                <a href="#pricing" class="btn-merchant">הצטרפו כאיש מקצוע</a>
-            </div>
+    <!-- B2B Bridge -->
+    <section class="b2b-bridge">
+        <div class="container b2b-bridge-inner">
+            <p class="bridge-eyebrow">לבעלי מקצוע</p>
+            <h2 class="bridge-title">גם לך יש עסק?<br><span class="bridge-title-accent">הצטרף לפלטפורמה.</span></h2>
+            <p class="bridge-body">קבל לקוחות שכבר רוצים לדבר — לא טפסי לידים. בלי חוזה, בלי התחייבות.</p>
+            <a href="portal.html" class="btn-bridge">הצטרף כבעל מקצוע ←</a>
         </div>
     </section>
 
@@ -806,18 +468,10 @@
         </div>
     </footer>
 
+    <script src="./node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="./node_modules/gsap/dist/ScrollTrigger.min.js"></script>
     <script>
-        // ====== Niche card → jump to matchmaker with niche pre-selected ======
-        document.querySelectorAll('[data-jump-niche]').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const niche = btn.dataset.jumpNiche;
-                const target = document.querySelector(`.quiz-option[data-niche="${niche}"]`);
-                document.getElementById('matchmaker').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                if (target) setTimeout(() => target.click(), 700);
-            });
-        });
-
-        // ====== Smooth scroll for nav anchors ======
+        // ── Smooth scroll ────────────────────────────────────────────────────
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 const href = a.getAttribute('href');
@@ -827,25 +481,98 @@
             });
         });
 
-        // ====== Matchmaker Quiz ======
-        const shell = document.getElementById('quizShell');
-        const steps = shell.querySelectorAll('.quiz-step');
+        // ── Niche card → jump to quiz with niche pre-selected ───────────────
+        document.querySelectorAll('[data-jump-niche]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const niche  = btn.dataset.jumpNiche;
+                const target = document.querySelector(`.quiz-option[data-niche="${niche}"]`);
+                document.getElementById('matchmaker').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (target) setTimeout(() => target.click(), 700);
+            });
+        });
+
+        // ── Profile Modal ────────────────────────────────────────────────────
+        (function initModal() {
+            const backdrop = document.getElementById('profileModal');
+            if (!backdrop) return;
+
+            function openModal(card) {
+                const d = card.dataset;
+
+                document.getElementById('modalAvatar').textContent   = d.initial   || '';
+                document.getElementById('modalName').textContent     = d.name       || '';
+                document.getElementById('modalSubtitle').textContent = d.specialty  || '';
+                document.getElementById('modalBio').textContent      = d.bio        || '';
+
+                const score = parseFloat(d.stars) || 0;
+                document.getElementById('modalStars').innerHTML =
+                    '<span aria-hidden="true">★★★★★</span>' +
+                    '<span class="stars-score">' + score + '</span>';
+
+                const isToday = (d.availability || '').includes('היום');
+                document.getElementById('modalAvailability').innerHTML =
+                    '<span class="availability-dot' + (isToday ? '' : ' availability-dot--week') + '" aria-hidden="true"></span>' +
+                    '<span>' + (d.availability || '') + '</span>';
+
+                document.getElementById('modalTags').innerHTML =
+                    (d.tags || '').split(',').filter(Boolean)
+                    .map(t => '<span class="modal-tag">' + t.trim() + '</span>').join('');
+
+                document.getElementById('modalStats').innerHTML =
+                    [1, 2, 3].map(i =>
+                        '<div class="modal-stat-card">' +
+                        '<span class="modal-stat-value">' + (d['s' + i + 'v'] || '') + '</span>' +
+                        '<span class="modal-stat-label">' + (d['s' + i + 'l'] || '') + '</span>' +
+                        '</div>'
+                    ).join('');
+
+                document.getElementById('modalCta').textContent = (d.cta || 'שלחו פנייה') + ' ←';
+                backdrop.dataset.niche = d.niche || '';
+                backdrop.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+                document.getElementById('modalClose').focus();
+            }
+
+            function closeModal() {
+                backdrop.classList.remove('is-open');
+                document.body.style.overflow = '';
+            }
+
+            document.querySelectorAll('[data-modal]').forEach(card => {
+                card.addEventListener('click',   ()  => openModal(card));
+                card.addEventListener('keydown', e   => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(card); }
+                });
+            });
+
+            document.getElementById('modalClose').addEventListener('click', closeModal);
+            backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+            document.getElementById('modalCta').addEventListener('click', () => {
+                backdrop.classList.remove('is-open');
+                document.body.style.overflow = '';
+            });
+        })();
+
+        // ── Matchmaker Quiz ──────────────────────────────────────────────────
+        const shell        = document.getElementById('quizShell');
+        const steps        = shell.querySelectorAll('.quiz-step');
         const progressDots = shell.querySelectorAll('.progress-dot');
-        const backBtn = document.getElementById('quizBack');
-        const form = document.getElementById('quizForm');
-        const summary = document.getElementById('confirmSummary');
+        const backBtn      = document.getElementById('quizBack');
+        const form         = document.getElementById('quizForm');
+        const summary      = document.getElementById('confirmSummary');
 
-        const answers = { niche: null, nicheLabel: null, priority: null, name: null, contact: null, note: null };
+        const answers   = { niche: null, nicheLabel: null, priority: null, name: null, contact: null, note: null };
         const stepOrder = ['1', '2', '3'];
-        let currentIndex = 0;
+        let   currentIndex  = 0;
+        let   _stepRendered = false;
 
-        let _stepRendered = false;
         function renderStep(targetStep) {
             const apply = () => {
                 steps.forEach(s => s.classList.toggle('is-active', s.dataset.step === targetStep));
                 progressDots.forEach((d, i) => {
                     d.classList.toggle('is-active', i === stepOrder.indexOf(targetStep));
-                    d.classList.toggle('is-done', i < stepOrder.indexOf(targetStep) && targetStep !== 'done');
+                    d.classList.toggle('is-done',   i < stepOrder.indexOf(targetStep) && targetStep !== 'done');
                     if (targetStep === 'done') d.classList.add('is-done');
                 });
                 backBtn.disabled = (targetStep === '1' || targetStep === 'done');
@@ -857,37 +584,24 @@
             setTimeout(() => { apply(); shell.classList.remove('step-fade'); }, 160);
         }
 
-        function goNext() {
-            currentIndex = Math.min(currentIndex + 1, stepOrder.length - 1);
-            renderStep(stepOrder[currentIndex]);
-        }
-
-        function goBack() {
-            currentIndex = Math.max(currentIndex - 1, 0);
-            renderStep(stepOrder[currentIndex]);
-        }
-
-        // Step 1: niche options
         shell.querySelectorAll('[data-step="1"] .quiz-option').forEach(btn => {
             btn.addEventListener('click', () => {
-                answers.niche = btn.dataset.niche;
-                answers.nicheLabel = btn.dataset.answer;
+                answers.niche       = btn.dataset.niche;
+                answers.nicheLabel  = btn.dataset.answer;
                 shell.dataset.theme = answers.niche;
                 shell.querySelectorAll('[data-step="1"] .quiz-option').forEach(b => b.classList.toggle('is-selected', b === btn));
-                setTimeout(goNext, 280);
+                setTimeout(() => { currentIndex = Math.min(currentIndex + 1, stepOrder.length - 1); renderStep(stepOrder[currentIndex]); }, 280);
             });
         });
 
-        // Step 2: priority options
         shell.querySelectorAll('[data-step="2"] .quiz-option').forEach(btn => {
             btn.addEventListener('click', () => {
                 answers.priority = btn.dataset.answer;
                 shell.querySelectorAll('[data-step="2"] .quiz-option').forEach(b => b.classList.toggle('is-selected', b === btn));
-                setTimeout(goNext, 280);
+                setTimeout(() => { currentIndex = Math.min(currentIndex + 1, stepOrder.length - 1); renderStep(stepOrder[currentIndex]); }, 280);
             });
         });
 
-        // Step 3: form
         form.addEventListener('submit', e => {
             e.preventDefault();
             answers.name    = form.name.value.trim();
@@ -895,20 +609,16 @@
             answers.note    = form.note.value.trim();
             if (!answers.name || !answers.contact) return;
 
-            // ── Lead qualification ──────────────────────────────────────────
-            const q          = window.LeadQualifier.qualify(answers);
-            const slaHours   = q.recommended_match?.sla_hours ?? 24;
-            const slaLabel   = slaHours <= 4 ? 'תוך ' + slaHours + ' שעות' : 'תוך 24 שעות';
-            const slaDisplay = slaHours + ' שעות';
+            const q        = window.LeadQualifier.qualify(answers);
+            const slaHours = q.recommended_match?.sla_hours ?? 24;
+            const slaLabel = slaHours <= 4 ? 'תוך ' + slaHours + ' שעות' : 'תוך 24 שעות';
 
-            // Persist for internal review (replace with API POST in production)
             try {
                 const leads = JSON.parse(localStorage.getItem('cq_leads') || '[]');
                 leads.push({ ts: Date.now(), name: answers.name, contact: answers.contact, ...q });
                 localStorage.setItem('cq_leads', JSON.stringify(leads.slice(-50)));
             } catch (_) {}
 
-            // SLA Service Badge
             const slaBadge = document.getElementById('slaBadge');
             if (slaBadge) {
                 const isUrgent   = slaHours < 24;
@@ -918,29 +628,25 @@
                     '<div class="sla-badge-icon" aria-hidden="true">◆</div>' +
                     '<div class="sla-badge-content">' +
                     '<p class="sla-badge-label">זמן תגובה משוער</p>' +
-                    '<p class="sla-badge-value">' + slaDisplay + '</p>' +
+                    '<p class="sla-badge-value">' + (slaHours + ' שעות') + '</p>' +
                     '<p class="sla-badge-sub">' + urgentWord + '</p>' +
                     '</div>';
             }
-
-            // Update confirm-body SLA copy when urgent
-            if (slaHours < 24) {
-                const body = document.querySelector('.quiz-confirm .confirm-body');
-                if (body) body.innerHTML = body.innerHTML.replace('תוך 24 שעות', slaLabel);
-            }
-            // ───────────────────────────────────────────────────────────────
 
             summary.innerHTML =
                 '<span>תחום: <strong>' + answers.nicheLabel + '</strong></span>' +
                 '<span>עדיפות: <strong>' + (answers.priority || '—') + '</strong></span>' +
                 '<span>חוזרים אל: <strong>' + answers.contact + '</strong></span>' +
                 '<span>זמן תגובה: <strong>' + slaLabel + '</strong></span>';
+
             renderStep('done');
         });
 
-        backBtn.addEventListener('click', goBack);
+        backBtn.addEventListener('click', () => {
+            currentIndex = Math.max(currentIndex - 1, 0);
+            renderStep(stepOrder[currentIndex]);
+        });
 
-        // ── Note field real-time tier analyzer ──────────────────────────────
         const noteField    = document.getElementById('qNote');
         const noteAnalyzer = document.getElementById('noteAnalyzer');
         let   analyzeTimer = null;
@@ -949,9 +655,7 @@
             if (!noteAnalyzer) return;
             if (!active) { noteAnalyzer.innerHTML = ''; return; }
             const labels    = ['', 'ניתוח בסיסי', 'ניתוח אותות', 'פנייה מורכבת'];
-            const pillClass = tier === 3 ? 'tier-pill tier-pill-3'
-                            : tier === 2 ? 'tier-pill tier-pill-2'
-                            : 'tier-pill tier-pill-1';
+            const pillClass = tier === 3 ? 'tier-pill tier-pill-3' : tier === 2 ? 'tier-pill tier-pill-2' : 'tier-pill tier-pill-1';
             const pillText  = ['', 'T1', 'T2', 'T3'][tier] || 'T1';
             noteAnalyzer.innerHTML =
                 '<span class="analyzer-dot" aria-hidden="true"></span>' +
@@ -971,44 +675,59 @@
                 }, 380);
             });
         }
-        // ────────────────────────────────────────────────────────────────────
 
-        // Initial render
         renderStep('1');
 
-        // ── Modal toggle ─────────────────────────────────────────────────────
-        (function () {
-            function openModal(id) {
-                const el = document.getElementById(id);
-                if (!el) return;
-                el.classList.add('is-open');
-                document.body.style.overflow = 'hidden';
-                el.querySelector('.modal-close')?.focus();
-            }
-            function closeModal(el) {
-                el.classList.remove('is-open');
-                document.body.style.overflow = '';
-            }
-            document.querySelectorAll('[data-modal-target]').forEach(t => {
-                t.addEventListener('click', () => openModal(t.dataset.modalTarget));
-                t.addEventListener('keydown', e => {
-                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(t.dataset.modalTarget); }
+        // ── TiltCard — profile cards (evade effect + spotlight) ──────────────
+        (function initTiltCards() {
+            const TILT  = 15, SCALE = 1.05, P = 1200, DIR = -1;
+            document.querySelectorAll('.profile-card').forEach(card => {
+                const spotlight = card.querySelector('.tilt-spotlight');
+                const inner     = card.querySelector('.tilt-spotlight-inner');
+                card.addEventListener('pointerenter', () => spotlight.classList.add('is-visible'));
+                card.addEventListener('pointerleave', () => {
+                    card.style.transform = `perspective(${P}px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)`;
+                    spotlight.classList.remove('is-visible');
+                });
+                card.addEventListener('pointermove', e => {
+                    const r  = card.getBoundingClientRect();
+                    const px = (e.clientX - r.left) / r.width;
+                    const py = (e.clientY - r.top)  / r.height;
+                    const xR = (py - 0.5) * (TILT * 2) * DIR;
+                    const yR = (px - 0.5) * -(TILT * 2) * DIR;
+                    card.style.transform = `perspective(${P}px) rotateX(${xR}deg) rotateY(${yR}deg) scale3d(${SCALE},${SCALE},${SCALE})`;
+                    inner.style.left = `${px * 100}%`;
+                    inner.style.top  = `${py * 100}%`;
                 });
             });
-            document.querySelectorAll('.modal-backdrop').forEach(b => {
-                b.querySelector('.modal-close')?.addEventListener('click', () => closeModal(b));
-                b.addEventListener('click', e => { if (e.target === b) closeModal(b); });
-            });
-            document.querySelectorAll('[data-close-modal]').forEach(el =>
-                el.addEventListener('click', () =>
-                    document.querySelectorAll('.modal-backdrop.is-open').forEach(closeModal)
-                )
-            );
-            document.addEventListener('keydown', e => {
-                if (e.key === 'Escape') document.querySelectorAll('.modal-backdrop.is-open').forEach(closeModal);
-            });
         })();
-        // ─────────────────────────────────────────────────────────────────────
+
+        // ── GSAP Animations ──────────────────────────────────────────────────
+        if (typeof gsap !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero stagger reveal on load
+            gsap.set(['#heroEyebrow', '#heroHeadline', '#heroLede', '#heroActions'], {
+                opacity: 0, y: 28
+            });
+            gsap.timeline({ delay: 0.15, defaults: { ease: 'power2.out' } })
+                .to('#heroEyebrow',  { opacity: 1, y: 0, duration: 0.7  })
+                .to('#heroHeadline', { opacity: 1, y: 0, duration: 0.85 }, '-=0.45')
+                .to('#heroLede',     { opacity: 1, y: 0, duration: 0.75 }, '-=0.55')
+                .to('#heroActions',  { opacity: 1, y: 0, duration: 0.65 }, '-=0.45');
+
+            // Niche cards stagger on scroll
+            gsap.from('#nicheGrid .niche-card', {
+                opacity: 0, y: 44, duration: 0.75, stagger: 0.14, ease: 'power2.out',
+                scrollTrigger: { trigger: '#nicheGrid', start: 'top 78%', once: true }
+            });
+
+            // Profile cards stagger on scroll
+            gsap.from('#expertsGrid .profile-card', {
+                opacity: 0, y: 44, duration: 0.8, stagger: 0.18, ease: 'power2.out',
+                scrollTrigger: { trigger: '#expertsGrid', start: 'top 78%', once: true }
+            });
+        }
     </script>
 </body>
 </html>
