@@ -1,3 +1,13 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Claude Code internals
+.claude/
+.mcp.json
+
+# OS / Editor
 .DS_Store
 Thumbs.db
 *.log
