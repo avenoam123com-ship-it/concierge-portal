@@ -145,19 +145,15 @@
     <!-- Hero -->
     <section class="hero">
         <div class="container hero-container">
-            <p class="hero-eyebrow" id="heroEyebrow">קונסיירז' אישי · 2026</p>
+            <p class="hero-eyebrow" id="heroEyebrow">בלי גוגל. בלי ניחושים.</p>
             <h1 class="hero-headline" id="heroHeadline">
-                אנחנו לא מפרסמים את כולם.<br>
-                <span class="hero-headline-soft">אנחנו מוצאים את אלו שמתאימים לך.</span>
+                מחפשים עורך דין, רופא או מתווך?<br>
+                <span class="hero-headline-soft">נמצא לכם את המומחה הנכון.</span>
             </h1>
             <p class="hero-lede" id="heroLede">
-                לא מאגר. לא דירוג. שיחה אחת — והתאמה לאיש מקצוע שכבר עשינו עליו את הבירור.<br>
-                <strong>רפואה. משפטים. נדל"ן.</strong>
+                שלוש שאלות קצרות — ותוך 24 שעות יחזרו אליכם עם שם, רקע ולמה דווקא הוא.<br>
+                <strong>בלי עמלה. בלי התחייבות.</strong>
             </p>
-            <div class="hero-actions" id="heroActions">
-                <a href="#matchmaker" class="btn-primary">מצא מומחה עכשיו</a>
-                <a href="#how" class="btn-text">איך זה עובד ←</a>
-            </div>
         </div>
     </section>
 
@@ -473,10 +469,6 @@
     <!-- Matchmaker Quiz -->
     <section id="matchmaker" class="matchmaker">
         <div class="container matchmaker-container">
-            <header class="section-head">
-                <p class="section-eyebrow">שיחת ההתאמה</p>
-                <h2 class="section-title">שלוש שאלות. לא יותר.</h2>
-            </header>
             <div class="quiz-shell" id="quizShell" data-current-step="1">
                 <div class="quiz-progress" aria-hidden="true">
                     <span class="progress-dot" data-dot="1"></span>
@@ -716,6 +708,13 @@
                 backdrop.classList.remove('is-open');
                 document.body.style.overflow = '';
             });
+        })();
+
+        // ── Quiz above fold — move matchmaker right after hero ───────────────
+        (function() {
+            var quiz = document.getElementById('matchmaker');
+            var hero = document.querySelector('.hero');
+            if (quiz && hero) hero.parentNode.insertBefore(quiz, hero.nextSibling);
         })();
 
         // ── Matchmaker Quiz ──────────────────────────────────────────────────
