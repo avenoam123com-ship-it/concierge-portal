@@ -126,6 +126,29 @@
 </head>
 <body>
 
+    <!-- Intro Search Animation -->
+    <div class="intro-overlay" id="introOverlay" role="dialog" aria-label="אנימציית פתיחה" aria-modal="true">
+        <button class="intro-skip" id="introSkip">דלג ←</button>
+        <div class="intro-content">
+            <p class="intro-brand">◆ הקונסיירז'</p>
+            <div class="intro-search-wrap">
+                <div class="intro-search-bar" id="introBar">
+                    <svg class="intro-search-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    <span class="intro-search-text" id="introText" aria-live="off"></span>
+                    <span class="intro-cursor" id="introCursor" aria-hidden="true">|</span>
+                    <button class="intro-search-btn" id="introBtn" tabindex="-1" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <p class="intro-tagline">אנחנו מוצאים את זה בשבילך — בלי גוגל</p>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -883,6 +906,53 @@
         }
 
         renderStep('1');
+
+        // ── Intro Search Animation ───────────────────────────────────────────
+        (function initIntro() {
+            const overlay = document.getElementById('introOverlay');
+            if (!overlay) return;
+
+            if (sessionStorage.getItem('cq_intro_seen')) {
+                overlay.classList.add('is-gone');
+                return;
+            }
+
+            document.body.style.overflow = 'hidden';
+
+            const textEl  = document.getElementById('introText');
+            const cursor  = document.getElementById('introCursor');
+            const bar     = document.getElementById('introBar');
+            const btn     = document.getElementById('introBtn');
+            const skipBtn = document.getElementById('introSkip');
+
+            const query = 'עורך דין באזור הדרום';
+            let i = 0;
+
+            function dismiss() {
+                sessionStorage.setItem('cq_intro_seen', '1');
+                document.body.style.overflow = '';
+                overlay.classList.add('is-exit');
+                setTimeout(() => overlay.classList.add('is-gone'), 780);
+            }
+
+            skipBtn.addEventListener('click', dismiss);
+
+            // Start typing after search bar fades in (0.55s delay + 0.55s anim = ~1.1s)
+            setTimeout(function type() {
+                if (i < query.length) {
+                    textEl.textContent += query[i++];
+                    setTimeout(type, 55);
+                } else {
+                    // Typing done — pause, then click
+                    setTimeout(() => {
+                        cursor.classList.add('is-off');
+                        btn.classList.add('is-pressed');
+                        bar.classList.add('is-clicked');
+                        setTimeout(dismiss, 480);
+                    }, 550);
+                }
+            }, 1150);
+        })();
 
         // ── Window Showcase — animated search orb ───────────────────────────
         (function initWindowSearch() {
