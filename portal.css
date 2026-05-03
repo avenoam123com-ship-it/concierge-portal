@@ -160,7 +160,11 @@
     --emerald-soft-2: #C5E5D2;
     --emerald-deep: #1F6B49;
 
-    /* Quiet Luxury gold — used for premium accents */
+    /* Amber — urgency / SLA signal (not gold, not green) */
+    --amber: #D4851A;
+    --amber-soft: rgba(212,133,26,0.12);
+
+    /* Quiet Luxury gold — brand mark + progress dot + confirmation only */
     --gold: #C9A84C;
     --gold-soft: rgba(201,168,76,0.15);
     --gold-faint: rgba(201,168,76,0.06);
@@ -631,9 +635,9 @@ body {
    ========================================================= */
 .matchmaker {
     padding: var(--section-gap) 0;
-    background: var(--cloud-soft);
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
+    background: #F7F4EF;
+    border-top: 1px solid rgba(201,168,76,0.12);
+    border-bottom: 1px solid rgba(201,168,76,0.12);
 }
 
 .matchmaker-container .section-head {
@@ -864,12 +868,15 @@ body {
 
 .quiz-form .btn-primary {
     margin-top: 0.4rem;
-    background: var(--accent, var(--ink));
-    border-color: var(--accent, var(--ink));
+    background: var(--emerald-deep);
+    border-color: var(--emerald-deep);
+    box-shadow: 0 2px 12px rgba(31,107,73,0.18);
 }
 
 .quiz-form .btn-primary:hover {
-    box-shadow: 0 14px 30px rgba(26, 27, 32, 0.18);
+    background: #175c3c;
+    border-color: #175c3c;
+    box-shadow: 0 14px 30px rgba(31, 107, 73, 0.28);
 }
 
 /* Confirmation */
@@ -2108,11 +2115,11 @@ body {
 }
 
 .sla-badge.is-urgent {
-    background: linear-gradient(135deg, var(--cloud) 0%, var(--emerald-soft) 100%);
-    border-color: var(--emerald-soft-2);
+    background: linear-gradient(135deg, var(--cloud) 0%, var(--amber-soft) 100%);
+    border-color: rgba(212,133,26,0.3);
     box-shadow:
-        0 0 0 4px var(--emerald-soft),
-        0 10px 28px rgba(52, 160, 115, 0.15);
+        0 0 0 4px var(--amber-soft),
+        0 10px 28px rgba(212, 133, 26, 0.12);
 }
 
 .sla-badge-icon {
