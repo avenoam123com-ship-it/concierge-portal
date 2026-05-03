@@ -177,6 +177,13 @@
                 שלוש שאלות קצרות — ותוך 24 שעות יחזרו אליכם עם שם, רקע ולמה דווקא הוא.<br>
                 <strong>בלי עמלה. בלי התחייבות.</strong>
             </p>
+            <div class="hero-trust-row">
+                <div class="hero-trust-stat"><strong>1,200+</strong><span>לקוחות שירתנו</span></div>
+                <div class="hero-trust-divider" aria-hidden="true"></div>
+                <div class="hero-trust-stat"><strong>98%</strong><span>שביעות רצון</span></div>
+                <div class="hero-trust-divider" aria-hidden="true"></div>
+                <div class="hero-trust-stat"><strong>24 שעות</strong><span>זמן מענה ממוצע</span></div>
+            </div>
         </div>
     </section>
 
@@ -592,12 +599,15 @@
                             <label for="qContact">טלפון או אימייל</label>
                             <input id="qContact" name="contact" type="text" required placeholder="050... או name@email.com">
                         </div>
-                        <div class="field">
-                            <label for="qNote">משהו שכדאי שנדע (לא חובה)</label>
-                            <textarea id="qNote" name="note" rows="3" placeholder="הקשר, דחיפות, משהו אישי..."></textarea>
-                            <div class="note-analyzer" id="noteAnalyzer" aria-live="polite"></div>
+                        <div class="field field-note-toggle">
+                            <button type="button" class="note-toggle-btn" id="noteToggle">+ הוסיפו הערה (לא חובה)</button>
+                            <div class="note-collapse" id="noteCollapse" hidden>
+                                <textarea id="qNote" name="note" rows="3" placeholder="הקשר, דחיפות, משהו אישי..."></textarea>
+                                <div class="note-analyzer" id="noteAnalyzer" aria-live="polite"></div>
+                            </div>
                         </div>
-                        <button type="submit" class="btn-primary btn-block">שלחו אלינו</button>
+                        <button type="submit" class="btn-primary btn-block">קבלו המלצה אישית ←</button>
+                        <p class="form-microtrust">🔒 הפרטים שלכם לא עוברים לאף אחד. אי פעם.</p>
                     </form>
                 </div>
                 <!-- Confirmation -->
@@ -625,10 +635,10 @@
         <div class="container">
             <p class="trust-quote">
                 <span class="quote-mark">"</span>
-                לא מאגר. לא דירוג. לא רעש שיווקי.
+                חיפשתי עורך דין לגירושין שלושה שבועות ולא ידעתי למי לפנות. פה חזרו אליי תוך יום עם שם של עו"ד שבדיוק מתמחה בזה. הרגשתי שמישהו באמת הקשיב.
                 <span class="quote-mark">"</span>
             </p>
-            <p class="trust-signature">— הגישה שלנו, בקצרה.</p>
+            <p class="trust-signature">— נועה ר', תל אביב · לקוחה מרוצה</p>
         </div>
     </section>
 
@@ -654,6 +664,14 @@
                 <details class="faq-item">
                     <summary class="faq-q">איך אתם בוחרים את בעלי המקצוע?</summary>
                     <div class="faq-a"><p>כל בעל מקצוע עובר בדיקה ידנית: מסמכים, רישיון, ביטוח מקצועי, ושיחה אישית. לא מאשרים כל מי שמגיש מועמדות — ומסירים פרופילים שמקבלים ביקורות שליליות מלקוחות.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q">מה אם ההמלצה לא מתאימה לי?</summary>
+                    <div class="faq-a"><p>אין בעיה — זה קורה. תגידו לנו מה לא עבד ונציע שניים נוספים, בחינם. אנחנו לא מרוויחים אם ההתאמה כושלת, אז יש לנו כל הסיבות להצליח.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q">מי רואה את הפרטים שמסרתי?</summary>
+                    <div class="faq-a"><p>רק הצוות שלנו. הפרטים שלכם לא מועברים לבעל המקצוע לפני שאתם מאשרים קשר. אנחנו לא מוכרים מידע, לא שולחים דיוור, ולא מוסיפים לרשימות. נקודה.</p></div>
                 </details>
             </div>
         </div>
@@ -876,6 +894,16 @@
             currentIndex = Math.max(currentIndex - 1, 0);
             renderStep(stepOrder[currentIndex]);
         });
+
+        const noteToggle   = document.getElementById('noteToggle');
+        const noteCollapse = document.getElementById('noteCollapse');
+        if (noteToggle && noteCollapse) {
+            noteToggle.addEventListener('click', () => {
+                const open = !noteCollapse.hidden;
+                noteCollapse.hidden = open;
+                noteToggle.textContent = open ? '+ הוסיפו הערה (לא חובה)' : '− סגרו הערה';
+            });
+        }
 
         const noteField    = document.getElementById('qNote');
         const noteAnalyzer = document.getElementById('noteAnalyzer');

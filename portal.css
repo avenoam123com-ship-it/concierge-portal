@@ -987,6 +987,65 @@ body {
     font-weight: 300;
 }
 
+/* ── Hero trust row ────────────────────────────────────────────── */
+.hero-trust-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+.hero-trust-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+.hero-trust-stat strong {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--ink);
+    font-family: var(--font-body);
+    letter-spacing: -0.5px;
+}
+.hero-trust-stat span {
+    font-size: 0.78rem;
+    color: var(--ink-mute);
+    font-weight: 400;
+}
+.hero-trust-divider {
+    width: 1px;
+    height: 2rem;
+    background: var(--hairline-strong);
+    flex-shrink: 0;
+}
+
+/* ── Form micro-trust + note toggle ──────────────────────────── */
+.form-microtrust {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    margin-top: 0.75rem;
+    letter-spacing: 0.01em;
+}
+.note-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--ink-mute);
+    font-size: 0.85rem;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+}
+.note-toggle-btn:hover { color: var(--ink); }
+.note-collapse { margin-top: 0.75rem; }
+@media (max-width: 600px) {
+    .hero-trust-row { gap: 1rem; }
+    .hero-trust-divider { height: 1.5rem; }
+}
+
 /* =========================================================
    FOOTER
    ========================================================= */
