@@ -682,6 +682,7 @@
     </footer>
 
     <script src="./node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="./node_modules/gsap/dist/TextPlugin.min.js"></script>
     <script src="./node_modules/gsap/dist/ScrollTrigger.min.js"></script>
     <script>
         // ── Smooth scroll ────────────────────────────────────────────────────
@@ -907,54 +908,50 @@
 
         renderStep('1');
 
-        // ── Intro Search Animation ───────────────────────────────────────────
+        // ── Intro Search Animation (GSAP Timeline) ──────────────────────────
         (function initIntro() {
             const overlay = document.getElementById('introOverlay');
-            if (!overlay) return;
-
+            if (!overlay || typeof gsap === 'undefined') return;
             if (sessionStorage.getItem('cq_intro_seen')) return;
 
-            // Show overlay only after JS confirms it can run
+            gsap.registerPlugin(TextPlugin);
+
             overlay.classList.add('is-active');
             document.body.style.overflow = 'hidden';
 
-            // Hard fallback — dismiss after 6s no matter what
-            const fallback = setTimeout(dismiss, 6000);
-
-            const textEl  = document.getElementById('introText');
-            const cursor  = document.getElementById('introCursor');
-            const bar     = document.getElementById('introBar');
-            const btn     = document.getElementById('introBtn');
             const skipBtn = document.getElementById('introSkip');
 
-            const query = 'עורך דין באזור הדרום';
-            let i = 0;
-
             function dismiss() {
-                clearTimeout(fallback);
                 sessionStorage.setItem('cq_intro_seen', '1');
                 document.body.style.overflow = '';
-                overlay.classList.add('is-exit');
-                setTimeout(() => overlay.classList.add('is-gone'), 780);
+                gsap.to(overlay, {
+                    opacity: 0, scale: 1.04, duration: 0.65, ease: 'power2.inOut',
+                    onComplete: () => overlay.classList.add('is-gone')
+                });
             }
 
-            skipBtn.addEventListener('click', dismiss);
+            const tl = gsap.timeline({ onComplete: dismiss, delay: 0.1 });
 
-            // Start typing after search bar fades in (0.55s delay + 0.55s anim = ~1.1s)
-            setTimeout(function type() {
-                if (i < query.length) {
-                    textEl.textContent += query[i++];
-                    setTimeout(type, 55);
-                } else {
-                    // Typing done — pause, then click
-                    setTimeout(() => {
-                        cursor.classList.add('is-off');
-                        btn.classList.add('is-pressed');
-                        bar.classList.add('is-clicked');
-                        setTimeout(dismiss, 480);
-                    }, 550);
-                }
-            }, 1150);
+            tl.from('.intro-brand',       { opacity: 0, y: 10, duration: 0.5,  ease: 'power2.out' })
+              .from('.intro-search-wrap',  { opacity: 0, y: 7,  duration: 0.45, ease: 'power2.out' }, '-=0.1')
+              .from('.intro-tagline',      { opacity: 0, y: 5,  duration: 0.4,  ease: 'power2.out' }, '-=0.2')
+              .to('#introText', {
+                  duration: 1.2,
+                  text: { value: 'עורך דין באזור הדרום', delimiter: '' },
+                  ease: 'none'
+              }, '+=0.25')
+              .to('#introCursor',     { opacity: 0, duration: 0.12, repeat: 4, yoyo: true, ease: 'none' }, '+=0.1')
+              .to('#introBtn',        { scale: 0.82, duration: 0.14, ease: 'power3.in' })
+              .to('.intro-search-bar',{
+                  borderColor: 'rgba(201,168,76,0.75)',
+                  boxShadow: '0 0 28px rgba(201,168,76,0.15)',
+                  duration: 0.14
+              }, '<')
+              .to('#introCursor',     { opacity: 0, duration: 0.05 })
+              .to('#introBtn',        { scale: 1, duration: 0.2, ease: 'back.out(2)' }, '+=0.05');
+
+            // Skip jumps to end → triggers onComplete → dismiss
+            skipBtn.addEventListener('click', () => tl.progress(1));
         })();
 
         // ── Window Showcase — animated search orb ───────────────────────────

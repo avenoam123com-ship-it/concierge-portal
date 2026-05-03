@@ -55,14 +55,10 @@
     font-size: 1rem;
     letter-spacing: 0.12em;
     margin-bottom: 2.25rem;
-    opacity: 0;
-    animation: introFadeUp 0.55s ease 0.15s forwards;
 }
 
 .intro-search-wrap {
     width: 100%;
-    opacity: 0;
-    animation: introFadeUp 0.55s ease 0.55s forwards;
 }
 
 .intro-search-bar {
@@ -103,9 +99,7 @@
     font-weight: 200;
     font-size: 1.1rem;
     line-height: 1;
-    animation: introBlink 0.75s step-end infinite;
 }
-.intro-cursor.is-off { opacity: 0; animation: none; }
 
 .intro-search-btn {
     background: var(--gold);
@@ -130,18 +124,7 @@
     font-size: 0.8rem;
     margin-top: 1.1rem;
     font-family: var(--font-body);
-    opacity: 0;
-    animation: introFadeUp 0.5s ease 1s forwards;
     letter-spacing: 0.02em;
-}
-
-@keyframes introFadeUp {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes introBlink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
 }
 /* ─────────────────────────────────────────────────────────────── */
 
