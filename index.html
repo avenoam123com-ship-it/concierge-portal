@@ -912,12 +912,14 @@
             const overlay = document.getElementById('introOverlay');
             if (!overlay) return;
 
-            if (sessionStorage.getItem('cq_intro_seen')) {
-                overlay.classList.add('is-gone');
-                return;
-            }
+            if (sessionStorage.getItem('cq_intro_seen')) return;
 
+            // Show overlay only after JS confirms it can run
+            overlay.classList.add('is-active');
             document.body.style.overflow = 'hidden';
+
+            // Hard fallback — dismiss after 6s no matter what
+            const fallback = setTimeout(dismiss, 6000);
 
             const textEl  = document.getElementById('introText');
             const cursor  = document.getElementById('introCursor');
@@ -929,6 +931,7 @@
             let i = 0;
 
             function dismiss() {
+                clearTimeout(fallback);
                 sessionStorage.setItem('cq_intro_seen', '1');
                 document.body.style.overflow = '';
                 overlay.classList.add('is-exit');

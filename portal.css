@@ -9,10 +9,13 @@
     inset: 0;
     z-index: 9999;
     background: #080810;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.intro-overlay.is-active {
+    display: flex;
 }
 .intro-overlay.is-exit {
     opacity: 0;
