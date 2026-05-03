@@ -476,6 +476,8 @@
                     <span class="progress-dot" data-dot="2"></span>
                     <span class="progress-rule"></span>
                     <span class="progress-dot" data-dot="3"></span>
+                    <span class="progress-rule"></span>
+                    <span class="progress-dot" data-dot="4"></span>
                 </div>
                 <!-- Step 1 -->
                 <div class="quiz-step is-active" data-step="1">
@@ -497,9 +499,41 @@
                         </button>
                     </div>
                 </div>
+                <!-- Step location -->
+                <div class="quiz-step" data-step="location">
+                    <p class="quiz-step-num">02 · האזור</p>
+                    <h3 class="quiz-question">באיזה אזור?</h3>
+                    <p class="quiz-hint">נתאים לכם מומחה מהאזור שלכם.</p>
+                    <div class="quiz-options" role="radiogroup">
+                        <button class="quiz-option" data-answer="גוש דן">
+                            <span class="option-label">גוש דן</span>
+                            <span class="option-sub">תל אביב, רמת גן, גבעתיים</span>
+                        </button>
+                        <button class="quiz-option" data-answer="ירושלים">
+                            <span class="option-label">ירושלים</span>
+                            <span class="option-sub">ירושלים, מודיעין, בית שמש</span>
+                        </button>
+                        <button class="quiz-option" data-answer="חיפה והצפון">
+                            <span class="option-label">חיפה והצפון</span>
+                            <span class="option-sub">חיפה, נצרת, עכו, טבריה</span>
+                        </button>
+                        <button class="quiz-option" data-answer="שרון ושפלה">
+                            <span class="option-label">שרון ושפלה</span>
+                            <span class="option-sub">נתניה, פ"ת, ראשל"צ, רחובות</span>
+                        </button>
+                        <button class="quiz-option" data-answer="דרום">
+                            <span class="option-label">דרום</span>
+                            <span class="option-sub">באר שבע, אשדוד, אשקלון</span>
+                        </button>
+                        <button class="quiz-option" data-answer="כל הארץ">
+                            <span class="option-label">כל הארץ</span>
+                            <span class="option-sub">גמיש / מרחוק / וירטואלי</span>
+                        </button>
+                    </div>
+                </div>
                 <!-- Step 2 -->
                 <div class="quiz-step" data-step="2">
-                    <p class="quiz-step-num">02 · העדיפות</p>
+                    <p class="quiz-step-num">03 · העדיפות</p>
                     <h3 class="quiz-question">מה הכי חשוב לכם?</h3>
                     <p class="quiz-hint">בחירה אחת. נסמוך עליה כדי לחדד את ההתאמה.</p>
                     <div class="quiz-options" role="radiogroup">
@@ -523,7 +557,7 @@
                 </div>
                 <!-- Step 3 -->
                 <div class="quiz-step" data-step="3">
-                    <p class="quiz-step-num">03 · פרטי קשר</p>
+                    <p class="quiz-step-num">04 · פרטי קשר</p>
                     <h3 class="quiz-question">איך נחזור אליכם?</h3>
                     <p class="quiz-hint">לא רשימת תפוצה. רק שיחה אחת — מהקונסיירז' שלכם.</p>
                     <form class="quiz-form" id="quizForm" novalidate>
@@ -725,8 +759,8 @@
         const form         = document.getElementById('quizForm');
         const summary      = document.getElementById('confirmSummary');
 
-        const answers   = { niche: null, nicheLabel: null, priority: null, name: null, contact: null, note: null };
-        const stepOrder = ['1', '2', '3'];
+        const answers   = { niche: null, nicheLabel: null, location: null, priority: null, name: null, contact: null, note: null };
+        const stepOrder = ['1', 'location', '2', '3'];
         let   currentIndex  = 0;
         let   _stepRendered = false;
 
@@ -753,6 +787,14 @@
                 answers.nicheLabel  = btn.dataset.answer;
                 shell.dataset.theme = answers.niche;
                 shell.querySelectorAll('[data-step="1"] .quiz-option').forEach(b => b.classList.toggle('is-selected', b === btn));
+                setTimeout(() => { currentIndex = Math.min(currentIndex + 1, stepOrder.length - 1); renderStep(stepOrder[currentIndex]); }, 280);
+            });
+        });
+
+        shell.querySelectorAll('[data-step="location"] .quiz-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                answers.location = btn.dataset.answer;
+                shell.querySelectorAll('[data-step="location"] .quiz-option').forEach(b => b.classList.toggle('is-selected', b === btn));
                 setTimeout(() => { currentIndex = Math.min(currentIndex + 1, stepOrder.length - 1); renderStep(stepOrder[currentIndex]); }, 280);
             });
         });
@@ -798,6 +840,7 @@
 
             summary.innerHTML =
                 '<span>תחום: <strong>' + answers.nicheLabel + '</strong></span>' +
+                '<span>אזור: <strong>' + (answers.location || 'כל הארץ') + '</strong></span>' +
                 '<span>עדיפות: <strong>' + (answers.priority || '—') + '</strong></span>' +
                 '<span>חוזרים אל: <strong>' + answers.contact + '</strong></span>' +
                 '<span>זמן תגובה: <strong>' + slaLabel + '</strong></span>';

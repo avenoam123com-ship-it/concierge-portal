@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titles and meta filled dynamically by city-init.js -->
+    <title>הקונסיירז' · התאמה אישית</title>
+    <meta name="description" id="metaDesc" content="שירות התאמה אישי לבעלי מקצוע — עורך דין, רופא, מתווך. שלוש שאלות ותוך 24 שעות יחזרו אליכם עם השם הנכון.">
+    <link rel="stylesheet" href="portal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      window.N8N_CONFIG = {
+        webhook_url: null,
+        retry_on_failure: true,
+        max_retries: 2
+      };
+    </script>
+    <script src="cities.js"></script>
+    <script src="lead-state.js"></script>
+    <script src="n8n-bridge.js"></script>
+    <script src="lead-qualifier.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <span class="brand-mark">◆</span>
+                <span class="brand-name">הקונסיירז'</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html#how">איך זה עובד</a></li>
+                <li><a href="#matchmaker" class="nav-cta">התחילו עכשיו</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero — filled dynamically -->
+    <section class="hero">
+        <div class="container hero-container">
+            <p class="hero-eyebrow" id="heroEyebrow">בלי גוגל. בלי ניחושים.</p>
+            <h1 class="hero-headline" id="heroHeadline">
+                מחפשים מומחה?<br>
+                <span class="hero-headline-soft">נמצא לכם את הנכון.</span>
+            </h1>
+            <p class="hero-lede" id="heroLede">
+                שתי שאלות קצרות — ותוך 24 שעות יחזרו אליכם עם שם, רקע ולמה דווקא הוא.<br>
+                <strong>בלי עמלה. בלי התחייבות.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Matchmaker Quiz — pre-filled from URL params -->
+    <section id="matchmaker" class="matchmaker">
+        <div class="container matchmaker-container">
+            <div class="quiz-shell" id="quizShell" data-current-step="1">
+                <div class="quiz-progress" aria-hidden="true">
+                    <span class="progress-dot" data-dot="1"></span>
+                    <span class="progress-rule"></span>
+                    <span class="progress-dot" data-dot="2"></span>
+                    <span class="progress-rule"></span>
+                    <span class="progress-dot" data-dot="3"></span>
+                </div>
+
+                <!-- Step 1: niche — hidden if pre-filled from URL -->
+                <div class="quiz-step is-active" data-step="1">
+                    <p class="quiz-step-num">01 · התחום</p>
+                    <h3 class="quiz-question">מה אתם צריכים?</h3>
+                    <p class="quiz-hint">בחרו את התחום שהכי מדויק עכשיו.</p>
+                    <div class="quiz-options" role="radiogroup">
+                        <button class="quiz-option" data-niche="medical" data-answer="רפואה">
+                            <span class="option-label">רפואה</span>
+                            <span class="option-sub">מומחה, סקנד אופיניון, תהליך</span>
+                        </button>
+                        <button class="quiz-option" data-niche="legal" data-answer="משפטים">
+                            <span class="option-label">משפטים</span>
+                            <span class="option-sub">עו"ד אזרחי, עסקי, משפחה</span>
+                        </button>
+                        <button class="quiz-option" data-niche="realestate" data-answer='נדל"ן'>
+                            <span class="option-label">נדל"ן</span>
+                            <span class="option-sub">קנייה, מכירה, השכרה</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: priority -->
+                <div class="quiz-step" data-step="2">
+                    <p class="quiz-step-num" id="priorityStepNum">02 · העדיפות</p>
+                    <h3 class="quiz-question">מה הכי חשוב לכם?</h3>
+                    <p class="quiz-hint">בחירה אחת. נסמוך עליה כדי לחדד את ההתאמה.</p>
+                    <div class="quiz-options" role="radiogroup">
+                        <button class="quiz-option" data-answer="ניסיון מוכח">
+                            <span class="option-label">ניסיון מוכח</span>
+                            <span class="option-sub">מקרים דומים, היסטוריה ארוכה</span>
+                        </button>
+                        <button class="quiz-option" data-answer="זמינות">
+                            <span class="option-label">זמינות וקשב</span>
+                            <span class="option-sub">חוזרים מהר, לא נעלמים</span>
+                        </button>
+                        <button class="quiz-option" data-answer="קרבה">
+                            <span class="option-label">קרבה גיאוגרפית</span>
+                            <span class="option-sub">באזור שלי, פגישות פנים</span>
+                        </button>
+                        <button class="quiz-option" data-answer="חיבור אישי">
+                            <span class="option-label">חיבור אישי</span>
+                            <span class="option-sub">מישהו שאני סומך עליו, לא רק טוב</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: contact -->
+                <div class="quiz-step" data-step="3">
+                    <p class="quiz-step-num" id="contactStepNum">03 · פרטי קשר</p>
+                    <h3 class="quiz-question">איך נחזור אליכם?</h3>
+                    <p class="quiz-hint">לא רשימת תפוצה. רק שיחה אחת — מהקונסיירז' שלכם.</p>
+                    <form class="quiz-form" id="quizForm" novalidate>
+                        <div class="field">
+                            <label for="qName">שם פרטי</label>
+                            <input id="qName" name="name" type="text" required autocomplete="given-name">
+                        </div>
+                        <div class="field">
+                            <label for="qContact">טלפון או אימייל</label>
+                            <input id="qContact" name="contact" type="text" required placeholder="050... או name@email.com">
+                        </div>
+                        <div class="field">
+                            <label for="qNote">משהו שכדאי שנדע (לא חובה)</label>
+                            <textarea id="qNote" name="note" rows="3" placeholder="הקשר, דחיפות, משהו אישי..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary btn-block">שלחו אלינו</button>
+                    </form>
+                </div>
+
+                <!-- Confirmation -->
+                <div class="quiz-step quiz-confirm" data-step="done">
+                    <div class="confirm-mark" aria-hidden="true">◆</div>
+                    <p class="confirm-eyebrow">קיבלנו</p>
+                    <h3 class="confirm-title">קונסיירז' אישי כבר מתחיל לחפש.</h3>
+                    <p class="confirm-body">
+                        תוך 24 שעות תקבלו ממנו הודעה — עם שם, רקע קצר, ולמה דווקא הוא.<br>
+                        אם זה לא מתאים, הוא מציע שני שמות נוספים. בלי לחץ, בלי שיווק.
+                    </p>
+                    <div class="sla-badge" id="slaBadge"></div>
+                    <div class="confirm-meta" id="confirmSummary"></div>
+                </div>
+
+                <div class="quiz-nav">
+                    <button type="button" class="btn-text quiz-back" id="quizBack" disabled>← חזרה</button>
+                    <span class="quiz-nav-spacer"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="trust">
+        <div class="container">
+            <p class="trust-quote">
+                "לא ידעתי מאיפה להתחיל — תוך יום חזרו אליי עם שם של עורך דין שבדיוק מתמחה בזה."
+                <cite>— לקוח מתל אביב</cite>
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span class="brand-mark">◆</span>
+            <p>הקונסיירז' · שירות התאמה אישי · כל הארץ</p>
+            <a href="index.html">חזרה לדף הבית</a>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        // ── Read URL params ──────────────────────────────────────
+        const params = new URLSearchParams(window.location.search);
+        const cityKey  = params.get('c')    || null;
+        const nicheKey = params.get('niche') || null;
+
+        const city  = cityKey  && window.CITIES[cityKey]  ? window.CITIES[cityKey]  : null;
+        const niche = nicheKey && window.NICHES[nicheKey]  ? window.NICHES[nicheKey]  : null;
+
+        // ── Personalize hero ─────────────────────────────────────
+        if (city || niche) {
+            const cityName    = city  ? city.name : null;
+            const profession  = niche ? niche.profession : 'מומחה';
+            const regionLabel = city  ? ' ב' + cityName : '';
+
+            document.getElementById('heroEyebrow').textContent =
+                cityName ? 'התאמה אישית · ' + cityName : 'בלי גוגל. בלי ניחושים.';
+
+            document.getElementById('heroHeadline').innerHTML =
+                'מחפשים ' + profession + regionLabel + '?<br>' +
+                '<span class="hero-headline-soft">נמצא לכם את הנכון.</span>';
+
+            document.getElementById('heroLede').innerHTML =
+                'שתי שאלות קצרות — ותוך 24 שעות יחזרו אליכם עם שם ורקע מדויק.<br>' +
+                '<strong>בלי עמלה. בלי התחייבות.</strong>';
+
+            document.title =
+                (profession) + (cityName ? ' ' + cityName : '') + ' | הקונסיירז\'';
+
+            const metaDesc = document.getElementById('metaDesc');
+            if (metaDesc) metaDesc.content =
+                'מחפשים ' + profession + (cityName ? ' ב' + cityName : '') +
+                '? הקונסיירז\' מוצא לכם את המומחה הנכון תוך 24 שעות. שלוש שאלות. בלי עמלה.';
+        }
+
+        // ── Quiz init ────────────────────────────────────────────
+        const shell    = document.getElementById('quizShell');
+        const steps    = shell.querySelectorAll('.quiz-step');
+        const dots     = shell.querySelectorAll('.progress-dot');
+        const backBtn  = document.getElementById('quizBack');
+        const form     = document.getElementById('quizForm');
+        const summary  = document.getElementById('confirmSummary');
+
+        const answers = {
+            niche:      niche ? nicheKey  : null,
+            nicheLabel: niche ? niche.label : null,
+            location:   city  ? city.region : null,
+            priority:   null,
+            name:       null,
+            contact:    null,
+            note:       null,
+            city:       city  ? city.name  : null,
+            source_city: cityKey || null,
+            source_niche: nicheKey || null
+        };
+
+        // If niche pre-filled from URL, skip step 1
+        const stepOrder = niche ? ['2', '3'] : ['1', '2', '3'];
+        let currentIndex = 0;
+        let _stepRendered = false;
+
+        // Adjust dot count to match actual steps
+        dots.forEach((d, i) => { if (i >= stepOrder.length) d.style.display = 'none'; });
+        const rules = shell.querySelectorAll('.progress-rule');
+        rules.forEach((r, i) => { if (i >= stepOrder.length - 1) r.style.display = 'none'; });
+
+        function renderStep(targetStep) {
+            const apply = () => {
+                steps.forEach(s => s.classList.toggle('is-active', s.dataset.step === targetStep));
+                dots.forEach((d, i) => {
+                    d.classList.toggle('is-active', i === stepOrder.indexOf(targetStep));
+                    d.classList.toggle('is-done',   i < stepOrder.indexOf(targetStep) && targetStep !== 'done');
+                    if (targetStep === 'done') d.classList.add('is-done');
+                });
+                backBtn.disabled = (currentIndex === 0 || targetStep === 'done');
+                if (answers.niche) shell.dataset.theme = answers.niche;
+            };
+            if (!_stepRendered) { _stepRendered = true; apply(); return; }
+            shell.classList.add('step-fade');
+            setTimeout(() => { apply(); shell.classList.remove('step-fade'); }, 160);
+        }
+
+        // Step 1 — niche (only if not pre-filled)
+        shell.querySelectorAll('[data-step="1"] .quiz-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                answers.niche      = btn.dataset.niche;
+                answers.nicheLabel = btn.dataset.answer;
+                shell.dataset.theme = answers.niche;
+                shell.querySelectorAll('[data-step="1"] .quiz-option').forEach(b => b.classList.toggle('is-selected', b === btn));
+                setTimeout(() => { currentIndex = Math.min(currentIndex + 1, stepOrder.length - 1); renderStep(stepOrder[currentIndex]); }, 280);
+            });
+        });
+
+        // Step 2 — priority
+        shell.querySelectorAll('[data-step="2"] .quiz-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                answers.priority = btn.dataset.answer;
+                shell.querySelectorAll('[data-step="2"] .quiz-option').forEach(b => b.classList.toggle('is-selected', b === btn));
+                setTimeout(() => { currentIndex = Math.min(currentIndex + 1, stepOrder.length - 1); renderStep(stepOrder[currentIndex]); }, 280);
+            });
+        });
+
+        // Step 3 — form submit
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            answers.name    = form.name.value.trim();
+            answers.contact = form.contact.value.trim();
+            answers.note    = form.note.value.trim();
+            if (!answers.name || !answers.contact) return;
+
+            const q        = window.LeadQualifier ? window.LeadQualifier.qualify(answers) : { tier: 1, recommended_match: { sla_hours: 24 } };
+            const slaHours = q.recommended_match?.sla_hours ?? 24;
+            const slaLabel = slaHours <= 4 ? 'תוך ' + slaHours + ' שעות' : 'תוך 24 שעות';
+
+            // LeadState + n8n
+            const leadId = Date.now() + '-' + (answers.niche || 'general');
+            if (window.LeadState) {
+                window.LeadState.setStage(leadId, 'draft');
+                window.LeadState.setStage(leadId, 'qualified', { tier: q.tier });
+            }
+            if (window.N8N) {
+                window.N8N.sendAsync({
+                    leadId,
+                    name:         answers.name,
+                    contact:      answers.contact,
+                    niche:        answers.niche,
+                    nicheLabel:   answers.nicheLabel,
+                    location:     answers.location,
+                    city:         answers.city,
+                    priority:     answers.priority,
+                    note:         answers.note,
+                    tier:         q.tier,
+                    sla_hours:    slaHours,
+                    source_city:  answers.source_city,
+                    source_niche: answers.source_niche
+                });
+                if (window.N8N.isConfigured()) window.LeadState && window.LeadState.setStage(leadId, 'sent');
+            }
+
+            const slaBadge = document.getElementById('slaBadge');
+            if (slaBadge) {
+                const urgentWord = slaHours <= 2 ? 'פנייה דחופה' : slaHours <= 4 ? 'עדיפות גבוהה' : 'תגובה סטנדרטית';
+                slaBadge.className = 'sla-badge' + (slaHours < 24 ? ' is-urgent' : '');
+                slaBadge.innerHTML =
+                    '<div class="sla-badge-icon" aria-hidden="true">◆</div>' +
+                    '<div class="sla-badge-content">' +
+                    '<p class="sla-badge-label">זמן תגובה משוער</p>' +
+                    '<p class="sla-badge-value">' + slaHours + ' שעות</p>' +
+                    '<p class="sla-badge-sub">' + urgentWord + '</p>' +
+                    '</div>';
+            }
+
+            summary.innerHTML =
+                '<span>תחום: <strong>' + (answers.nicheLabel || '—') + '</strong></span>' +
+                (answers.location ? '<span>אזור: <strong>' + answers.location + '</strong></span>' : '') +
+                '<span>עדיפות: <strong>' + (answers.priority || '—') + '</strong></span>' +
+                '<span>חוזרים אל: <strong>' + answers.contact + '</strong></span>' +
+                '<span>זמן תגובה: <strong>' + slaLabel + '</strong></span>';
+
+            renderStep('done');
+        });
+
+        backBtn.addEventListener('click', () => {
+            currentIndex = Math.max(currentIndex - 1, 0);
+            renderStep(stepOrder[currentIndex]);
+        });
+
+        renderStep(stepOrder[0]);
+    })();
+    </script>
+
+</body>
+</html>
