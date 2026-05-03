@@ -8,7 +8,16 @@
     <link rel="stylesheet" href="portal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      window.N8N_CONFIG = {
+        webhook_url: null,
+        retry_on_failure: true,
+        max_retries: 2
+      };
+    </script>
+    <script src="lead-state.js"></script>
+    <script src="n8n-bridge.js"></script>
     <script src="lead-qualifier.js"></script>
 </head>
 <body>
@@ -136,145 +145,109 @@
                 <!-- Card 1 — Legal -->
                 <article class="glass-card profile-card profile-card--legal"
                          role="button" tabindex="0"
-                         aria-label="פתח פרופיל של עו&quot;ד דניאל שרון"
-                         data-modal-target="modal-legal">
-                    <div class="profile-avatar" aria-hidden="true">ד</div>
+                         aria-label="כנסו למשרד עורכי דין (דוגמה)"
+                         data-office
+                         data-office-niche="legal"
+                         data-office-initial="מ"
+                         data-office-name="משרד עורכי דין (דוגמה)"
+                         data-office-specialty="דיני משפחה · ירושה · תל אביב"
+                         data-office-bio="דוגמה למשרד עורכי דין המתמחה בדיני משפחה וירושה. המשרד ליווה מאות לקוחות בתיקים רגישים, עם דגש על שיקול דעת, זמינות ופתרונות מותאמים אישית. כל תיק מקבל טיפול אישי ישיר מהשותף הבכיר."
+                         data-office-tags="גירושין,משמורת,צוואות,עיזבון,נזיקין"
+                         data-office-s1v="15+" data-office-s1l="שנות ניסיון"
+                         data-office-s2v="98%" data-office-s2l="שביעות רצון"
+                         data-office-s3v="2h"  data-office-s3l="SLA דחוף"
+                         data-office-cta="צרו קשר עם המשרד">
+                    <div class="profile-avatar" aria-hidden="true">מ</div>
                     <div class="profile-verified" aria-label="מאומת">✓</div>
                     <span class="profile-niche-tag">משפטים</span>
-                    <h3 class="profile-name">עו"ד דניאל שרון</h3>
+                    <h3 class="profile-name">משרד עורכי דין (דוגמה)</h3>
                     <p class="profile-specialty">דיני משפחה · ירושה</p>
                     <ul class="profile-stats" aria-label="סטטיסטיקות">
-                        <li><strong>14</strong><span>שנות ניסיון</span></li>
+                        <li><strong>15+</strong><span>שנות ניסיון</span></li>
                         <li><strong>98%</strong><span>שביעות רצון</span></li>
-                        <li><strong>48h</strong><span>זמן מענה</span></li>
+                        <li><strong>2h</strong><span>SLA דחוף</span></li>
                     </ul>
-                    <button class="profile-open-btn" tabindex="-1" aria-hidden="true">צפה בפרופיל ←</button>
+                    <button class="profile-open-btn" tabindex="-1" aria-hidden="true">כנסו למשרד ←</button>
                 </article>
 
                 <!-- Card 2 — Medical -->
                 <article class="glass-card profile-card profile-card--medical"
                          role="button" tabindex="0"
-                         aria-label="פתח פרופיל של ד&quot;ר מיכל לוי"
-                         data-modal-target="modal-medical">
-                    <div class="profile-avatar" aria-hidden="true">מ</div>
+                         aria-label="כנסו לקליניקה רפואית (דוגמה)"
+                         data-office
+                         data-office-niche="medical"
+                         data-office-initial="ק"
+                         data-office-name="קליניקה רפואית (דוגמה)"
+                         data-office-specialty="אונקולוגיה · סקנד אופיניון"
+                         data-office-bio="דוגמה לקליניקה המתמחה בחוות דעת שנייה ובניהול מקרים מורכבים. הרופאים הבכירים זמינים לפגישות דחופות ולייעוץ בתוך שעות ספורות עבור לקוחות הקונסיירז'."
+                         data-office-tags="אונקולוגיה,סקנד אופיניון,כימותרפיה,ביופסיה"
+                         data-office-s1v="22"     data-office-s1l="שנות ניסיון"
+                         data-office-s2v="4h"     data-office-s2l="SLA דחוף"
+                         data-office-s3v="הדסה"   data-office-s3l="בית חולים"
+                         data-office-cta="קבעו ייעוץ בקליניקה">
+                    <div class="profile-avatar" aria-hidden="true">ק</div>
                     <div class="profile-verified" aria-label="מאומת">✓</div>
                     <span class="profile-niche-tag">רפואה</span>
-                    <h3 class="profile-name">ד"ר מיכל לוי</h3>
+                    <h3 class="profile-name">קליניקה רפואית (דוגמה)</h3>
                     <p class="profile-specialty">אונקולוגיה · סקנד אופיניון</p>
                     <ul class="profile-stats" aria-label="סטטיסטיקות">
                         <li><strong>22</strong><span>שנות ניסיון</span></li>
                         <li><strong>4h</strong><span>SLA דחוף</span></li>
                         <li><strong>הדסה</strong><span>בית חולים</span></li>
                     </ul>
-                    <button class="profile-open-btn" tabindex="-1" aria-hidden="true">צפה בפרופיל ←</button>
+                    <button class="profile-open-btn" tabindex="-1" aria-hidden="true">כנסו לקליניקה ←</button>
                 </article>
 
                 <!-- Card 3 — Real Estate -->
                 <article class="glass-card profile-card profile-card--realestate"
                          role="button" tabindex="0"
-                         aria-label="פתח פרופיל של רונן כהן, מתווך נדל&quot;ן"
-                         data-modal-target="modal-realestate">
-                    <div class="profile-avatar" aria-hidden="true">ר</div>
+                         aria-label="כנסו לסוכנות נדל&quot;ן (דוגמה)"
+                         data-office
+                         data-office-niche="realestate"
+                         data-office-initial="ס"
+                         data-office-name='סוכנות נדל"ן (דוגמה)'
+                         data-office-specialty='נדל"ן יוקרה · תל אביב והמרכז'
+                         data-office-bio='דוגמה לסוכנות נדל"ן המתמחה בנכסי יוקרה בתל אביב, הרצליה פיתוח וקיסריה. עסקה ממוצעת של 2.8 מיליון שקל. שירות דיסקרטי, ניגוד עניינים אפס ושקיפות מלאה בכל שלב.'
+                         data-office-tags='דירות יוקרה,תל אביב,השקעות,קנייה ומכירה'
+                         data-office-s1v="₪2.8M" data-office-s1l="עסקה ממוצעת"
+                         data-office-s2v="9"     data-office-s2l="שנות ניסיון"
+                         data-office-s3v="24h"   data-office-s3l="זמן מענה"
+                         data-office-cta="דברו עם הסוכנות">
+                    <div class="profile-avatar" aria-hidden="true">ס</div>
                     <div class="profile-verified" aria-label="מאומת">✓</div>
                     <span class="profile-niche-tag">נדל"ן</span>
-                    <h3 class="profile-name">רונן כהן</h3>
+                    <h3 class="profile-name">סוכנות נדל"ן (דוגמה)</h3>
                     <p class="profile-specialty">נדל"ן יוקרה · תל אביב</p>
                     <ul class="profile-stats" aria-label="סטטיסטיקות">
                         <li><strong>₪2.8M</strong><span>עסקה ממוצעת</span></li>
                         <li><strong>9</strong><span>שנות ניסיון</span></li>
                         <li><strong>24h</strong><span>זמן מענה</span></li>
                     </ul>
-                    <button class="profile-open-btn" tabindex="-1" aria-hidden="true">צפה בפרופיל ←</button>
+                    <button class="profile-open-btn" tabindex="-1" aria-hidden="true">כנסו לסוכנות ←</button>
                 </article>
 
             </div>
         </div>
     </section>
 
-    <!-- Modal — Legal -->
-    <div class="modal-backdrop" id="modal-legal" role="dialog" aria-modal="true" aria-labelledby="modal-legal-name">
-        <div class="profile-modal">
-            <button class="modal-close" aria-label="סגור">✕</button>
-            <div class="modal-header">
-                <div class="profile-avatar modal-avatar" aria-hidden="true">ד</div>
-                <div>
-                    <h2 class="modal-name" id="modal-legal-name">עו"ד דניאל שרון</h2>
-                    <p class="modal-subtitle">דיני משפחה · ירושה · תל אביב</p>
-                </div>
+    <!-- ── Virtual Office Overlay (single template, populated by JS) ── -->
+    <div class="office-overlay" id="officeOverlay" role="dialog" aria-modal="true" aria-labelledby="officeName">
+        <div class="office-inner">
+            <button class="office-back" id="officeBack" aria-label="חזרה לפורטל">
+                → חזרה לפורטל
+            </button>
+            <div class="office-header">
+                <div class="office-avatar" id="officeInitial" aria-hidden="true"></div>
+                <h2 class="office-name" id="officeName"></h2>
+                <p class="office-specialty" id="officeSpecialty"></p>
+                <div class="office-accent" aria-hidden="true"></div>
             </div>
-            <div class="modal-tags" aria-label="תחומי התמחות">
-                <span class="modal-tag">גירושין</span>
-                <span class="modal-tag">משמורת</span>
-                <span class="modal-tag">צוואות</span>
-                <span class="modal-tag">עיזבון</span>
+            <div class="office-tags" id="officeTags" aria-label="תחומי התמחות"></div>
+            <p class="office-bio" id="officeBio"></p>
+            <div class="office-stats" id="officeStats" aria-label="נתוני פרופיל"></div>
+            <div class="office-cta-row">
+                <a href="#matchmaker" class="btn-primary" id="officeCta">התחל התאמה ←</a>
             </div>
-            <hr class="modal-divider">
-            <p class="modal-section-label">על עו"ד שרון</p>
-            <p class="modal-bio">דניאל שרון הוא עורך דין בעל ניסיון של 14 שנה בתחום דיני המשפחה. עבד בחברות המובילות בישראל לפני שפתח פרקטיקה עצמאית. מתמחה בתיקים רגישים הדורשים שיקול דעת, דיסקרטיות ויחס אישי.</p>
-            <div class="modal-stats">
-                <div class="modal-stat-card"><span class="modal-stat-value">14</span><span class="modal-stat-label">שנות ניסיון</span></div>
-                <div class="modal-stat-card"><span class="modal-stat-value">98%</span><span class="modal-stat-label">שביעות רצון</span></div>
-                <div class="modal-stat-card"><span class="modal-stat-value">2h</span><span class="modal-stat-label">SLA דחוף</span></div>
-            </div>
-            <a href="#matchmaker" class="modal-cta btn-primary" data-close-modal>התחל התאמה עם דניאל ←</a>
-        </div>
-    </div>
-
-    <!-- Modal — Medical -->
-    <div class="modal-backdrop" id="modal-medical" role="dialog" aria-modal="true" aria-labelledby="modal-medical-name">
-        <div class="profile-modal">
-            <button class="modal-close" aria-label="סגור">✕</button>
-            <div class="modal-header">
-                <div class="profile-avatar modal-avatar" aria-hidden="true">מ</div>
-                <div>
-                    <h2 class="modal-name" id="modal-medical-name">ד"ר מיכל לוי</h2>
-                    <p class="modal-subtitle">אונקולוגיה קלינית · הדסה עין כרם</p>
-                </div>
-            </div>
-            <div class="modal-tags" aria-label="תחומי התמחות">
-                <span class="modal-tag">אונקולוגיה</span>
-                <span class="modal-tag">סקנד אופיניון</span>
-                <span class="modal-tag">כימותרפיה</span>
-                <span class="modal-tag">ביופסיה</span>
-            </div>
-            <hr class="modal-divider">
-            <p class="modal-section-label">על ד"ר לוי</p>
-            <p class="modal-bio">מיכל לוי היא אונקולוגית בכירה עם 22 שנות ניסיון קליני, מומחית בחוות דעת שנייה ובניהול מקרים מורכבים. מרצה באוניברסיטה העברית. זמינה לפגישות דחופות תוך 4 שעות לחולים שהופנו דרך הקונסיירז'.</p>
-            <div class="modal-stats">
-                <div class="modal-stat-card"><span class="modal-stat-value">22</span><span class="modal-stat-label">שנות ניסיון</span></div>
-                <div class="modal-stat-card"><span class="modal-stat-value">4h</span><span class="modal-stat-label">SLA דחוף</span></div>
-                <div class="modal-stat-card"><span class="modal-stat-value">הדסה</span><span class="modal-stat-label">בית חולים</span></div>
-            </div>
-            <a href="#matchmaker" class="modal-cta btn-primary" data-close-modal>התחל התאמה עם ד"ר לוי ←</a>
-        </div>
-    </div>
-
-    <!-- Modal — Real Estate -->
-    <div class="modal-backdrop" id="modal-realestate" role="dialog" aria-modal="true" aria-labelledby="modal-realestate-name">
-        <div class="profile-modal">
-            <button class="modal-close" aria-label="סגור">✕</button>
-            <div class="modal-header">
-                <div class="profile-avatar modal-avatar" aria-hidden="true">ר</div>
-                <div>
-                    <h2 class="modal-name" id="modal-realestate-name">רונן כהן</h2>
-                    <p class="modal-subtitle">נדל"ן יוקרה · תל אביב והמרכז</p>
-                </div>
-            </div>
-            <div class="modal-tags" aria-label="תחומי התמחות">
-                <span class="modal-tag">דירות יוקרה</span>
-                <span class="modal-tag">תל אביב</span>
-                <span class="modal-tag">השקעות</span>
-                <span class="modal-tag">קנייה ומכירה</span>
-            </div>
-            <hr class="modal-divider">
-            <p class="modal-section-label">על רונן כהן</p>
-            <p class="modal-bio">רונן כהן הוא מתווך נדל"ן מורשה המתמחה בנכסי יוקרה בתל אביב, הרצליה פיתוח וקיסריה. עסקה ממוצעת של 2.8 מיליון שקל. ידוע בשירות דיסקרטי, ניגוד עניינים אפס, ובשקיפות מלאה בכל שלב.</p>
-            <div class="modal-stats">
-                <div class="modal-stat-card"><span class="modal-stat-value">₪2.8M</span><span class="modal-stat-label">עסקה ממוצעת</span></div>
-                <div class="modal-stat-card"><span class="modal-stat-value">9</span><span class="modal-stat-label">שנות ניסיון</span></div>
-                <div class="modal-stat-card"><span class="modal-stat-value">24h</span><span class="modal-stat-label">זמן מענה</span></div>
-            </div>
-            <a href="#matchmaker" class="modal-cta btn-primary" data-close-modal>התחל התאמה עם רונן ←</a>
         </div>
     </div>
 
@@ -464,6 +437,67 @@
                     <div class="kpi-figure">תשלום<span class="kpi-unit">על תוצאה</span></div>
                     <p class="kpi-label">לא על קליק</p>
                     <p class="kpi-sub">משלמים רק כשפנייה מאומתת מגיעה. בלי דמי חשיפה, בלי מינימום, בלי קליקים מבוזבזים.</p>
+                </div>
+            </div>
+
+            <!-- ── Match Pulse · The Connection Moment ── -->
+            <div class="match-pulse-section" id="matchPulseSection">
+                <header class="match-pulse-header">
+                    <p class="pulse-eyebrow">כך עובד החיבור</p>
+                    <h3 class="match-pulse-title">כל לקוח שמגיע אליכם — כבר מחכה לכם.</h3>
+                </header>
+                <div class="match-pulse-canvas-wrap">
+                    <svg class="match-pulse-svg" viewBox="0 0 580 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="clientGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="rgba(255,255,255,0.14)"/>
+                                <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                            </radialGradient>
+                            <radialGradient id="proGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="rgba(201,168,76,0.18)"/>
+                                <stop offset="100%" stop-color="rgba(201,168,76,0)"/>
+                            </radialGradient>
+                        </defs>
+
+                        <!-- Ambient glow halos -->
+                        <circle id="nodeClientGlowBg" cx="120" cy="96" r="68" fill="url(#clientGlow)" opacity="0"/>
+                        <circle id="nodeProGlowBg"    cx="460" cy="96" r="68" fill="url(#proGlow)"    opacity="0"/>
+
+                        <!-- Connection line -->
+                        <line id="pulseConnector"
+                              x1="168" y1="96" x2="412" y2="96"
+                              stroke="#C9A84C" stroke-width="1"
+                              stroke-dasharray="244" stroke-dashoffset="244" opacity="0"/>
+
+                        <!-- Pulse rings at center -->
+                        <circle id="pulseRing1" cx="290" cy="96" r="12" fill="none" stroke="#C9A84C" stroke-width="1.5" opacity="0"/>
+                        <circle id="pulseRing2" cx="290" cy="96" r="12" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0"/>
+
+                        <!-- Center diamond -->
+                        <text id="pulseDiamond" x="290" y="101" text-anchor="middle"
+                              font-size="11" fill="#C9A84C" opacity="0">◆</text>
+
+                        <!-- Client node (right in RTL context → left in SVG) -->
+                        <circle id="nodeClientOuter" cx="120" cy="96" r="46"
+                                fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.10)" stroke-width="1" opacity="0"/>
+                        <circle id="nodeClientInner" cx="120" cy="96" r="30"
+                                fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.38)" stroke-width="1.5" opacity="0"/>
+                        <text id="nodeClientLabel" x="120" y="160" text-anchor="middle"
+                              font-family="Inter, sans-serif" font-size="12"
+                              fill="rgba(255,255,255,0.45)" letter-spacing="0.06em" opacity="0">לקוח מסונן</text>
+
+                        <!-- Pro node -->
+                        <circle id="nodeProOuter" cx="460" cy="96" r="46"
+                                fill="rgba(201,168,76,0.03)" stroke="rgba(201,168,76,0.14)" stroke-width="1" opacity="0"/>
+                        <circle id="nodeProInner" cx="460" cy="96" r="30"
+                                fill="rgba(201,168,76,0.07)" stroke="rgba(201,168,76,0.62)" stroke-width="1.5" opacity="0"/>
+                        <text id="nodeProLabel" x="460" y="160" text-anchor="middle"
+                              font-family="Inter, sans-serif" font-size="12"
+                              fill="rgba(201,168,76,0.58)" letter-spacing="0.06em" opacity="0">בעל מקצוע מאומת</text>
+                    </svg>
+                    <p class="match-pulse-caption" id="matchPulseCaption">
+                        כל חיבור עבר סינון אנושי — לפני שהוא מגיע אליכם.
+                    </p>
                 </div>
             </div>
 
@@ -806,6 +840,8 @@
         </div>
     </footer>
 
+    <script src="./node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="./node_modules/gsap/dist/ScrollTrigger.min.js"></script>
     <script>
         // ====== Niche card → jump to matchmaker with niche pre-selected ======
         document.querySelectorAll('[data-jump-niche]').forEach(btn => {
@@ -908,6 +944,26 @@
                 localStorage.setItem('cq_leads', JSON.stringify(leads.slice(-50)));
             } catch (_) {}
 
+            // ── LeadState + n8n ──────────────────────────────────────────
+            const leadId = Date.now() + '-' + answers.niche;
+            window.LeadState.setStage(leadId, 'draft');
+            window.LeadState.setStage(leadId, 'qualified', { tier: q.tier });
+            window.N8N.sendAsync({
+                leadId,
+                name:       answers.name,
+                contact:    answers.contact,
+                niche:      answers.niche,
+                nicheLabel: answers.nicheLabel,
+                priority:   answers.priority,
+                note:       answers.note,
+                tier:       q.tier,
+                sla_hours:  slaHours
+            });
+            if (window.N8N.isConfigured()) {
+                window.LeadState.setStage(leadId, 'sent');
+            }
+            // ─────────────────────────────────────────────────────────────
+
             // SLA Service Badge
             const slaBadge = document.getElementById('slaBadge');
             if (slaBadge) {
@@ -976,36 +1032,164 @@
         // Initial render
         renderStep('1');
 
-        // ── Modal toggle ─────────────────────────────────────────────────────
+        // ── Virtual Office Overlay ────────────────────────────────────────────
         (function () {
-            function openModal(id) {
-                const el = document.getElementById(id);
-                if (!el) return;
-                el.classList.add('is-open');
+            const overlay = document.getElementById('officeOverlay');
+            if (!overlay) return;
+            let animating = false;
+
+            function openOffice(card) {
+                if (animating) return;
+                const d = card.dataset;
+                overlay.dataset.officeTheme = d.officeNiche || '';
+                document.getElementById('officeInitial').textContent   = d.officeInitial   || '';
+                document.getElementById('officeName').textContent      = d.officeName      || '';
+                document.getElementById('officeSpecialty').textContent = d.officeSpecialty || '';
+                document.getElementById('officeBio').textContent       = d.officeBio       || '';
+
+                document.getElementById('officeTags').innerHTML =
+                    (d.officeTags || '').split(',').filter(Boolean)
+                    .map(t => '<span class="office-tag">' + t.trim() + '</span>').join('');
+
+                document.getElementById('officeStats').innerHTML =
+                    [1, 2, 3].map(i =>
+                        '<div class="office-stat">' +
+                        '<span class="office-stat-value">' + (d['officeS' + i + 'v'] || '') + '</span>' +
+                        '<span class="office-stat-label">' + (d['officeS' + i + 'l'] || '') + '</span>' +
+                        '</div>'
+                    ).join('');
+
+                document.getElementById('officeCta').textContent = (d.officeCta || 'התחל התאמה') + ' ←';
+
+                overlay.classList.remove('is-closing');
+                overlay.classList.add('is-open');
                 document.body.style.overflow = 'hidden';
-                el.querySelector('.modal-close')?.focus();
+                document.getElementById('officeBack').focus();
             }
-            function closeModal(el) {
-                el.classList.remove('is-open');
-                document.body.style.overflow = '';
+
+            function closeOffice() {
+                if (!overlay.classList.contains('is-open') || animating) return;
+                animating = true;
+                overlay.classList.remove('is-open');
+                overlay.classList.add('is-closing');
+                overlay.addEventListener('animationend', function done() {
+                    overlay.removeEventListener('animationend', done);
+                    overlay.classList.remove('is-closing');
+                    document.body.style.overflow = '';
+                    animating = false;
+                });
             }
-            document.querySelectorAll('[data-modal-target]').forEach(t => {
-                t.addEventListener('click', () => openModal(t.dataset.modalTarget));
-                t.addEventListener('keydown', e => {
-                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(t.dataset.modalTarget); }
+
+            document.querySelectorAll('[data-office]').forEach(card => {
+                card.addEventListener('click', () => openOffice(card));
+                card.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openOffice(card); }
                 });
             });
-            document.querySelectorAll('.modal-backdrop').forEach(b => {
-                b.querySelector('.modal-close')?.addEventListener('click', () => closeModal(b));
-                b.addEventListener('click', e => { if (e.target === b) closeModal(b); });
+
+            document.getElementById('officeBack').addEventListener('click', closeOffice);
+
+            // CTA navigates to matchmaker — kill overlay immediately so scroll works
+            document.getElementById('officeCta').addEventListener('click', () => {
+                overlay.classList.remove('is-open', 'is-closing');
+                document.body.style.overflow = '';
+                animating = false;
             });
-            document.querySelectorAll('[data-close-modal]').forEach(el =>
-                el.addEventListener('click', () =>
-                    document.querySelectorAll('.modal-backdrop.is-open').forEach(closeModal)
-                )
-            );
+
             document.addEventListener('keydown', e => {
-                if (e.key === 'Escape') document.querySelectorAll('.modal-backdrop.is-open').forEach(closeModal);
+                if (e.key === 'Escape') closeOffice();
+            });
+        })();
+        // ─────────────────────────────────────────────────────────────────────
+    </script>
+    <script>
+        // ── Match Pulse Animation ─────────────────────────────────────────────
+        (function initMatchPulse() {
+            if (typeof gsap === 'undefined' || !document.getElementById('matchPulseSection')) return;
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#matchPulseSection',
+                    start: 'top 68%',
+                    once: true
+                }
+            });
+
+            // 1. Glow halos breathe in
+            tl.to(['#nodeClientGlowBg', '#nodeProGlowBg'], {
+                opacity: 1, duration: 1.4, ease: 'power2.out'
+            });
+
+            // 2. Outer rings appear
+            tl.to(['#nodeClientOuter', '#nodeProOuter'], {
+                opacity: 1, duration: 0.8, ease: 'power2.out'
+            }, '-=0.7');
+
+            // 3. Inner circles pop in — slight stagger for drama
+            tl.to('#nodeClientInner', {
+                opacity: 1, duration: 0.55, ease: 'back.out(1.8)'
+            }, '-=0.3');
+            tl.to('#nodeProInner', {
+                opacity: 1, duration: 0.55, ease: 'back.out(1.8)'
+            }, '<+=0.12');
+
+            // 4. Labels fade in
+            tl.to(['#nodeClientLabel', '#nodeProLabel'], {
+                opacity: 1, duration: 0.5, ease: 'power1.out'
+            }, '-=0.2');
+
+            // 5. Connection line draws toward center from both ends
+            tl.to('#pulseConnector', {
+                opacity: 0.75,
+                attr: { 'stroke-dashoffset': 0 },
+                duration: 1.1,
+                ease: 'power1.inOut'
+            }, '+=0.25');
+
+            // 6. Center diamond appears
+            tl.to('#pulseDiamond', {
+                opacity: 1, duration: 0.3, ease: 'back.out(3)'
+            }, '-=0.05');
+
+            // 7. First pulse ring radiates outward
+            tl.set('#pulseRing1', { attr: { r: 12 }, opacity: 0.9 });
+            tl.to('#pulseRing1', {
+                attr: { r: 58 }, opacity: 0,
+                duration: 1.15, ease: 'power1.out'
+            });
+
+            // 8. Second pulse ring — slightly delayed, slightly larger
+            tl.set('#pulseRing2', { attr: { r: 12 }, opacity: 0.55 }, '-=0.95');
+            tl.to('#pulseRing2', {
+                attr: { r: 76 }, opacity: 0,
+                duration: 1.45, ease: 'power1.out'
+            }, '<');
+
+            // 9. Caption reveals
+            tl.to('#matchPulseCaption', {
+                opacity: 1, y: 0, duration: 0.7, ease: 'power2.out'
+            }, '-=0.9');
+
+            // Ongoing: pro node gentle breathing
+            gsap.to('#nodeProInner', {
+                attr: { r: 34 },
+                duration: 2.6,
+                ease: 'sine.inOut',
+                repeat: -1,
+                yoyo: true,
+                delay: 3.8
+            });
+
+            // Ongoing: client node subtle pulse
+            gsap.to('#nodeClientInner', {
+                attr: { r: 33 },
+                duration: 3.2,
+                ease: 'sine.inOut',
+                repeat: -1,
+                yoyo: true,
+                delay: 4.5
             });
         })();
         // ─────────────────────────────────────────────────────────────────────
