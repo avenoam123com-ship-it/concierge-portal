@@ -3083,74 +3083,54 @@ body {
     .modal-stat-card { padding: 0.65rem 0.5rem; }
 }
 
-/* ── B2B Bridge block ── */
-.b2b-bridge {
-    background: var(--ink);
-    padding: clamp(4rem, 8vw, 6rem) 0;
+/* ── How it Works CTA ── */
+.how-cta {
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    margin-top: 3rem;
 }
-.b2b-bridge::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(52,160,115,0.09) 0%, transparent 70%);
-    pointer-events: none;
-}
-.b2b-bridge-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 680px;
-    margin: 0 auto;
-}
-.bridge-eyebrow {
+
+/* ── Niche micro-stat ── */
+.niche-micro-stat {
     font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--emerald);
-    margin-bottom: 1rem;
-    opacity: 0.9;
-}
-.bridge-title {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 400;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.2;
-    margin-bottom: 1.2rem;
-}
-.bridge-title-accent { color: var(--emerald); }
-.bridge-body {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.45);
-    font-weight: 300;
-    line-height: 1.7;
-    margin-bottom: 2.2rem;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.btn-bridge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-deep) 100%);
-    color: white;
-    text-decoration: none;
-    padding: 0.9rem 2.2rem;
-    border-radius: 999px;
-    font-size: 0.9rem;
     font-weight: 500;
-    letter-spacing: 0.3px;
-    transition: all 0.4s var(--ease-quiet);
-    box-shadow: 0 10px 28px rgba(52,160,115,0.32);
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    opacity: 0.8;
+    margin: 0.6rem 0 1rem;
 }
-.btn-bridge:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 18px 40px rgba(52,160,115,0.44);
+.niche-micro-stat::before {
+    content: '◆ ';
+    font-size: 0.55rem;
+    vertical-align: middle;
 }
+
+/* ── B2B Strip — minimal one-liner ── */
+.b2b-strip {
+    background: var(--cloud);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 1.1rem 0;
+}
+.b2b-strip-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.b2b-strip-text {
+    font-size: 0.85rem;
+    color: rgba(26,26,26,0.55);
+    font-weight: 400;
+}
+.b2b-strip-link {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--emerald-deep);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+}
+.b2b-strip-link:hover { color: var(--gold); }
 
 @media (prefers-reduced-motion: reduce) {
     .availability-dot { animation: none; }
