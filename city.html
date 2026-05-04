@@ -21,8 +21,33 @@
     <script src="lead-state.js"></script>
     <script src="n8n-bridge.js"></script>
     <script src="lead-qualifier.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
 </head>
 <body>
+
+    <!-- Intro Search Animation -->
+    <div class="intro-overlay" id="introOverlay" role="dialog" aria-label="אנימציית פתיחה" aria-modal="true">
+        <button class="intro-skip" id="introSkip">דלג ←</button>
+        <div class="intro-content">
+            <p class="intro-brand">◆ הקונסיירז'</p>
+            <div class="intro-search-wrap">
+                <div class="intro-search-bar" id="introBar">
+                    <svg class="intro-search-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    <span class="intro-search-text" id="introText" aria-live="off"></span>
+                    <span class="intro-cursor" id="introCursor" aria-hidden="true">|</span>
+                    <button class="intro-search-btn" id="introBtn" tabindex="-1" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <p class="intro-tagline">אנחנו מוצאים את זה בשבילך — בלי גוגל</p>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -459,6 +484,51 @@
         });
 
         renderStep(stepOrder[0]);
+
+        // ── Intro Search Animation ────────────────────────────────
+        (function initIntro() {
+            var overlay = document.getElementById('introOverlay');
+            if (!overlay || typeof gsap === 'undefined') return;
+            if (sessionStorage.getItem('cq_intro_seen')) return;
+
+            gsap.registerPlugin(TextPlugin);
+
+            overlay.classList.add('is-active');
+            document.body.style.overflow = 'hidden';
+
+            var skipBtn = document.getElementById('introSkip');
+
+            function dismiss() {
+                sessionStorage.setItem('cq_intro_seen', '1');
+                document.body.style.overflow = '';
+                gsap.to(overlay, {
+                    opacity: 0, scale: 1.04, duration: 0.65, ease: 'power2.inOut',
+                    onComplete: function() { overlay.classList.add('is-gone'); }
+                });
+            }
+
+            var tl = gsap.timeline({ onComplete: dismiss, delay: 0.1 });
+
+            tl.from('.intro-brand',       { opacity: 0, y: 10, duration: 0.5,  ease: 'power2.out' })
+              .from('.intro-search-wrap',  { opacity: 0, y: 7,  duration: 0.45, ease: 'power2.out' }, '-=0.1')
+              .from('.intro-tagline',      { opacity: 0, y: 5,  duration: 0.4,  ease: 'power2.out' }, '-=0.2')
+              .to('#introText', {
+                  duration: 1.2,
+                  text: { value: 'עורך דין באזור המרכז', delimiter: '' },
+                  ease: 'none'
+              }, '+=0.25')
+              .to('#introCursor',      { opacity: 0, duration: 0.12, repeat: 4, yoyo: true, ease: 'none' }, '+=0.1')
+              .to('#introBtn',         { scale: 0.82, duration: 0.14, ease: 'power3.in' })
+              .to('.intro-search-bar', {
+                  borderColor: 'rgba(201,168,76,0.75)',
+                  boxShadow: '0 0 28px rgba(201,168,76,0.15)',
+                  duration: 0.14
+              }, '<')
+              .to('#introCursor',      { opacity: 0, duration: 0.05 })
+              .to('#introBtn',         { scale: 1, duration: 0.2, ease: 'back.out(2)' }, '+=0.05');
+
+            skipBtn.addEventListener('click', function() { tl.progress(1); });
+        })();
 
         // ── Conditional sections (legal niche) ───────────────────
         if (nicheKey === 'legal') {
