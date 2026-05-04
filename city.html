@@ -53,6 +53,38 @@
         </div>
     </section>
 
+    <!-- Specializations — shown when niche=legal -->
+    <section class="spec-section" id="specSection">
+        <div class="container">
+            <div class="spec-header">
+                <p class="spec-eyebrow">תחומי התמחות</p>
+                <h2 class="spec-title">באיזה תחום משפטי אתם צריכים עזרה?</h2>
+            </div>
+            <div class="spec-grid">
+                <button class="spec-card" data-sub='נדל"ן ועסקאות'>
+                    <p class="spec-card-title">נדל"ן ועסקאות</p>
+                    <p class="spec-card-sub">קנייה, מכירה, שכירות</p>
+                </button>
+                <button class="spec-card" data-sub="דיני משפחה">
+                    <p class="spec-card-title">דיני משפחה</p>
+                    <p class="spec-card-sub">גירושין, משמורת, ירושה</p>
+                </button>
+                <button class="spec-card" data-sub="דיני עבודה">
+                    <p class="spec-card-title">דיני עבודה</p>
+                    <p class="spec-card-sub">פיטורים, זכויות, תביעות</p>
+                </button>
+                <button class="spec-card" data-sub="מסחרי וחוזים">
+                    <p class="spec-card-title">מסחרי וחוזים</p>
+                    <p class="spec-card-sub">הסכמים, שותפויות, תאגידים</p>
+                </button>
+                <button class="spec-card" data-sub="פלילי">
+                    <p class="spec-card-title">פלילי</p>
+                    <p class="spec-card-sub">ייצוג, חקירות, ערעורים</p>
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- Matchmaker Quiz — pre-filled from URL params -->
     <section id="matchmaker" class="matchmaker">
         <div class="container matchmaker-container">
@@ -149,6 +181,92 @@
                 <div class="quiz-nav">
                     <button type="button" class="btn-text quiz-back" id="quizBack" disabled>← חזרה</button>
                     <span class="quiz-nav-spacer"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section">
+        <div class="container">
+            <div class="how-header">
+                <p class="how-eyebrow">איך זה עובד</p>
+                <h2 class="how-title">שלושה צעדים. עורך דין נכון.</h2>
+            </div>
+            <div class="how-steps">
+                <div class="how-step">
+                    <div class="how-step-num">1</div>
+                    <h3 class="how-step-title">תארו את הצורך</h3>
+                    <p class="how-step-body">שתי שאלות קצרות על התחום והעדיפות. פחות מדקה.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-step-num">2</div>
+                    <h3 class="how-step-title">אנחנו מחברים</h3>
+                    <p class="how-step-body">תוך 24 שעות מישהו אמיתי בוחר את עורך הדין הנכון מתוך הרשת שלנו.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-step-num">3</div>
+                    <h3 class="how-step-title">שיחה ישירה</h3>
+                    <p class="how-step-body">מקבלים שם, רקע קצר ולמה דווקא הוא. ואז — ישירות אליו.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="testimonials-header">
+                <p class="testimonials-eyebrow">מה אומרים לקוחות</p>
+                <h2 class="testimonials-title">אנשים שמצאו את עורך הדין שלהם</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-body">חיפשתי עורכת דין לנדל"ן — לא ידעתי מאיפה להתחיל. תוך יום נתנו לי שם של מישהי שממש מתמחה בזה. הפגישה הראשונה סגרה לי את כל הספקות.</p>
+                    <p class="testimonial-author">אורית ש., תל אביב</p>
+                    <p class="testimonial-spec">עסקת רכישת דירה</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-body">עמדתי בפני פיטורים ולא ידעתי למי לפנות. הקונסיירז' הפנה אותי לעו"ד שמתמחה בדיני עבודה — הרגשתי שיש מישהו בצד שלי.</p>
+                    <p class="testimonial-author">יוסי מ., רמת גן</p>
+                    <p class="testimonial-spec">תביעת פיטורים שלא כדין</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-body">גירושין זה הכי קשה. פה לפחות לא נאלצתי לחפש לבד — מישהו עשה את זה בשבילי ושלח שם של עורך דין שממש מבין את המצב.</p>
+                    <p class="testimonial-author">מ.כ., תל אביב</p>
+                    <p class="testimonial-spec">הסכם גירושין</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ — shown when niche=legal -->
+    <section class="faq-section" id="faqSection">
+        <div class="container">
+            <div class="faq-header">
+                <p class="faq-eyebrow">שאלות נפוצות</p>
+                <h2 class="faq-title">כל מה שרציתם לדעת</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-q">כמה עולה עורך דין בתל אביב?</button>
+                    <p class="faq-a">עלויות משתנות לפי תחום ורמת ניסיון — בדרך כלל בין ₪400 ל-₪1,500 לשעה, או שכ"ט מוסכם לפי תיק. אנחנו יודעים מראש מה טווח המחיר של כל עורך דין ברשת שלנו, ומתאימים גם לפי תקציב.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">איך הקונסיירז' בוחר את עורך הדין הנכון עבורי?</button>
+                    <p class="faq-a">אנחנו מסתכלים על שלושה דברים: ההתמחות המדויקת (למשל — עסקאות נדל"ן למגורים, לא סתם נדל"ן), מה הכי חשוב לכם (ניסיון, זמינות, קרבה), ואת ההיסטוריה של עורכי הדין ברשת שלנו עם מקרים דומים.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">האם אני מחויב להיפגש עם מי שממליצים עליו?</button>
+                    <p class="faq-a">בכלל לא. אנחנו שולחים שם ורקע — ואם זה לא מרגיש נכון, אנחנו מציעים שני שמות נוספים. אין לחץ ואין עלות על ההמלצה.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">כמה זמן לוקח לקבל המלצה?</button>
+                    <p class="faq-a">בממוצע תוך 24 שעות מיום הגשת הבקשה. פניות דחופות — כשמציינים שהמקרה דחוף — מטופלות תוך 4 שעות.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">האם הפרטים שלי יועברו לגורמים נוספים?</button>
+                    <p class="faq-a">הפרטים שלכם עוברים רק לעורך הדין שאנחנו ממליצים עליו — ולאף גורם אחר. אנחנו לא מוכרים רשימות תפוצה ולא עובדים עם מתווכים.</p>
                 </div>
             </div>
         </div>
@@ -341,6 +459,40 @@
         });
 
         renderStep(stepOrder[0]);
+
+        // ── Conditional sections (legal niche) ───────────────────
+        if (nicheKey === 'legal') {
+            const specSection = document.getElementById('specSection');
+            const faqSection  = document.getElementById('faqSection');
+            if (specSection) specSection.classList.add('is-visible');
+            if (faqSection)  faqSection.classList.add('is-visible');
+        }
+
+        // ── Spec card clicks → pre-fill note + scroll to quiz ────
+        document.querySelectorAll('.spec-card').forEach(function(card) {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.spec-card').forEach(function(c) {
+                    c.classList.remove('is-selected');
+                });
+                card.classList.add('is-selected');
+                var note = document.getElementById('qNote');
+                if (note) note.value = 'תחום: ' + card.dataset.sub;
+                document.getElementById('matchmaker').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // ── FAQ accordion ─────────────────────────────────────────
+        document.querySelectorAll('.faq-q').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item   = btn.closest('.faq-item');
+                var isOpen = item.classList.contains('is-open');
+                document.querySelectorAll('.faq-item').forEach(function(i) {
+                    i.classList.remove('is-open');
+                });
+                if (!isOpen) item.classList.add('is-open');
+            });
+        });
+
     })();
     </script>
 
