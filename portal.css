@@ -3136,6 +3136,38 @@ body {
     .availability-dot { animation: none; }
 }
 
+/* ── B2B Scarcity banner ─────────────────────────────────── */
+.scarcity-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    font-size: 0.82rem;
+    color: rgba(245,245,247,0.5);
+    letter-spacing: 0.02em;
+    margin-bottom: 2.5rem;
+}
+.scarcity-banner strong { color: var(--gold); font-weight: 500; }
+
+/* ── B2B ROI line ────────────────────────────────────────── */
+.roi-line {
+    font-size: 0.82rem;
+    color: rgba(245,245,247,0.38);
+    margin-top: 1rem;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* ── Pricing tier — free price variant ──────────────────── */
+.tier-price .price-amount {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1;
+}
+.tier-popular .tier-price .price-amount { color: var(--cloud); }
+
 /* ═══════════════════════════════════════════════════════════
    City Landing — Quiet Luxury Sections
    ═══════════════════════════════════════════════════════════ */
