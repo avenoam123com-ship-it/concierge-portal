@@ -2,7 +2,7 @@
 // Usage: city.html?c=tlv&niche=legal
 
 const CITIES = {
-  tlv:  { name: 'תל אביב',       region: 'גוש דן',      area: 'גוש דן',      nicheMap: { legal: 'עורך דין', medical: 'רופא', realestate: 'מתווך' } },
+  tlv:  { name: 'אזור המרכז',    region: 'המרכז',       area: 'גוש דן',      nicheMap: { legal: 'עורך דין', medical: 'רופא', realestate: 'מתווך' } },
   jlm:  { name: 'ירושלים',       region: 'ירושלים',     area: 'ירושלים',     nicheMap: { legal: 'עורך דין', medical: 'רופא', realestate: 'מתווך' } },
   hfa:  { name: 'חיפה',          region: 'חיפה והצפון', area: 'חיפה והצפון', nicheMap: { legal: 'עורך דין', medical: 'רופא', realestate: 'מתווך' } },
   bsv:  { name: 'באר שבע',       region: 'דרום',        area: 'דרום',        nicheMap: { legal: 'עורך דין', medical: 'רופא', realestate: 'מתווך' } },
