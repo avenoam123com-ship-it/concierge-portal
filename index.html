@@ -166,12 +166,12 @@
     </nav>
 
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero hero--dark">
         <div class="container hero-container">
             <p class="hero-eyebrow" id="heroEyebrow">בלי גוגל. בלי ניחושים.</p>
             <h1 class="hero-headline" id="heroHeadline">
-                מחפשים עורך דין, רופא או מתווך?<br>
-                <span class="hero-headline-soft">נמצא לכם את המומחה הנכון.</span>
+                מחפשים עורך דין,<br>רופא או מתווך?<br>
+                <span class="hero-headline-soft">נמצא לכם את הנכון.</span>
             </h1>
             <p class="hero-lede" id="heroLede">
                 שלוש שאלות קצרות — ותוך 24 שעות יחזרו אליכם עם שם, רקע ולמה דווקא הוא.<br>
@@ -184,6 +184,14 @@
                 <div class="hero-trust-divider" aria-hidden="true"></div>
                 <div class="hero-trust-stat"><strong>24 שעות</strong><span>זמן מענה ממוצע</span></div>
             </div>
+            <div class="hero-actions" id="heroActions">
+                <a href="#matchmaker" class="btn-primary">מצאו לי מומחה ←</a>
+                <a href="#how" class="btn-text">איך זה עובד</a>
+            </div>
+        </div>
+        <div class="hero-scroll-hint" aria-hidden="true">
+            <span>גללו</span>
+            <div class="hero-scroll-line"></div>
         </div>
     </section>
 
@@ -1053,6 +1061,17 @@
                     inner.style.top  = `${py * 100}%`;
                 });
             });
+        })();
+
+        // ── Transparent navbar on dark hero ──────────────────────────────────
+        (function() {
+            var nav = document.querySelector('.navbar');
+            if (!nav) return;
+            function update() {
+                nav.classList.toggle('navbar--transparent', window.scrollY < 72);
+            }
+            update();
+            window.addEventListener('scroll', update, { passive: true });
         })();
 
         // ── GSAP Animations ──────────────────────────────────────────────────
