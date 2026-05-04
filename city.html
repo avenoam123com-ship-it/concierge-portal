@@ -72,8 +72,8 @@
                 <span class="hero-headline-soft">נמצא לכם את הנכון.</span>
             </h1>
             <p class="hero-lede" id="heroLede">
-                שתי שאלות קצרות — ותוך 24 שעות יחזרו אליכם עם שם, רקע ולמה דווקא הוא.<br>
-                <strong>בלי עמלה. בלי התחייבות.</strong>
+                כמה שעות כבר בזבזתם על חיפושים בגוגל — ועדיין לא מצאתם את הנכון?<br>
+                <strong>שתי שאלות. 24 שעות. בלי עמלה ובלי התחייבות.</strong>
             </p>
             <div class="hero-trust-row">
                 <div class="hero-trust-stat"><strong>1,200+</strong><span>לקוחות שירתנו</span></div>
@@ -102,6 +102,7 @@
                 <span class="spec-sep" aria-hidden="true">·</span>
                 <button class="spec-filter" data-sub="פלילי">פלילי</button>
             </div>
+            <p class="spec-zeigarnik" id="specZeigarnik" aria-live="polite"></p>
         </div>
     </section>
 
@@ -116,6 +117,7 @@
                     <span class="progress-rule"></span>
                     <span class="progress-dot" data-dot="3"></span>
                 </div>
+                <p class="quiz-step-counter" id="quizStepCounter" aria-live="polite"></p>
 
                 <!-- Step 1: niche — hidden if pre-filled from URL -->
                 <div class="quiz-step is-active" data-step="1">
@@ -304,8 +306,8 @@
                 '<span class="hero-headline-soft">נמצא לכם את הנכון.</span>';
 
             document.getElementById('heroLede').innerHTML =
-                'שתי שאלות קצרות — ותוך 24 שעות יחזרו אליכם עם שם ורקע מדויק.<br>' +
-                '<strong>בלי עמלה. בלי התחייבות.</strong>';
+                'כמה שעות כבר בזבזתם על חיפושים בגוגל — ועדיין לא מצאתם את הנכון?<br>' +
+                '<strong>שתי שאלות. 24 שעות. בלי עמלה ובלי התחייבות.</strong>';
 
             document.title =
                 (profession) + (cityName ? ' ' + cityName : '') + ' | הקונסיירז\'';
@@ -347,6 +349,17 @@
         const rules = shell.querySelectorAll('.progress-rule');
         rules.forEach((r, i) => { if (i >= stepOrder.length - 1) r.style.display = 'none'; });
 
+        const stepCounter = document.getElementById('quizStepCounter');
+        function updateStepCounter(targetStep) {
+            if (!stepCounter) return;
+            if (targetStep === 'done') { stepCounter.textContent = ''; return; }
+            const idx   = stepOrder.indexOf(targetStep);
+            const total = stepOrder.length;
+            const num   = idx + 1;
+            const nearlabel = num === total ? ' — כמעט סיימתם!' : '';
+            stepCounter.textContent = 'שלב ' + num + ' מתוך ' + total + nearlabel;
+        }
+
         function renderStep(targetStep) {
             const apply = () => {
                 steps.forEach(s => s.classList.toggle('is-active', s.dataset.step === targetStep));
@@ -357,6 +370,7 @@
                 });
                 backBtn.disabled = (currentIndex === 0 || targetStep === 'done');
                 if (answers.niche) shell.dataset.theme = answers.niche;
+                updateStepCounter(targetStep);
             };
             if (!_stepRendered) { _stepRendered = true; apply(); return; }
             shell.classList.add('step-fade');
@@ -504,6 +518,7 @@
         }
 
         // ── Spec filter clicks → pre-fill note + scroll to quiz ─
+        var specZeigarnik = document.getElementById('specZeigarnik');
         document.querySelectorAll('.spec-filter').forEach(function(btn) {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.spec-filter').forEach(function(b) {
@@ -512,6 +527,10 @@
                 btn.classList.add('is-selected');
                 var note = document.getElementById('qNote');
                 if (note) note.value = 'תחום: ' + btn.dataset.sub;
+                if (specZeigarnik) {
+                    specZeigarnik.textContent = '✓ בחרתם תחום — עוד שתי שאלות קצרות וסיימתם';
+                    specZeigarnik.classList.add('is-visible');
+                }
                 document.getElementById('matchmaker').scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });

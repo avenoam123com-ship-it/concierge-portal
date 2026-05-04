@@ -3136,6 +3136,35 @@ body {
     .availability-dot { animation: none; }
 }
 
+/* ── Quiz step counter (goal-gradient) ──────────────────── */
+.quiz-step-counter {
+    text-align: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin-top: 0.5rem;
+    min-height: 1.2em;
+    transition: color 0.3s;
+}
+.quiz-shell[data-theme] .quiz-step-counter { color: var(--accent-deep); }
+
+/* ── Zeigarnik spec message ──────────────────────────────── */
+.spec-zeigarnik {
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--gold);
+    margin-top: 0.75rem;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    pointer-events: none;
+}
+.spec-zeigarnik.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ── Quiz micro-trust ────────────────────────────────────── */
 .quiz-microtrust {
     text-align: center;
